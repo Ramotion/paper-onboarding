@@ -10,11 +10,11 @@ import UIKit
 
 class PageView: UIView {
   
-  @IBInspectable var itemsCount = 3
-  @IBInspectable var itemRadius: CGFloat = 8.0
-  @IBInspectable var selectedItemRadius: CGFloat = 22.0
-  @IBInspectable var duration: Double = 1
-  @IBInspectable var space: CGFloat = 20 // space between items
+  var itemsCount = 3
+  var itemRadius: CGFloat = 8.0
+  var selectedItemRadius: CGFloat = 22.0
+  var duration: Double = 1
+  var space: CGFloat = 20 // space between items
   
   // configure items set image or chage color for border view
   var configuration: ((item: PageViewItem, index: Int) -> Void)? {

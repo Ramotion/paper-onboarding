@@ -8,7 +8,7 @@
 
 import UIKit
 
-internal class PageContrainer: UIView {
+class PageContrainer: UIView {
   
   var items: [PageViewItem]?
   let space: CGFloat // space between items

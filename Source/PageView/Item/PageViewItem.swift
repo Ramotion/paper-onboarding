@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class PageViewItem: UIView {
+class PageViewItem: UIView {
   
   let circleRadius: CGFloat
   let selectedCircleRadius: CGFloat
@@ -17,11 +17,11 @@ public class PageViewItem: UIView {
   
   var select: Bool
   
-  public var borderView: UIView?
-  public var imageView: UIImageView?
+  var borderView: UIView?
+  var imageView: UIImageView?
   var tickIndex: Int = 0
   
-  public init(radius: CGFloat, selectedRadius: CGFloat, borderColor: UIColor = .whiteColor(), lineWidth: CGFloat = 3, isSelect: Bool = false) {
+  init(radius: CGFloat, selectedRadius: CGFloat, borderColor: UIColor = .whiteColor(), lineWidth: CGFloat = 3, isSelect: Bool = false) {
     self.borderColor = borderColor
     self.lineWidth = lineWidth
     self.circleRadius = radius
@@ -31,7 +31,7 @@ public class PageViewItem: UIView {
     commonInit()
   }
   
-  required public init?(coder aDecoder: NSCoder) {
+  required init?(coder aDecoder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
   }
 }

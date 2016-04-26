@@ -27,9 +27,9 @@ class ViewController: UIViewController {
   }
 }
 
-// MARK: OnboardingDataSource
+// MARK: PaperOnboardingDataSource
 
-extension ViewController: OnboardingDataSource {
+extension ViewController: PaperOnboardingDataSource {
   
   func onboardingItemAtIndex(index: Int) -> OnboardingItemInfo {
     return [

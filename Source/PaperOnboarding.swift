@@ -10,7 +10,7 @@ import UIKit
 
 public typealias OnboardingItemInfo = (imageName: String, title: String, description: String)
 
-public protocol OnboardingDataSource {
+public protocol PaperOnboardingDataSource {
   func onboardingItemAtIndex(index: Int) -> OnboardingItemInfo
   func onboardingBackgroundColorItemAtIndex(index: Int) -> UIColor
   func pageViewIconAtIndex(index: Int) -> UIImage?
@@ -18,10 +18,10 @@ public protocol OnboardingDataSource {
 
 public class PaperOnboarding: UIView {
   
-  @IBOutlet public var dataSource: AnyObject? //OnboardingDataSource
+  @IBOutlet public var dataSource: AnyObject? //PaperOnboardingDataSource
   
-  private var currentIndex: Int = 0
-  private var itemsCount: Int = 3
+  public private(set) var currentIndex: Int = 0
+  @IBInspectable var itemsCount: Int = 3
   
   private var pageViewBottomConstant: CGFloat = 32
   private var pageViewSelectedRadius: CGFloat = 22
@@ -32,7 +32,7 @@ public class PaperOnboarding: UIView {
   private var gestureControl: GestureControl?
   private var contentView: OnboardingContentView?
   
-  public init(itemsCount: Int = 3, dataSource: OnboardingDataSource) {
+  public init(itemsCount: Int = 3, dataSource: PaperOnboardingDataSource) {
     super.init(frame: CGRect.zero)
     self.dataSource = dataSource as? AnyObject
     self.itemsCount = itemsCount
@@ -87,7 +87,7 @@ extension PaperOnboarding {
                                           radius:pageViewRadius,
                                           selectedRadius: pageViewSelectedRadius)
     pageView.configuration = { item, index in
-      if case let dataSource as OnboardingDataSource = self.dataSource {
+      if case let dataSource as PaperOnboardingDataSource = self.dataSource {
         let icon = dataSource.pageViewIconAtIndex(index)
         item.imageView?.image = icon
       }
@@ -102,7 +102,7 @@ extension PaperOnboarding {
 extension PaperOnboarding {
   
   private func bakcgroundColor(index: Int) -> UIColor {
-    if case let dataSource as OnboardingDataSource = self.dataSource {
+    if case let dataSource as PaperOnboardingDataSource = self.dataSource {
       return dataSource.onboardingBackgroundColorItemAtIndex(currentIndex)
     }
     return .blackColor()
@@ -131,7 +131,7 @@ extension PaperOnboarding: GestureControlDelegate {
 extension PaperOnboarding: OnboardingContentViewDelegate {
   
   func onboardingItemAtIndex(index: Int) -> OnboardingItemInfo? {
-    guard case let dataSource as OnboardingDataSource = self.dataSource else {
+    guard case let dataSource as PaperOnboardingDataSource = self.dataSource else {
       return nil
     }
     return dataSource.onboardingItemAtIndex(index)
