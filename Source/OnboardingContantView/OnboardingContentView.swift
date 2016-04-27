@@ -17,7 +17,7 @@ class OnboardingContentView: UIView {
   
   private struct Constants {
     static let dyOffsetAnimation: CGFloat = 110
-    static let showDuration: Double = 1.0
+    static let showDuration: Double = 0.8
     static let hideDuration: Double = 0.1
   }
   

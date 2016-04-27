@@ -90,7 +90,7 @@ extension PageViewItem: Animatable {
     }
     
     let toValue = select == true ? selectedCircleRadius * 2.0 : circleRadius * 2.0
-    let step: CGFloat = 1 
+    let step: CGFloat = 0.8
     
     if borderView.layer.cornerRadius - step / 2.0 ... borderView.layer.cornerRadius + step / 2.0 ~= toValue / 2.0 {
       constraints
