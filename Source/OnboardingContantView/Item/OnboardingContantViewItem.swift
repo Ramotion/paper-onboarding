@@ -93,7 +93,6 @@ private extension OnboardingContentViewItem {
   func createTitleLabel(onView: UIView) -> UILabel {
     let label = Init(createLabel()) {
       $0.font = UIFont(name: "Nunito-Bold" , size: 36)
-      $0.alpha = 0.8
     }
     onView.addSubview(label)
     
@@ -116,7 +115,6 @@ private extension OnboardingContentViewItem {
     let label = Init(createLabel()) {
       $0.font = UIFont(name: "OpenSans-Regular" , size: 14)
       $0.numberOfLines = 0
-      $0.alpha = 0.8
     }
     onView.addSubview(label)
     
@@ -133,10 +131,8 @@ private extension OnboardingContentViewItem {
         $0.constant = CGFloat(constant)
       }
     }
-//    for attribute in [NSLayoutAttribute.Bottom, NSLayoutAttribute.CenterX] {
       (onView, label) >>>- { $0.attribute = .CenterX }
       bottomConstraint = (onView, label) >>>- { $0.attribute = .Bottom }
-//    }
     
     return label
   }

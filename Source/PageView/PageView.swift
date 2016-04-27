@@ -66,7 +66,7 @@ extension PageView {
     
     pageView >>>- {
       $0.attribute = .Height
-      $0.constant = 50
+      $0.constant = 30
     }
     
     return pageView

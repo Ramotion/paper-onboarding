@@ -33,17 +33,17 @@ extension ViewController: PaperOnboardingDataSource {
   
   func onboardingItemAtIndex(index: Int) -> OnboardingItemInfo {
     return [
-      (UIImage.Asset.Hotels.rawValue, "Discover", "Etiam eleifend, risus a porta sagittis, quam turpis aliquet turpis."),
-      (UIImage.Asset.Banks.rawValue, "Buy", "Etiam eleifend, risus a porta sagittis, quam turpis aliquet turpis."),
-      (UIImage.Asset.Stores.rawValue, "Enjoy", "Etiam eleifend, risus a porta sagittis, quam turpis aliquet turpis.")
+      (UIImage.Asset.Hotels.rawValue, "Hotels", "Etiam eleifend, risus a porta sagittis, quam turpis aliquet turpis."),
+      (UIImage.Asset.Banks.rawValue, "Banks", "Etiam eleifend, risus a porta sagittis, quam turpis aliquet turpis."),
+      (UIImage.Asset.Stores.rawValue, "Stores", "Etiam eleifend, risus a porta sagittis, quam turpis aliquet turpis.")
     ][index]
   }
   
   func onboardingBackgroundColorItemAtIndex(index: Int) -> UIColor {
     return [
-      UIColor(red:0.41, green:0.56, blue:0.70, alpha:1.00),
-      UIColor(red:0.41, green:0.69, blue:0.70, alpha:1.00),
-      UIColor(red:0.31, green:0.31, blue:0.47, alpha:1.00)][index]
+      UIColor(red:0.40, green:0.56, blue:0.71, alpha:1.00),
+      UIColor(red:0.40, green:0.69, blue:0.71, alpha:1.00),
+      UIColor(red:0.61, green:0.56, blue:0.74, alpha:1.00)][index]
   }
   
   func pageViewIconAtIndex(index: Int) -> UIImage? {
