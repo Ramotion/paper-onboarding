@@ -33,9 +33,9 @@ extension ViewController: PaperOnboardingDataSource {
   
   func onboardingItemAtIndex(index: Int) -> OnboardingItemInfo {
     return [
-      (UIImage.Asset.BigIconFirst.rawValue, "Discover", "Etiam eleifend, risus a porta sagittis, quam turpis aliquet turpis."),
-      (UIImage.Asset.BigIconSecond.rawValue, "Buy", "Etiam eleifend, risus a porta sagittis, quam turpis aliquet turpis."),
-      (UIImage.Asset.BigIconFird.rawValue, "Enjoy", "Etiam eleifend, risus a porta sagittis, quam turpis aliquet turpis.")
+      (UIImage.Asset.Hotels.rawValue, "Discover", "Etiam eleifend, risus a porta sagittis, quam turpis aliquet turpis."),
+      (UIImage.Asset.Banks.rawValue, "Buy", "Etiam eleifend, risus a porta sagittis, quam turpis aliquet turpis."),
+      (UIImage.Asset.Stores.rawValue, "Enjoy", "Etiam eleifend, risus a porta sagittis, quam turpis aliquet turpis.")
     ][index]
   }
   
@@ -47,7 +47,7 @@ extension ViewController: PaperOnboardingDataSource {
   }
   
   func pageViewIconAtIndex(index: Int) -> UIImage? {
-    let imageNames = [UIImage.Asset.IconFirst, UIImage.Asset.IconSecond, UIImage.Asset.IconThird]
+    let imageNames = [UIImage.Asset.Key, UIImage.Asset.Wallet, UIImage.Asset.Shopping_Cart]
     return UIImage(asset: imageNames[index])
   }
 }

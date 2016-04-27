@@ -264,10 +264,10 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 84A773BD1CCE545200EF4EB0 /* Build configuration list for PBXNativeTarget "PaperOnboardingDemo" */;
 			buildPhases = (
+				843A195F1CD0AD8D00F37344 /* ShellScript */,
 				84A7739C1CCE545200EF4EB0 /* Sources */,
 				84A7739D1CCE545200EF4EB0 /* Frameworks */,
 				84A7739E1CCE545200EF4EB0 /* Resources */,
-				843A195F1CD0AD8D00F37344 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -371,7 +371,6 @@
 			inputPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/myfile.swift",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

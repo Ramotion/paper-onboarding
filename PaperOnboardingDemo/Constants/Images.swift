@@ -5,12 +5,12 @@ import UIKit
 
 extension UIImage {
   enum Asset: String {
-    case BigIconFird = "bigIconFird"
-    case BigIconFirst = "bigIconFirst"
-    case BigIconSecond = "bigIconSecond"
-    case IconFirst = "iconFirst"
-    case IconSecond = "iconSecond"
-    case IconThird = "iconThird"
+    case Banks = "Banks"
+    case Hotels = "Hotels"
+    case Key = "Key"
+    case Shopping_Cart = "Shopping-cart"
+    case Stores = "Stores"
+    case Wallet = "Wallet"
 
     var image: UIImage {
       return UIImage(asset: self)
