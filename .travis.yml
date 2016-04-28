@@ -1,0 +1,6 @@
+osx_image: xcode7.3
+language: objective-c
+
+xcode_project: PaperOnboardingDemo.xcodeproj
+xcode_scheme: PaperOnboardingDemo
+xcode_sdk: iphonesimulator

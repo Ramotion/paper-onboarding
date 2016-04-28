@@ -33,9 +33,9 @@ extension ViewController: PaperOnboardingDataSource {
   
   func onboardingItemAtIndex(index: Int) -> OnboardingItemInfo {
     return [
-      (UIImage.Asset.Hotels.rawValue, "Hotels", "Etiam eleifend, risus a porta sagittis, quam turpis aliquet turpis."),
-      (UIImage.Asset.Banks.rawValue, "Banks", "Etiam eleifend, risus a porta sagittis, quam turpis aliquet turpis."),
-      (UIImage.Asset.Stores.rawValue, "Stores", "Etiam eleifend, risus a porta sagittis, quam turpis aliquet turpis.")
+      (UIImage.Asset.Hotels.rawValue, "Hotels", "All hotels and hostels are sorted by hospitality rating"),
+      (UIImage.Asset.Banks.rawValue, "Banks", "We carefully verify all banks before add them into the app"),
+      (UIImage.Asset.Stores.rawValue, "Stores", "All local stores are categorized for your convenience")
     ][index]
   }
   
