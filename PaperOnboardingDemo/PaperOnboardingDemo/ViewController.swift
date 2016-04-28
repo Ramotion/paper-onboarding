@@ -17,6 +17,23 @@ class ViewController: UIViewController {
   override func viewDidLoad() {
     super.viewDidLoad()
     
+    // EXAMPLE USE FROM CODE
+    
+//    let onboarding = PaperOnboarding(itemsCount: 3, dataSource: self)
+//    onboarding.translatesAutoresizingMaskIntoConstraints = false
+//    view.addSubview(onboarding)
+//    
+//    // add constratins 
+//    for attribute: NSLayoutAttribute in [.Left, .Right, .Top, .Bottom] {
+//      let constraint = NSLayoutConstraint(item: onboarding,
+//                                          attribute: attribute,
+//                                          relatedBy: .Equal,
+//                                          toItem: view,
+//                                          attribute: attribute,
+//                                          multiplier: 1,
+//                                          constant: 0)
+//      view.addConstraint(constraint)
+//    }
   }
 
   override func didReceiveMemoryWarning() {
