@@ -20,9 +20,9 @@ class PageContrainer: UIView {
   private let animationKey = "animationKey"
   
   init(radius: CGFloat, selectedRadius: CGFloat, space: CGFloat, itemsCount: Int) {
-    self.itemsCount = itemsCount
-    self.space = space
-    self.itemRadius = radius
+    self.itemsCount         = itemsCount
+    self.space              = space
+    self.itemRadius         = radius
     self.selectedItemRadius = selectedRadius
     super.init(frame: CGRect.zero)
     items = createItems(itemsCount, radius: radius, selectedRadius: selectedRadius)
@@ -92,7 +92,7 @@ extension PageContrainer {
   private func createItem(radius: CGFloat, selectedRadius: CGFloat, isSelect: Bool = false) -> PageViewItem {
     let item = Init(PageViewItem(radius: radius, selectedRadius: selectedRadius, isSelect: isSelect)) {
       $0.translatesAutoresizingMaskIntoConstraints = false
-      $0.backgroundColor = .clearColor()
+      $0.backgroundColor                           = .clearColor()
     }
     self.addSubview(item)
     
@@ -106,8 +106,8 @@ extension PageContrainer {
     
     [NSLayoutAttribute.Width, NSLayoutAttribute.Height].forEach { attribute in
       item >>>- {
-        $0.attribute = attribute
-        $0.constant = radius * 2.0
+        $0.attribute  = attribute
+        $0.constant   = radius * 2.0
         $0.identifier = animationKey
       } 
     }
@@ -117,15 +117,15 @@ extension PageContrainer {
     (self, item) >>>- { $0.attribute = .CenterY }
     
     (self, item, leftItem) >>>- {
-      $0.attribute = .Leading
+      $0.attribute       = .Leading
       $0.secondAttribute = .Trailing
-      $0.constant = space
+      $0.constant        = space
     }
     
     [NSLayoutAttribute.Width, NSLayoutAttribute.Height].forEach { attribute in
       item >>>- {
-        $0.attribute = attribute
-        $0.constant = radius * 2.0
+        $0.attribute  = attribute
+        $0.constant   = radius * 2.0
         $0.identifier = animationKey
       } 
     }

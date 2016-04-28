@@ -10,12 +10,12 @@ import UIKit
 
 class PageView: UIView {
   
-  var itemsCount = 3
-  var itemRadius: CGFloat = 8.0
+  var itemsCount                  = 3
+  var itemRadius: CGFloat         = 8.0
   var selectedItemRadius: CGFloat = 22.0
-  var duration: Double = 0.7
-  var space: CGFloat = 20 // space between items
-  
+  var duration: Double            = 0.7
+  var space: CGFloat              = 20// space between items
+
   // configure items set image or chage color for border view
   var configuration: ((item: PageViewItem, index: Int) -> Void)? {
     didSet {
@@ -32,8 +32,8 @@ class PageView: UIView {
   }
   
   init(frame: CGRect, itemsCount: Int, radius: CGFloat, selectedRadius: CGFloat) {
-    self.itemsCount = itemsCount
-    self.itemRadius = radius
+    self.itemsCount         = itemsCount
+    self.itemRadius         = radius
     self.selectedItemRadius = selectedRadius
     super.init(frame: frame)
     commonInit()
@@ -52,21 +52,21 @@ extension PageView {
   class func pageViewOnView(view: UIView, itemsCount: Int, bottomConstant: CGFloat, radius: CGFloat, selectedRadius: CGFloat) -> PageView {
    let pageView = Init(PageView(frame: CGRect.zero, itemsCount: itemsCount, radius: radius, selectedRadius: selectedRadius)) {
       $0.translatesAutoresizingMaskIntoConstraints = false
-      $0.alpha = 0.4
+      $0.alpha                                     = 0.4
     }
     view.addSubview(pageView)
     
     // add constraints 
     for (attribute, const) in [(NSLayoutAttribute.Left, 0), (NSLayoutAttribute.Right, 0), (NSLayoutAttribute.Bottom, bottomConstant)] {
       (view, pageView) >>>- {
-        $0.constant = CGFloat(const)
+        $0.constant  = CGFloat(const)
         $0.attribute = attribute
       }
     }
     
     pageView >>>- {
       $0.attribute = .Height
-      $0.constant = 30
+      $0.constant  = 30
     }
     
     return pageView
@@ -108,7 +108,7 @@ extension PageView {
   
   private func createContainerView() -> PageContrainer {
     let container = Init(PageContrainer(radius: itemRadius, selectedRadius: selectedItemRadius, space: space, itemsCount: itemsCount)) {
-      $0.backgroundColor = .clearColor()
+      $0.backgroundColor                           = .clearColor()
       $0.translatesAutoresizingMaskIntoConstraints = false
     }
     self.addSubview(container)
@@ -122,7 +122,7 @@ extension PageView {
     
     container >>>- {
       $0.attribute = .Width
-      $0.constant = selectedItemRadius * 2 + CGFloat(itemsCount - 1) * (itemRadius * 2) + space * CGFloat(itemsCount - 1)
+      $0.constant  = selectedItemRadius * 2 + CGFloat(itemsCount - 1) * (itemRadius * 2) + space * CGFloat(itemsCount - 1)
     }
     
     return container
@@ -148,8 +148,8 @@ extension PageView {
       return
     }
     
-    let containerWidth = CGFloat(itemsCount + 1) * selectedItemRadius + space * CGFloat(itemsCount - 1)
-    let toValue = containerWidth / 2.0 - selectedItemRadius - (selectedItemRadius + space) * CGFloat(index)
+    let containerWidth  = CGFloat(itemsCount + 1) * selectedItemRadius + space * CGFloat(itemsCount - 1)
+    let toValue         = containerWidth / 2.0 - selectedItemRadius - (selectedItemRadius + space) * CGFloat(index)
     containerX.constant = toValue
     
     if animated == true {

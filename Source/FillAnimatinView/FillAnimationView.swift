@@ -11,7 +11,7 @@ import UIKit
 class FillAnimationView: UIView {
 
   private struct Constant {
-    static let path = "path"
+    static let path   = "path"
     static let circle = "circle"
   }
 }
@@ -22,7 +22,7 @@ extension FillAnimationView {
   
   class func animavtionViewOnView(view: UIView, color: UIColor) -> FillAnimationView {
     let animationView = Init(FillAnimationView(frame: CGRect.zero)) {
-      $0.backgroundColor = color
+      $0.backgroundColor                           = color
       $0.translatesAutoresizingMaskIntoConstraints = false
     }
     
@@ -54,8 +54,8 @@ extension FillAnimationView {
   private func createCircleLayer(position: CGPoint, color: UIColor) -> CAShapeLayer {
     let paht = UIBezierPath(arcCenter: position, radius: 1, startAngle: 0, endAngle: CGFloat(2.0 * M_PI), clockwise: true)
     let layer = Init(CAShapeLayer()) {
-      $0.path = paht.CGPath
-      $0.fillColor = color.CGColor
+      $0.path            = paht.CGPath
+      $0.fillColor       = color.CGColor
       $0.shouldRasterize = true
     }
     
@@ -71,12 +71,12 @@ extension FillAnimationView {
   private func animationToRadius(radius: CGFloat, center: CGPoint, duration: Double) -> CABasicAnimation {
     let paht = UIBezierPath(arcCenter: center, radius: radius, startAngle: 0, endAngle: CGFloat(2.0 * M_PI), clockwise: true)
     let animation = Init(CABasicAnimation(keyPath: Constant.path)) {
-      $0.duration = duration
-      $0.toValue = paht.CGPath
+      $0.duration            = duration
+      $0.toValue             = paht.CGPath
       $0.removedOnCompletion = false
-      $0.fillMode = kCAFillModeForwards
-      $0.delegate = self
-      $0.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn)
+      $0.fillMode            = kCAFillModeForwards
+      $0.delegate            = self
+      $0.timingFunction      = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn)
     }
     return animation
   }

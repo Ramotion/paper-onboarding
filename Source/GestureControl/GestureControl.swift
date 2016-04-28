@@ -21,16 +21,16 @@ class GestureControl: UIView {
     
     super.init(frame: CGRect.zero)
     
-    let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(GestureControl.swipeHandler(_:)))
+    let swipeLeft       = UISwipeGestureRecognizer(target: self, action: #selector(GestureControl.swipeHandler(_:)))
     swipeLeft.direction = .Left
     addGestureRecognizer(swipeLeft)
     
-    let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(GestureControl.swipeHandler(_:)))
+    let swipeRight       = UISwipeGestureRecognizer(target: self, action: #selector(GestureControl.swipeHandler(_:)))
     swipeRight.direction = .Right
     addGestureRecognizer(swipeRight)
     
     translatesAutoresizingMaskIntoConstraints = false
-    backgroundColor = .clearColor()
+    backgroundColor                           = .clearColor()
     
     view.addSubview(self)
     // add constraints 

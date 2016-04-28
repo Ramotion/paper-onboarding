@@ -17,8 +17,8 @@ class OnboardingContentView: UIView {
   
   private struct Constants {
     static let dyOffsetAnimation: CGFloat = 110
-    static let showDuration: Double = 0.8
-    static let hideDuration: Double = 0.2
+    static let showDuration: Double       = 0.8
+    static let hideDuration: Double       = 0.2
   }
   
   private var currentItem: OnboardingContentViewItem?
@@ -56,7 +56,7 @@ extension OnboardingContentView {
   
   class func contentViewOnView(view: UIView, delegate: OnboardingContentViewDelegate, itemsCount: Int, bottomConstant: CGFloat) -> OnboardingContentView {
     let contentView = Init(OnboardingContentView(itemsCount: itemsCount, delegate: delegate)) {
-      $0.backgroundColor = .clearColor()
+      $0.backgroundColor                           = .clearColor()
       $0.translatesAutoresizingMaskIntoConstraints = false
     }
     view.addSubview(contentView)
@@ -67,7 +67,7 @@ extension OnboardingContentView {
     }
     (view, contentView) >>>- {
       $0.attribute = .Bottom
-      $0.constant = bottomConstant
+      $0.constant  = bottomConstant
     }
     return contentView
   }
@@ -89,8 +89,8 @@ extension OnboardingContentView {
     }
     
     return Init(OnboardingContentViewItem.itemOnView(self)) {
-      $0.imageView?.image = UIImage(named: info.imageName)
-      $0.titleLabel?.text = info.title
+      $0.imageView?.image       = UIImage(named: info.imageName)
+      $0.titleLabel?.text       = info.title
       $0.descriptionLabel?.text = info.description
     }
   }
