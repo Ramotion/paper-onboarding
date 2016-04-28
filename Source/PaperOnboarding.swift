@@ -57,7 +57,7 @@ public extension PaperOnboarding {
     if 0 ..< itemsCount ~= index {
       currentIndex = index
       if let postion = pageView?.positionItemIndex(index, onView: self) {
-        fillAnimationView?.fillAnimation(bakcgroundColor(currentIndex), centerPosition: postion, duration: 0.6)
+        fillAnimationView?.fillAnimation(bakcgroundColor(currentIndex), centerPosition: postion, duration: 0.5)
       }
       pageView?.currentIndex(index, animated: animated)
       contentView?.currentItem(index, animated: animated)

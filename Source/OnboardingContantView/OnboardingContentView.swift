@@ -18,7 +18,7 @@ class OnboardingContentView: UIView {
   private struct Constants {
     static let dyOffsetAnimation: CGFloat = 110
     static let showDuration: Double = 0.8
-    static let hideDuration: Double = 0.1
+    static let hideDuration: Double = 0.2
   }
   
   private var currentItem: OnboardingContentViewItem?
@@ -106,7 +106,7 @@ extension OnboardingContentView {
     }
     
     item.bottomConstraint?.constant -= Constants.dyOffsetAnimation
-    item.centerConstraint?.constant *= 2
+    item.centerConstraint?.constant *= 1.3
     
     UIView.animateWithDuration(duration,
                                delay: 0,
