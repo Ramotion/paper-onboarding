@@ -17,8 +17,9 @@ class PageViewItem: UIView {
   
   var select: Bool
   
-  var borderView: UIView?
+  var centerView: UIView?
   var imageView: UIImageView?
+  var circleLayer: CAShapeLayer?
   var tickIndex: Int = 0
   
   init(radius: CGFloat, selectedRadius: CGFloat, borderColor: UIColor = .whiteColor(), lineWidth: CGFloat = 3, isSelect: Bool = false) {
@@ -36,33 +37,71 @@ class PageViewItem: UIView {
   }
 }
 
+// MARK: public
+
+extension PageViewItem {
+  
+  func animationSelected(selected: Bool, duration: Double, fillColor: Bool) {
+    let toAlpha: CGFloat = selected == true ? 1 : 0
+    imageAlphaAnimation(toAlpha, duration: duration)
+    
+    let currentRadius = selected == true ? selectedCircleRadius : circleRadius
+    let scaleAnimation = circleScaleAnimation(currentRadius - lineWidth / 2.0, duration: duration)
+    let toColor = fillColor == true ? UIColor.whiteColor() : UIColor.clearColor()
+    let colorAnimation = circleBackgroundAnimation(toColor, duration: duration)
+    
+    circleLayer?.addAnimation(scaleAnimation, forKey: nil)
+    circleLayer?.addAnimation(colorAnimation, forKey: nil)
+  }
+}
+
 // MARK: configuration
 
 extension PageViewItem {
   
   private func commonInit() {
-    borderView = createBorderView()
+    centerView = createBorderView()
     imageView = createImageView()
   }
   
   private func createBorderView() -> UIView {
     let view = Init(UIView(frame:CGRect.zero)) {
-      $0.backgroundColor = .clearColor()
-      $0.layer.borderColor = UIColor.whiteColor().CGColor
-      $0.layer.borderWidth = 3
-      $0.layer.cornerRadius = select == true ? selectedCircleRadius : circleRadius
+      $0.backgroundColor = .blueColor()
       $0.translatesAutoresizingMaskIntoConstraints = false
     }
     addSubview(view)
     
-    // add constraints
-    [NSLayoutAttribute.Left, NSLayoutAttribute.Right, NSLayoutAttribute.Top, NSLayoutAttribute.Bottom].forEach { attribute in
-        (self , view) >>>- { $0.attribute = attribute }
-    }
+    // create circle layer
+    let currentRadius = select == true ? selectedCircleRadius : circleRadius
+    let circleLayer = createCircleLayer(currentRadius, lineWidth: lineWidth)
+    view.layer.addSublayer(circleLayer)
+    self.circleLayer = circleLayer
     
+    // add constraints
+    [NSLayoutAttribute.CenterX, NSLayoutAttribute.CenterY].forEach { attribute in
+        (self , view) >>>- {
+          $0.attribute = attribute
+      }
+    }
+    [NSLayoutAttribute.Height, NSLayoutAttribute.Width].forEach { attribute in
+        view >>>- {
+          $0.attribute = attribute
+      }
+    }
     return view
   }
   
+  private func createCircleLayer(radius: CGFloat, lineWidth: CGFloat) -> CAShapeLayer {
+    let path = UIBezierPath(arcCenter: CGPoint.zero, radius: radius - lineWidth / 2.0, startAngle: 0, endAngle: CGFloat(2.0 * M_PI), clockwise: true)
+    let layer = Init(CAShapeLayer()) {
+      $0.path = path.CGPath
+      $0.lineWidth = lineWidth
+      $0.strokeColor = UIColor.whiteColor().CGColor
+      $0.fillColor = UIColor.clearColor().CGColor
+    }
+    return layer
+  }
+
   private func createImageView() -> UIImageView {
     let imageView = Init(UIImageView(frame: CGRect.zero)) {
       $0.contentMode = .ScaleAspectFit
@@ -81,33 +120,34 @@ extension PageViewItem {
 
 // MARK: animations
 
-extension PageViewItem: Animatable {
+extension PageViewItem {
   
-  func animationTick(dt: Double, inout finished: Bool) {
-    
-    guard let borderView = self.borderView else {
-      return
+  private func circleScaleAnimation(toRadius: CGFloat, duration: Double) -> CABasicAnimation {
+    let path = UIBezierPath(arcCenter: CGPoint.zero, radius: toRadius, startAngle: 0, endAngle: CGFloat(2.0 * M_PI), clockwise: true)
+    let animation = Init(CABasicAnimation(keyPath: "path")) {
+      $0.duration = duration
+      $0.toValue = path.CGPath
+      $0.removedOnCompletion = false
+      $0.fillMode = kCAFillModeForwards
     }
-    
-    let toValue = select == true ? selectedCircleRadius * 2.0 : circleRadius * 2.0
-    let step: CGFloat = 0.8
-    
-    if borderView.layer.cornerRadius - step / 2.0 ... borderView.layer.cornerRadius + step / 2.0 ~= toValue / 2.0 {
-      constraints
-      .filter{ $0.identifier == "animationKey" }
-      .forEach {
-        $0.constant = toValue
-        self.borderView!.layer.cornerRadius = toValue / 2.0
-      }
-      finished = true
-      return
-    }
-    
-    constraints
-      .filter{ $0.identifier == "animationKey" }
-      .forEach {
-        $0.constant -= toValue > $0.constant ? -step : step
-        self.borderView!.layer.cornerRadius = $0.constant / 2.0
-    }
+    return animation
   }
+
+  private func circleBackgroundAnimation(toColor: UIColor, duration: Double) -> CABasicAnimation {
+    let animation = Init(CABasicAnimation(keyPath: "fillColor")) {
+      $0.duration = duration
+      $0.toValue = toColor.CGColor
+      $0.removedOnCompletion = false
+      $0.fillMode = kCAFillModeForwards
+      $0.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+    }
+    return animation
+  }
+  
+  private func imageAlphaAnimation(toValue: CGFloat, duration: Double) {
+    UIView.animateWithDuration(duration, delay: 0, options: .CurveEaseInOut, animations: { 
+      self.imageView?.alpha = toValue
+    }, completion: nil)
+  }
+
 }

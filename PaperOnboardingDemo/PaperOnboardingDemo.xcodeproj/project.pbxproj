@@ -264,7 +264,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 84A773BD1CCE545200EF4EB0 /* Build configuration list for PBXNativeTarget "PaperOnboardingDemo" */;
 			buildPhases = (
-				843A195F1CD0AD8D00F37344 /* ShellScript */,
+				843A195F1CD0AD8D00F37344 /* Images */,
 				84A7739C1CCE545200EF4EB0 /* Sources */,
 				84A7739D1CCE545200EF4EB0 /* Frameworks */,
 				84A7739E1CCE545200EF4EB0 /* Resources */,
@@ -363,13 +363,14 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		843A195F1CD0AD8D00F37344 /* ShellScript */ = {
+		843A195F1CD0AD8D00F37344 /* Images */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputPaths = (
 			);
+			name = Images;
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;

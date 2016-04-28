@@ -19,8 +19,6 @@ class PageContrainer: UIView {
   private let itemsCount: Int
   private let animationKey = "animationKey"
   
-  private let animationDriver = AnimationDriver()
-  
   init(radius: CGFloat, selectedRadius: CGFloat, space: CGFloat, itemsCount: Int) {
     self.itemsCount = itemsCount
     self.space = space
@@ -57,17 +55,19 @@ extension PageContrainer {
 extension PageContrainer {
   
   private func animationItem(item: PageViewItem, selected: Bool, duration: Double, fillColor: Bool = false) {
-    item.select = selected
-    item.tickIndex = 0
-    animationDriver.addAnimationObject(item)
+    let toValue = selected == true ? selectedItemRadius * 2 : itemRadius * 2
+      item.constraints
+        .filter{ $0.identifier == "animationKey" }
+        .forEach {
+          $0.constant = toValue
+      }
     
-    // alpha animation 
-    UIView.animateWithDuration(duration * 0.7, delay: 0, options: .CurveEaseOut, animations: {
-      item.imageView?.alpha = selected == true ? 1 : 0
-      item.borderView?.backgroundColor = fillColor == true ? .whiteColor() : .clearColor()
+    UIView.animateWithDuration(duration, delay: 0, options: .CurveEaseOut, animations: {
+      self.layoutIfNeeded()
     }, completion: nil)
+    
+    item.animationSelected(selected, duration: duration, fillColor: fillColor)
   }
-
 }
 // MARK: create
 
