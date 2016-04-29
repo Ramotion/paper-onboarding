@@ -1,4 +1,4 @@
-<!-- ![header](./header.png) -->
+![header](./header.png)
 
 # paper-onboarding
 [![Twitter](https://img.shields.io/badge/Twitter-@Ramotion-blue.svg?style=flat)](http://twitter.com/Ramotion)
