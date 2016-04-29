@@ -10,7 +10,9 @@
 <!-- [shot on dribbble](https://dribbble.com/shots/2583175-Navigation-Stack-Swift-Open-Source): -->
 <!-- ![Animation](Navigation-Stack.gif) -->
 
-<!-- The [iPhone mockup](https://store.ramotion.com/product/iphone-6-mockups?utm_source=gthb&utm_medium=special&utm_campaign=navigation-stack) available [here](https://store.ramotion.com/product/iphone-6-mockups?utm_source=gthb&utm_medium=special&utm_campaign=navigation-stack). -->
+<p align="center">
+<img src="preview.gif" width="800" height="600" alt="StackViewController Example App" />
+</p>
 
 ## Requirements
 
