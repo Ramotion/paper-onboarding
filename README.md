@@ -25,7 +25,7 @@ Just add the Source folder to your project.
 
 or use [CocoaPods](https://cocoapods.org) with Podfile:
 ``` ruby
-pod 'Navigation-stack', '~> 0.0.2'
+pod 'paper-onboarding', '~> 0.0.2'
 ```
 
 ## Usage
