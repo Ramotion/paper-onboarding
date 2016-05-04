@@ -11,7 +11,7 @@
 <!-- ![Animation](Navigation-Stack.gif) -->
 
 <p align="center">
-<img src="preview.gif" width="800" height="600" alt="StackViewController Example App" />
+<img src="preview.gif" width="890" height="668" alt="StackViewController Example App" />
 </p>
 
 ## Requirements
