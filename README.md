@@ -25,7 +25,7 @@ Just add the Source folder to your project.
 
 or use [CocoaPods](https://cocoapods.org) with Podfile:
 ``` ruby
-pod 'Navigation-stack', '~> 0.0.2'
+pod 'paper-onboarding', '~> 0.0.2'
 ```
 
 ## Usage
@@ -84,14 +84,14 @@ func onboardingItemAtIndex(index: Int) -> OnboardingItemInfo {
  }
 ```
 
-## Licence
+## License
 
 paper-onboarding is released under the MIT license.
 See [LICENSE](./LICENSE) for details.
 
 
 ## About
-The project maintained by [app development agency](https://ramotion.com?utm_source=gthb&utm_medium=special&utm_campaign=paper-onboarding) [Ramotion Inc.](https://ramotion.com?utm_source=gthb&utm_medium=special&utm_campaign=paper-onboarding)
+Maintained by [app development agency](https://ramotion.com?utm_source=gthb&utm_medium=special&utm_campaign=paper-onboarding) [Ramotion Inc.](https://ramotion.com?utm_source=gthb&utm_medium=special&utm_campaign=paper-onboarding)
 See our other [open-source projects](https://github.com/ramotion) or [hire](https://ramotion.com?utm_source=gthb&utm_medium=special&utm_campaign=paper-onboarding) us to design, develop, and grow your product.
 
 [![Twitter URL](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/intent/tweet?text=https://github.com/ramotion/paper-onboarding)
