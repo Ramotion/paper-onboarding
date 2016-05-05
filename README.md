@@ -14,6 +14,8 @@
 <img src="preview.gif" width="890" height="668" alt="StackViewController Example App" />
 </p>
 
+The [iPhone mockup](https://store.ramotion.com/product/iphone-6-mockups?utm_source=gthb&utm_medium=special&utm_campaign=paper-onboarding) available [here](https://store.ramotion.com/product/iphone-6-mockups?utm_source=gthb&utm_medium=special&utm_campaign=paper-onboarding).
+
 ## Requirements
 
 - iOS 8.0+
