@@ -10,7 +10,7 @@
 [shot on dribbble](https://dribbble.com/shots/2694049-iOS-Pagination-Controller-Open-Source):
 
 <p align="center">
-<img src="preview.gif" width="890" height="668" alt="StackViewController Example App" />
+<a href="https://dribbble.com/shots/2694049-iOS-Pagination-Controller-Open-Source"><img src="preview.gif" width="890" height="668" alt="StackViewController Example App" /></a>
 </p>
 
 The [iPhone mockup](https://store.ramotion.com/product/iphone-6-mockups?utm_source=gthb&utm_medium=special&utm_campaign=paper-onboarding) available [here](https://store.ramotion.com/product/iphone-6-mockups?utm_source=gthb&utm_medium=special&utm_campaign=paper-onboarding).
