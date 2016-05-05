@@ -7,8 +7,7 @@
 [![Travis](https://img.shields.io/travis/Ramotion/navigation-stack.svg)](https://travis-ci.org/Ramotion/navigation-stack)
 [![codebeat badge](https://codebeat.co/badges/d06237c6-6ff7-4560-9602-b6cc65063383)](https://codebeat.co/projects/github-com-ramotion-paper-onboarding)
 
-<!-- [shot on dribbble](https://dribbble.com/shots/2583175-Navigation-Stack-Swift-Open-Source): -->
-<!-- ![Animation](Navigation-Stack.gif) -->
+[shot on dribbble](https://dribbble.com/shots/2694049-iOS-Pagination-Controller-Open-Source):
 
 <p align="center">
 <img src="preview.gif" width="890" height="668" alt="StackViewController Example App" />
@@ -27,7 +26,7 @@ Just add the Source folder to your project.
 
 or use [CocoaPods](https://cocoapods.org) with Podfile:
 ``` ruby
-pod 'paper-onboarding', '~> 0.0.2'
+pod 'paper-onboarding'
 ```
 
 ## Usage
