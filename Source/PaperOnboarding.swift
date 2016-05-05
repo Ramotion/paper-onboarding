@@ -8,12 +8,12 @@
 
 import UIKit
 
-public typealias OnboardingItemInfo = (imageName: String, title: String, description: String)
+//..
+//
+public typealias OnboardingItemInfo = (imageName: String, title: String, description: String, iconName: String, color: UIColor)
 
 public protocol PaperOnboardingDataSource {
   func onboardingItemAtIndex(index: Int) -> OnboardingItemInfo
-  func onboardingBackgroundColorItemAtIndex(index: Int) -> UIColor
-  func pageViewIconAtIndex(index: Int) -> UIImage?
 }
 
 public class PaperOnboarding: UIView {
@@ -22,6 +22,8 @@ public class PaperOnboarding: UIView {
   
   public private(set) var currentIndex: Int = 0
   @IBInspectable var itemsCount: Int = 3
+  
+  private var itemsInfo: [OnboardingItemInfo]?
   
   private var pageViewBottomConstant: CGFloat = 32
   private var pageViewSelectedRadius: CGFloat = 22
@@ -70,6 +72,7 @@ public extension PaperOnboarding {
 extension PaperOnboarding {
   
   private func commonInit() {
+    itemsInfo = createItemsInfo()
     translatesAutoresizingMaskIntoConstraints = false
     fillAnimationView = FillAnimationView.animavtionViewOnView(self, color: bakcgroundColor(currentIndex))
     contentView = OnboardingContentView.contentViewOnView(self,
@@ -87,12 +90,24 @@ extension PaperOnboarding {
                                           radius:pageViewRadius,
                                           selectedRadius: pageViewSelectedRadius)
     pageView.configuration = { item, index in
-      if case let dataSource as PaperOnboardingDataSource = self.dataSource {
-        let icon = dataSource.pageViewIconAtIndex(index)
-        item.imageView?.image = icon
+      if let iconName = self.itemsInfo?[index].iconName {
+        item.imageView?.image = UIImage(named: iconName)
       }
     }
     return pageView
+  }
+
+  private func createItemsInfo() -> [OnboardingItemInfo] {
+    guard case let dataSource as PaperOnboardingDataSource = self.dataSource else {
+      fatalError("set dataSource")
+    }
+    
+    var items = [OnboardingItemInfo]()
+    for index in 0..<itemsCount {
+      let info = dataSource.onboardingItemAtIndex(index)
+      items.append(info)
+    }
+    return items
   }
 
 }
@@ -102,10 +117,10 @@ extension PaperOnboarding {
 extension PaperOnboarding {
   
   private func bakcgroundColor(index: Int) -> UIColor {
-    if case let dataSource as PaperOnboardingDataSource = self.dataSource {
-      return dataSource.onboardingBackgroundColorItemAtIndex(currentIndex)
+    guard let color = itemsInfo?[index].color else {
+      return .blackColor()
     }
-    return .blackColor()
+    return color
   }
 
 }
@@ -131,9 +146,6 @@ extension PaperOnboarding: GestureControlDelegate {
 extension PaperOnboarding: OnboardingContentViewDelegate {
   
   func onboardingItemAtIndex(index: Int) -> OnboardingItemInfo? {
-    guard case let dataSource as PaperOnboardingDataSource = self.dataSource else {
-      return nil
-    }
-    return dataSource.onboardingItemAtIndex(index)
+    return itemsInfo?[index]
   }
 }

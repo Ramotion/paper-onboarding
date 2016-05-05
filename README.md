@@ -65,22 +65,10 @@ override func viewDidLoad() {
 ``` swift
 func onboardingItemAtIndex(index: Int) -> OnboardingItemInfo {
    return [
-     ("BIG_IMAGE1", "Hotels", "All hotels and hostels are sorted by hospitality rating"),
-     ("BIG_IMAGE2", "Banks", "We carefully verify all banks before add them into the app"),
-     ("BIG_IMAGE3", "Stores", "All local stores are categorized for your convenience")
+     ("BIG_IMAGE1", "Title", "Description text", "IconName1", "BackgroundColor"),
+     ("BIG_IMAGE2", "Title", "Description text", "IconName2", "BackgroundColor"),
+     ("BIG_IMAGE2", "Title", "Description text", "IconName2", "BackgroundColor"),
    ][index]
- }
-
- func onboardingBackgroundColorItemAtIndex(index: Int) -> UIColor {
-   return [
-     UIColor(red:0.40, green:0.56, blue:0.71, alpha:1.00),
-     UIColor(red:0.40, green:0.69, blue:0.71, alpha:1.00),
-     UIColor(red:0.61, green:0.56, blue:0.74, alpha:1.00)][index]
- }
-
- func pageViewIconAtIndex(index: Int) -> UIImage? {
-   let imageNames = ["ICON1", "ICON2", "ICON3"]
-   return UIImage(asset: imageNames[index])
  }
 ```
 
