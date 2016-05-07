@@ -23,7 +23,7 @@ class ViewController: UIViewController {
 //    onboarding.translatesAutoresizingMaskIntoConstraints = false
 //    view.addSubview(onboarding)
 //    
-//    // add constratins 
+//    // add constraints
 //    for attribute: NSLayoutAttribute in [.Left, .Right, .Top, .Bottom] {
 //      let constraint = NSLayoutConstraint(item: onboarding,
 //                                          attribute: attribute,
