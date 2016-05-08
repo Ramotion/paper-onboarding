@@ -10,7 +10,7 @@ import UIKit
 
 //..
 //
-public typealias OnboardingItemInfo = (imageName: String, title: String, description: String, iconName: String, color: UIColor)
+public typealias OnboardingItemInfo = (imageName: String, title: String, description: String, iconName: String, color: UIColor, titleColor: UIColor, descriptionColor: UIColor, titleFont: UIFont, descriptionFont: UIFont)
 
 public protocol PaperOnboardingDataSource {
   func onboardingItemAtIndex(index: Int) -> OnboardingItemInfo
