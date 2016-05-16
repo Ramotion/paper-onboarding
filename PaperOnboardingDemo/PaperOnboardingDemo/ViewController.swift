@@ -49,10 +49,12 @@ class ViewController: UIViewController {
 extension ViewController: PaperOnboardingDataSource {
   
   func onboardingItemAtIndex(index: Int) -> OnboardingItemInfo {
+    let titleFont = UIFont(name: "Nunito-Bold", size: 36.0) ?? UIFont.boldSystemFontOfSize(36.0)
+    let descriptionFont = UIFont(name: "OpenSans-Regular", size: 14.0) ?? UIFont.systemFontOfSize(14.0)
     return [
-      (UIImage.Asset.Hotels.rawValue, "Hotels", "All hotels and hostels are sorted by hospitality rating", UIImage.Asset.Key.rawValue, UIColor(red:0.40, green:0.56, blue:0.71, alpha:1.00)),
-      (UIImage.Asset.Banks.rawValue, "Banks", "We carefully verify all banks before add them into the app", UIImage.Asset.Wallet.rawValue, UIColor(red:0.40, green:0.69, blue:0.71, alpha:1.00)),
-      (UIImage.Asset.Stores.rawValue, "Stores", "All local stores are categorized for your convenience", UIImage.Asset.Shopping_Cart.rawValue, UIColor(red:0.61, green:0.56, blue:0.74, alpha:1.00))
+      (UIImage.Asset.Hotels.rawValue, "Hotels", "All hotels and hostels are sorted by hospitality rating", UIImage.Asset.Key.rawValue, UIColor(red:0.40, green:0.56, blue:0.71, alpha:1.00), UIColor.whiteColor(), UIColor.whiteColor(), titleFont,descriptionFont),
+      (UIImage.Asset.Banks.rawValue, "Banks", "We carefully verify all banks before add them into the app", UIImage.Asset.Wallet.rawValue, UIColor(red:0.40, green:0.69, blue:0.71, alpha:1.00), UIColor.whiteColor(), UIColor.whiteColor(), titleFont,descriptionFont),
+      (UIImage.Asset.Stores.rawValue, "Stores", "All local stores are categorized for your convenience", UIImage.Asset.Shopping_Cart.rawValue, UIColor(red:0.61, green:0.56, blue:0.74, alpha:1.00), UIColor.whiteColor(), UIColor.whiteColor(), titleFont,descriptionFont)
     ][index]
   }
 }
