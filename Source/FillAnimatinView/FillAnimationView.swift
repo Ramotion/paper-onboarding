@@ -52,9 +52,9 @@ extension FillAnimationView {
 extension FillAnimationView {
   
   private func createCircleLayer(position: CGPoint, color: UIColor) -> CAShapeLayer {
-    let paht = UIBezierPath(arcCenter: position, radius: 1, startAngle: 0, endAngle: CGFloat(2.0 * M_PI), clockwise: true)
+    let path = UIBezierPath(arcCenter: position, radius: 1, startAngle: 0, endAngle: CGFloat(2.0 * M_PI), clockwise: true)
     let layer = Init(CAShapeLayer()) {
-      $0.path            = paht.CGPath
+      $0.path            = path.CGPath
       $0.fillColor       = color.CGColor
       $0.shouldRasterize = true
     }
@@ -69,10 +69,10 @@ extension FillAnimationView {
 extension FillAnimationView {
   
   private func animationToRadius(radius: CGFloat, center: CGPoint, duration: Double) -> CABasicAnimation {
-    let paht = UIBezierPath(arcCenter: center, radius: radius, startAngle: 0, endAngle: CGFloat(2.0 * M_PI), clockwise: true)
+    let path = UIBezierPath(arcCenter: center, radius: radius, startAngle: 0, endAngle: CGFloat(2.0 * M_PI), clockwise: true)
     let animation = Init(CABasicAnimation(keyPath: Constant.path)) {
       $0.duration            = duration
-      $0.toValue             = paht.CGPath
+      $0.toValue             = path.CGPath
       $0.removedOnCompletion = false
       $0.fillMode            = kCAFillModeForwards
       $0.delegate            = self
