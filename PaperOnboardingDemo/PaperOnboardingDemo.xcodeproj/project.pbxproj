@@ -22,9 +22,6 @@
 		847CEA631CFC8A1E00AB132D /* PageContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C7E5D81CCE585700C9F001 /* PageContainer.swift */; };
 		847CEA641CFC8A2100AB132D /* PageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C7E5D91CCE585700C9F001 /* PageView.swift */; };
 		847CEA651CFC8A2400AB132D /* PaperOnboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C7E5CD1CCE571800C9F001 /* PaperOnboarding.swift */; };
-		847CEA661CFC8A2C00AB132D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A773A51CCE545200EF4EB0 /* ViewController.swift */; };
-		847CEA671CFC8A3E00AB132D /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843A19641CD0B49E00F37344 /* Images.swift */; };
-		847CEA681CFC8A4E00AB132D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A773A31CCE545200EF4EB0 /* AppDelegate.swift */; };
 		84A773A41CCE545200EF4EB0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A773A31CCE545200EF4EB0 /* AppDelegate.swift */; };
 		84A773A61CCE545200EF4EB0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A773A51CCE545200EF4EB0 /* ViewController.swift */; };
 		84A773A91CCE545200EF4EB0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84A773A71CCE545200EF4EB0 /* Main.storyboard */; };
@@ -474,14 +471,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				847CEA621CFC8A1B00AB132D /* PageViewItem.swift in Sources */,
-				847CEA671CFC8A3E00AB132D /* Images.swift in Sources */,
 				847CEA611CFC8A1700AB132D /* ConstraintsHalper.swift in Sources */,
 				847CEA5E1CFC8A0C00AB132D /* OnboardingContantViewItem.swift in Sources */,
 				847CEA651CFC8A2400AB132D /* PaperOnboarding.swift in Sources */,
-				847CEA661CFC8A2C00AB132D /* ViewController.swift in Sources */,
 				847CEA5D1CFC8A0800AB132D /* FillAnimationView.swift in Sources */,
 				847CEA5C1CFC8A0500AB132D /* GestureControl.swift in Sources */,
-				847CEA681CFC8A4E00AB132D /* AppDelegate.swift in Sources */,
 				847CEA601CFC8A1400AB132D /* Configuring.swift in Sources */,
 				847CEA631CFC8A1E00AB132D /* PageContainer.swift in Sources */,
 				847CEA641CFC8A2100AB132D /* PageView.swift in Sources */,
