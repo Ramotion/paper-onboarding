@@ -9,6 +9,22 @@
 /* Begin PBXBuildFile section */
 		843A19651CD0B49E00F37344 /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843A19641CD0B49E00F37344 /* Images.swift */; };
 		843A19661CD0B49E00F37344 /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843A19641CD0B49E00F37344 /* Images.swift */; };
+		847CEA521CFC88F500AB132D /* Paper-onboarding.h in Headers */ = {isa = PBXBuildFile; fileRef = 847CEA511CFC88F500AB132D /* Paper-onboarding.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		847CEA561CFC88F500AB132D /* PaperOnboarding.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 847CEA4F1CFC88F500AB132D /* PaperOnboarding.framework */; };
+		847CEA571CFC88F500AB132D /* PaperOnboarding.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 847CEA4F1CFC88F500AB132D /* PaperOnboarding.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		847CEA5C1CFC8A0500AB132D /* GestureControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C7E6011CCE59BD00C9F001 /* GestureControl.swift */; };
+		847CEA5D1CFC8A0800AB132D /* FillAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C7E5F01CCE59A400C9F001 /* FillAnimationView.swift */; };
+		847CEA5E1CFC8A0C00AB132D /* OnboardingContantViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C7E5E61CCE595F00C9F001 /* OnboardingContantViewItem.swift */; };
+		847CEA5F1CFC8A0F00AB132D /* OnboardingContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C7E5E71CCE595F00C9F001 /* OnboardingContentView.swift */; };
+		847CEA601CFC8A1400AB132D /* Configuring.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C7E5EC1CCE598A00C9F001 /* Configuring.swift */; };
+		847CEA611CFC8A1700AB132D /* ConstraintsHalper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C7E5E11CCE590700C9F001 /* ConstraintsHalper.swift */; };
+		847CEA621CFC8A1B00AB132D /* PageViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C7E5D61CCE585700C9F001 /* PageViewItem.swift */; };
+		847CEA631CFC8A1E00AB132D /* PageContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C7E5D81CCE585700C9F001 /* PageContainer.swift */; };
+		847CEA641CFC8A2100AB132D /* PageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C7E5D91CCE585700C9F001 /* PageView.swift */; };
+		847CEA651CFC8A2400AB132D /* PaperOnboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C7E5CD1CCE571800C9F001 /* PaperOnboarding.swift */; };
+		847CEA661CFC8A2C00AB132D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A773A51CCE545200EF4EB0 /* ViewController.swift */; };
+		847CEA671CFC8A3E00AB132D /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843A19641CD0B49E00F37344 /* Images.swift */; };
+		847CEA681CFC8A4E00AB132D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A773A31CCE545200EF4EB0 /* AppDelegate.swift */; };
 		84A773A41CCE545200EF4EB0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A773A31CCE545200EF4EB0 /* AppDelegate.swift */; };
 		84A773A61CCE545200EF4EB0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A773A51CCE545200EF4EB0 /* ViewController.swift */; };
 		84A773A91CCE545200EF4EB0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84A773A71CCE545200EF4EB0 /* Main.storyboard */; };
@@ -46,6 +62,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		847CEA541CFC88F500AB132D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 84A773981CCE545200EF4EB0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 847CEA4E1CFC88F500AB132D;
+			remoteInfo = "Paper-onboarding";
+		};
 		84A773B51CCE545200EF4EB0 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 84A773981CCE545200EF4EB0 /* Project object */;
@@ -55,8 +78,25 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		847CEA5B1CFC88F500AB132D /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				847CEA571CFC88F500AB132D /* PaperOnboarding.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		843A19641CD0B49E00F37344 /* Images.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
+		847CEA4F1CFC88F500AB132D /* PaperOnboarding.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PaperOnboarding.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		847CEA511CFC88F500AB132D /* Paper-onboarding.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Paper-onboarding.h"; sourceTree = "<group>"; };
+		847CEA531CFC88F500AB132D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		84A773A01CCE545200EF4EB0 /* PaperOnboardingDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PaperOnboardingDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84A773A31CCE545200EF4EB0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		84A773A51CCE545200EF4EB0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -84,10 +124,18 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		847CEA4B1CFC88F500AB132D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		84A7739D1CCE545200EF4EB0 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				847CEA561CFC88F500AB132D /* PaperOnboarding.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -109,6 +157,15 @@
 			path = Constants;
 			sourceTree = "<group>";
 		};
+		847CEA501CFC88F500AB132D /* Paper-onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				847CEA511CFC88F500AB132D /* Paper-onboarding.h */,
+				847CEA531CFC88F500AB132D /* Info.plist */,
+			);
+			path = "Paper-onboarding";
+			sourceTree = "<group>";
+		};
 		84A773971CCE545200EF4EB0 = {
 			isa = PBXGroup;
 			children = (
@@ -117,6 +174,7 @@
 				84C7E5CC1CCE549F00C9F001 /* Source */,
 				84A773A21CCE545200EF4EB0 /* PaperOnboardingDemo */,
 				84A773B71CCE545200EF4EB0 /* PaperOnboardingDemoTests */,
+				847CEA501CFC88F500AB132D /* Paper-onboarding */,
 				84A773A11CCE545200EF4EB0 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -126,6 +184,7 @@
 			children = (
 				84A773A01CCE545200EF4EB0 /* PaperOnboardingDemo.app */,
 				84A773B41CCE545200EF4EB0 /* PaperOnboardingDemoTests.xctest */,
+				847CEA4F1CFC88F500AB132D /* PaperOnboarding.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -247,7 +306,36 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		847CEA4C1CFC88F500AB132D /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				847CEA521CFC88F500AB132D /* Paper-onboarding.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
+		847CEA4E1CFC88F500AB132D /* PaperOnboarding */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 847CEA5A1CFC88F500AB132D /* Build configuration list for PBXNativeTarget "PaperOnboarding" */;
+			buildPhases = (
+				847CEA4A1CFC88F500AB132D /* Sources */,
+				847CEA4B1CFC88F500AB132D /* Frameworks */,
+				847CEA4C1CFC88F500AB132D /* Headers */,
+				847CEA4D1CFC88F500AB132D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PaperOnboarding;
+			productName = "Paper-onboarding";
+			productReference = 847CEA4F1CFC88F500AB132D /* PaperOnboarding.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 		84A7739F1CCE545200EF4EB0 /* PaperOnboardingDemo */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 84A773BD1CCE545200EF4EB0 /* Build configuration list for PBXNativeTarget "PaperOnboardingDemo" */;
@@ -256,10 +344,12 @@
 				84A7739C1CCE545200EF4EB0 /* Sources */,
 				84A7739D1CCE545200EF4EB0 /* Frameworks */,
 				84A7739E1CCE545200EF4EB0 /* Resources */,
+				847CEA5B1CFC88F500AB132D /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				847CEA551CFC88F500AB132D /* PBXTargetDependency */,
 			);
 			name = PaperOnboardingDemo;
 			productName = PaperOnboardingDemo;
@@ -294,6 +384,9 @@
 				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = "Alex K.";
 				TargetAttributes = {
+					847CEA4E1CFC88F500AB132D = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
 					84A7739F1CCE545200EF4EB0 = {
 						CreatedOnToolsVersion = 7.3;
 					};
@@ -318,11 +411,19 @@
 			targets = (
 				84A7739F1CCE545200EF4EB0 /* PaperOnboardingDemo */,
 				84A773B31CCE545200EF4EB0 /* PaperOnboardingDemoTests */,
+				847CEA4E1CFC88F500AB132D /* PaperOnboarding */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		847CEA4D1CFC88F500AB132D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		84A7739E1CCE545200EF4EB0 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -368,6 +469,26 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		847CEA4A1CFC88F500AB132D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				847CEA621CFC8A1B00AB132D /* PageViewItem.swift in Sources */,
+				847CEA671CFC8A3E00AB132D /* Images.swift in Sources */,
+				847CEA611CFC8A1700AB132D /* ConstraintsHalper.swift in Sources */,
+				847CEA5E1CFC8A0C00AB132D /* OnboardingContantViewItem.swift in Sources */,
+				847CEA651CFC8A2400AB132D /* PaperOnboarding.swift in Sources */,
+				847CEA661CFC8A2C00AB132D /* ViewController.swift in Sources */,
+				847CEA5D1CFC8A0800AB132D /* FillAnimationView.swift in Sources */,
+				847CEA5C1CFC8A0500AB132D /* GestureControl.swift in Sources */,
+				847CEA681CFC8A4E00AB132D /* AppDelegate.swift in Sources */,
+				847CEA601CFC8A1400AB132D /* Configuring.swift in Sources */,
+				847CEA631CFC8A1E00AB132D /* PageContainer.swift in Sources */,
+				847CEA641CFC8A2100AB132D /* PageView.swift in Sources */,
+				847CEA5F1CFC8A0F00AB132D /* OnboardingContentView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		84A7739C1CCE545200EF4EB0 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -410,6 +531,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		847CEA551CFC88F500AB132D /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 847CEA4E1CFC88F500AB132D /* PaperOnboarding */;
+			targetProxy = 847CEA541CFC88F500AB132D /* PBXContainerItemProxy */;
+		};
 		84A773B61CCE545200EF4EB0 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 84A7739F1CCE545200EF4EB0 /* PaperOnboardingDemo */;
@@ -437,6 +563,48 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		847CEA581CFC88F500AB132D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Paper-onboarding/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ramotion.Paper-onboarding";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		847CEA591CFC88F500AB132D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Paper-onboarding/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.ramotion.Paper-onboarding";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		84A773BB1CCE545200EF4EB0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -525,6 +693,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = PaperOnboardingDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -538,6 +707,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = PaperOnboardingDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -573,6 +743,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		847CEA5A1CFC88F500AB132D /* Build configuration list for PBXNativeTarget "PaperOnboarding" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				847CEA581CFC88F500AB132D /* Debug */,
+				847CEA591CFC88F500AB132D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		84A7739B1CCE545200EF4EB0 /* Build configuration list for PBXProject "PaperOnboardingDemo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
