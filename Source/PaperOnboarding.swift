@@ -18,6 +18,7 @@ public protocol PaperOnboardingDataSource {
 public protocol PaperOnboardingDelegate {
   func onboardingWillTransitonToIndex(index: Int)
   func onboardingDidTransitonToIndex(index: Int)
+  func onboardingConfigurationItem(item: OnboardingContentViewItem, index: Int)
 }
 
 public class PaperOnboarding: UIView {
@@ -161,4 +162,9 @@ extension PaperOnboarding: OnboardingContentViewDelegate {
   func onboardingItemAtIndex(index: Int) -> OnboardingItemInfo? {
     return itemsInfo?[index]
   }
+  
+  func onboardingConfigurationItem(item: OnboardingContentViewItem, index: Int) {
+    delegate?.onboardingConfigurationItem(item, index: index)
+  }
+
 }

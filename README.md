@@ -71,8 +71,19 @@ func onboardingItemAtIndex(index: Int) -> OnboardingItemInfo {
      ("BIG_IMAGE2", "Title", "Description text", "IconName2", "BackgroundColor"),
    ][index]
  }
+
 ```
 
+#### configuration contant item:
+
+``` swift
+func onboardingConfigurationItem(item: OnboardingContentViewItem, index: Int) {
+
+//    item.titleLabel?.backgroundColor = .redColor()
+//    item.descriptionLabel?.backgroundColor = .redColor()
+//    item.imageView = ...
+  }
+```
 ## License
 
 paper-onboarding is released under the MIT license.

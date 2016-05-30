@@ -8,21 +8,21 @@
 
 import UIKit
 
-class OnboardingContentViewItem: UIView {
+ public class OnboardingContentViewItem: UIView {
   
   var bottomConstraint: NSLayoutConstraint?
   var centerConstraint: NSLayoutConstraint?
   
-  var imageView: UIImageView?
-  var titleLabel: UILabel?
-  var descriptionLabel: UILabel?
+  public var imageView: UIImageView?
+  public var titleLabel: UILabel?
+  public var descriptionLabel: UILabel?
   
   override init(frame: CGRect) {
     super.init(frame: frame)
     commonInit()
   }
   
-  required init?(coder aDecoder: NSCoder) {
+  required public init?(coder aDecoder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
   }
 }

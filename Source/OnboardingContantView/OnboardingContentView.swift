@@ -11,6 +11,7 @@ import UIKit
 protocol OnboardingContentViewDelegate {
 
   func onboardingItemAtIndex(index: Int) -> OnboardingItemInfo?
+  func onboardingConfigurationItem(item: OnboardingContentViewItem, index: Int)
 }
 
 class OnboardingContentView: UIView {
@@ -88,7 +89,7 @@ extension OnboardingContentView {
       return OnboardingContentViewItem.itemOnView(self)
     }
 
-    return Init(OnboardingContentViewItem.itemOnView(self)) {
+    let item = Init(OnboardingContentViewItem.itemOnView(self)) {
       $0.imageView?.image       = UIImage(named: info.imageName)
       $0.titleLabel?.text       = info.title
       $0.titleLabel?.font       = info.titleFont
@@ -97,6 +98,9 @@ extension OnboardingContentView {
       $0.descriptionLabel?.font = info.descriptionFont
       $0.descriptionLabel?.textColor = info.descriptionColor
     }
+    
+    delegate.onboardingConfigurationItem(item, index: index)
+    return item
   }
 }
 
@@ -140,5 +144,4 @@ extension OnboardingContentView {
       self.layoutIfNeeded()
     }, completion: nil)
   }
-
 }
