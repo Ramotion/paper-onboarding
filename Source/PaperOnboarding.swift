@@ -15,10 +15,10 @@ public protocol PaperOnboardingDataSource {
   func onboardingItemAtIndex(index: Int) -> OnboardingItemInfo
 }
 
-public protocol PaperOnboardingDelegate {
-  func onboardingWillTransitonToIndex(index: Int)
-  func onboardingDidTransitonToIndex(index: Int)
-  func onboardingConfigurationItem(item: OnboardingContentViewItem, index: Int)
+@objc public protocol PaperOnboardingDelegate {
+  optional func onboardingWillTransitonToIndex(index: Int)
+  optional func onboardingDidTransitonToIndex(index: Int)
+  optional func onboardingConfigurationItem(item: OnboardingContentViewItem, index: Int)
 }
 
 public class PaperOnboarding: UIView {
