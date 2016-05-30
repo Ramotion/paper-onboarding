@@ -15,9 +15,9 @@ public protocol PaperOnboardingDataSource {
   func onboardingItemAtIndex(index: Int) -> OnboardingItemInfo
 }
 
-public protocol PaperOnboardingDelegate {
-  func onboardingWillTransitonToIndex(index: Int)
-  func onboardingDidTransitonToIndex(index: Int)
+@objc public protocol PaperOnboardingDelegate {
+  public func onboardingWillTransitonToIndex(index: Int)
+  public func onboardingDidTransitonToIndex(index: Int)
   func onboardingConfigurationItem(item: OnboardingContentViewItem, index: Int)
 }
 
@@ -62,13 +62,13 @@ public extension PaperOnboarding {
 
   func currentIndex(index: Int, animated: Bool) {
     if 0 ..< itemsCount ~= index {
-      (self.delegate as? PaperOnboardingDelegate)?.onboardingWillTransitonToIndex(index)
+      (self.delegate as? PaperOnboardingDelegate)?.onboardingWillTransitonToIndex!(index)
       currentIndex = index
       CATransaction.begin()
 
 
       CATransaction.setCompletionBlock({
-        (self.delegate as? PaperOnboardingDelegate)?.onboardingDidTransitonToIndex(index)
+        (self.delegate as? PaperOnboardingDelegate)?.onboardingDidTransitonToIndex!(index)
       })
 
 
