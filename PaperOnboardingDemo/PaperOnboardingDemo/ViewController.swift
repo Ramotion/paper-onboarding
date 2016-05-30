@@ -10,12 +10,15 @@ import UIKit
 
 class ViewController: UIViewController {
 
+  @IBOutlet weak var skipButton: UIButton!
   override func viewWillAppear(animated: Bool) {
     super.viewWillAppear(animated)
     
   }
   override func viewDidLoad() {
     super.viewDidLoad()
+    
+    skipButton.hidden = true
     
     // EXAMPLE USE FROM CODE
     
@@ -41,6 +44,27 @@ class ViewController: UIViewController {
   }
 
   @IBAction func buttnoHandler(sender: AnyObject) {
+  }
+}
+
+// MARK: Actions
+
+extension ViewController {
+  
+  @IBAction func buttonHandler(sender: AnyObject) {
+    print("skip handler")
+  }
+  
+}
+
+extension ViewController: PaperOnboardingDelegate {
+  
+  func onboardingWillTransitonToIndex(index: Int) {
+    skipButton.hidden = index == 2 ? false : true
+  }
+  
+  func onboardingDidTransitonToIndex(index: Int) {
+    
   }
 }
 
