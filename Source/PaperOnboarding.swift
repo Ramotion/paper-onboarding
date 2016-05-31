@@ -13,6 +13,7 @@ public typealias OnboardingItemInfo = (imageName: String, title: String, descrip
 
 public protocol PaperOnboardingDataSource {
   func onboardingItemAtIndex(index: Int) -> OnboardingItemInfo
+  func onboardingItemsCount() -> Int
 }
 
 public protocol PaperOnboardingDelegate {
@@ -23,10 +24,15 @@ public protocol PaperOnboardingDelegate {
 
 public class PaperOnboarding: UIView {
 
-  @IBOutlet public var dataSource: AnyObject? //PaperOnboardingDataSource
-  @IBOutlet public var delegate: AnyObject? //PaperOnboardingDelegate
+  @IBOutlet public var dataSource: AnyObject? { //PaperOnboardingDataSource
+    didSet {
+      commonInit()
+    }
+  }
+  @IBOutlet public var delegate: AnyObject?  //PaperOnboardingDelegate
+  
   public private(set) var currentIndex: Int = 0
-  @IBInspectable var itemsCount: Int = 3
+  var itemsCount: Int = 3
 
   private var itemsInfo: [OnboardingItemInfo]?
 
@@ -39,21 +45,15 @@ public class PaperOnboarding: UIView {
   private var gestureControl: GestureControl?
   private var contentView: OnboardingContentView?
 
-  public init(itemsCount: Int = 3, dataSource: PaperOnboardingDataSource) {
+  public init(itemsCount: Int = 3) {
     super.init(frame: CGRect.zero)
-    self.dataSource = dataSource as? AnyObject
     self.itemsCount = itemsCount
-    commonInit()
   }
 
   required public init?(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
   }
 
-  public override func awakeFromNib() {
-    super.awakeFromNib()
-    commonInit()
-  }
 }
 
 // MARK: public
@@ -87,6 +87,9 @@ public extension PaperOnboarding {
 extension PaperOnboarding {
 
   private func commonInit() {
+    if case let dataSource as PaperOnboardingDataSource = self.dataSource {
+      itemsCount = dataSource.onboardingItemCount()
+    }
     itemsInfo = createItemsInfo()
     translatesAutoresizingMaskIntoConstraints = false
     fillAnimationView = FillAnimationView.animavtionViewOnView(self, color: bakcgroundColor(currentIndex))

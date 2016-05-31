@@ -35,7 +35,7 @@ pod 'paper-onboarding'
 
 1) Create a new UIView inheriting from ```PaperOnboarding```
 
-2) Set itemsCount in attribute inspector
+2) Set dataSource in attribute inspector
 
 #### or Code
 
@@ -43,7 +43,8 @@ pod 'paper-onboarding'
 override func viewDidLoad() {
   super.viewDidLoad()
 
-  let onboarding = PaperOnboarding(itemsCount: 3, dataSource: self)
+  let onboarding = PaperOnboarding(itemsCount: 3)
+  onboarding.dataSource = self
   onboarding.translatesAutoresizingMaskIntoConstraints = false
   view.addSubview(onboarding)
 
@@ -61,16 +62,20 @@ override func viewDidLoad() {
 }
 ```
 
-#### For adding content use delegate methods:
+#### For adding content use dataSource methods:
 
 ``` swift
 func onboardingItemAtIndex(index: Int) -> OnboardingItemInfo {
    return [
-     ("BIG_IMAGE1", "Title", "Description text", "IconName1", "BackgroundColor"),
-     ("BIG_IMAGE2", "Title", "Description text", "IconName2", "BackgroundColor"),
-     ("BIG_IMAGE2", "Title", "Description text", "IconName2", "BackgroundColor"),
+     ("BIG_IMAGE1", "Title", "Description text", "IconName1", "BackgroundColor", textColor, DescriptionColor, textFont, DescriptionFont),
+     ("BIG_IMAGE1", "Title", "Description text", "IconName1", "BackgroundColor", textColor, DescriptionColor, textFont, DescriptionFont),
+     ("BIG_IMAGE1", "Title", "Description text", "IconName1", "BackgroundColor", textColor, DescriptionColor, textFont, DescriptionFont)
    ][index]
  }
+
+ func onboardingItemsCount() -> Int {
+    return 3
+  }
 
 ```
 
