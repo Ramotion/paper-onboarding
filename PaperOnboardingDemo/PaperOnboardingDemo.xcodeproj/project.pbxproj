@@ -9,6 +9,19 @@
 /* Begin PBXBuildFile section */
 		843A19651CD0B49E00F37344 /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843A19641CD0B49E00F37344 /* Images.swift */; };
 		843A19661CD0B49E00F37344 /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843A19641CD0B49E00F37344 /* Images.swift */; };
+		845C48C21CFDB2F7002BE949 /* PaperOnboarding.h in Headers */ = {isa = PBXBuildFile; fileRef = 845C48C11CFDB2F7002BE949 /* PaperOnboarding.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		845C48C61CFDB2F7002BE949 /* PaperOnboarding.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 845C48BF1CFDB2F7002BE949 /* PaperOnboarding.framework */; };
+		845C48C71CFDB2F7002BE949 /* PaperOnboarding.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 845C48BF1CFDB2F7002BE949 /* PaperOnboarding.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		845C48CB1CFDB317002BE949 /* PaperOnboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C7E5CD1CCE571800C9F001 /* PaperOnboarding.swift */; };
+		845C48CC1CFDB31C002BE949 /* PageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C7E5D91CCE585700C9F001 /* PageView.swift */; };
+		845C48CD1CFDB321002BE949 /* PageContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C7E5D81CCE585700C9F001 /* PageContainer.swift */; };
+		845C48CE1CFDB325002BE949 /* PageViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C7E5D61CCE585700C9F001 /* PageViewItem.swift */; };
+		845C48CF1CFDB32A002BE949 /* ConstraintsHalper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C7E5E11CCE590700C9F001 /* ConstraintsHalper.swift */; };
+		845C48D01CFDB32D002BE949 /* Configuring.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C7E5EC1CCE598A00C9F001 /* Configuring.swift */; };
+		845C48D11CFDB332002BE949 /* OnboardingContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C7E5E71CCE595F00C9F001 /* OnboardingContentView.swift */; };
+		845C48D21CFDB337002BE949 /* OnboardingContantViewItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C7E5E61CCE595F00C9F001 /* OnboardingContantViewItem.swift */; };
+		845C48D31CFDB33D002BE949 /* FillAnimationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C7E5F01CCE59A400C9F001 /* FillAnimationView.swift */; };
+		845C48D41CFDB342002BE949 /* GestureControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C7E6011CCE59BD00C9F001 /* GestureControl.swift */; };
 		84A773A41CCE545200EF4EB0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A773A31CCE545200EF4EB0 /* AppDelegate.swift */; };
 		84A773A61CCE545200EF4EB0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84A773A51CCE545200EF4EB0 /* ViewController.swift */; };
 		84A773A91CCE545200EF4EB0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 84A773A71CCE545200EF4EB0 /* Main.storyboard */; };
@@ -46,6 +59,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		845C48C41CFDB2F7002BE949 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 84A773981CCE545200EF4EB0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 845C48BE1CFDB2F7002BE949;
+			remoteInfo = PaperOnboarding;
+		};
 		84A773B51CCE545200EF4EB0 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 84A773981CCE545200EF4EB0 /* Project object */;
@@ -62,6 +82,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				845C48C71CFDB2F7002BE949 /* PaperOnboarding.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -70,6 +91,9 @@
 
 /* Begin PBXFileReference section */
 		843A19641CD0B49E00F37344 /* Images.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
+		845C48BF1CFDB2F7002BE949 /* PaperOnboarding.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PaperOnboarding.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		845C48C11CFDB2F7002BE949 /* PaperOnboarding.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PaperOnboarding.h; sourceTree = "<group>"; };
+		845C48C31CFDB2F7002BE949 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		847CEA511CFC88F500AB132D /* Paper-onboarding.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Paper-onboarding.h"; sourceTree = "<group>"; };
 		847CEA531CFC88F500AB132D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		84A773A01CCE545200EF4EB0 /* PaperOnboardingDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PaperOnboardingDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -99,10 +123,18 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		845C48BB1CFDB2F7002BE949 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		84A7739D1CCE545200EF4EB0 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				845C48C61CFDB2F7002BE949 /* PaperOnboarding.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -124,6 +156,15 @@
 			path = Constants;
 			sourceTree = "<group>";
 		};
+		845C48C01CFDB2F7002BE949 /* PaperOnboarding */ = {
+			isa = PBXGroup;
+			children = (
+				845C48C11CFDB2F7002BE949 /* PaperOnboarding.h */,
+				845C48C31CFDB2F7002BE949 /* Info.plist */,
+			);
+			path = PaperOnboarding;
+			sourceTree = "<group>";
+		};
 		847CEA501CFC88F500AB132D /* Paper-onboarding */ = {
 			isa = PBXGroup;
 			children = (
@@ -142,6 +183,7 @@
 				84A773A21CCE545200EF4EB0 /* PaperOnboardingDemo */,
 				84A773B71CCE545200EF4EB0 /* PaperOnboardingDemoTests */,
 				847CEA501CFC88F500AB132D /* Paper-onboarding */,
+				845C48C01CFDB2F7002BE949 /* PaperOnboarding */,
 				84A773A11CCE545200EF4EB0 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -151,6 +193,7 @@
 			children = (
 				84A773A01CCE545200EF4EB0 /* PaperOnboardingDemo.app */,
 				84A773B41CCE545200EF4EB0 /* PaperOnboardingDemoTests.xctest */,
+				845C48BF1CFDB2F7002BE949 /* PaperOnboarding.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -272,7 +315,36 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		845C48BC1CFDB2F7002BE949 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				845C48C21CFDB2F7002BE949 /* PaperOnboarding.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
+		845C48BE1CFDB2F7002BE949 /* PaperOnboarding */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 845C48C81CFDB2F7002BE949 /* Build configuration list for PBXNativeTarget "PaperOnboarding" */;
+			buildPhases = (
+				845C48BA1CFDB2F7002BE949 /* Sources */,
+				845C48BB1CFDB2F7002BE949 /* Frameworks */,
+				845C48BC1CFDB2F7002BE949 /* Headers */,
+				845C48BD1CFDB2F7002BE949 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PaperOnboarding;
+			productName = PaperOnboarding;
+			productReference = 845C48BF1CFDB2F7002BE949 /* PaperOnboarding.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 		84A7739F1CCE545200EF4EB0 /* PaperOnboardingDemo */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 84A773BD1CCE545200EF4EB0 /* Build configuration list for PBXNativeTarget "PaperOnboardingDemo" */;
@@ -286,6 +358,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				845C48C51CFDB2F7002BE949 /* PBXTargetDependency */,
 			);
 			name = PaperOnboardingDemo;
 			productName = PaperOnboardingDemo;
@@ -320,6 +393,9 @@
 				LastUpgradeCheck = 0730;
 				ORGANIZATIONNAME = "Alex K.";
 				TargetAttributes = {
+					845C48BE1CFDB2F7002BE949 = {
+						CreatedOnToolsVersion = 7.3.1;
+					};
 					84A7739F1CCE545200EF4EB0 = {
 						CreatedOnToolsVersion = 7.3;
 					};
@@ -344,11 +420,19 @@
 			targets = (
 				84A7739F1CCE545200EF4EB0 /* PaperOnboardingDemo */,
 				84A773B31CCE545200EF4EB0 /* PaperOnboardingDemoTests */,
+				845C48BE1CFDB2F7002BE949 /* PaperOnboarding */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		845C48BD1CFDB2F7002BE949 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		84A7739E1CCE545200EF4EB0 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -394,6 +478,23 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		845C48BA1CFDB2F7002BE949 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				845C48CE1CFDB325002BE949 /* PageViewItem.swift in Sources */,
+				845C48CF1CFDB32A002BE949 /* ConstraintsHalper.swift in Sources */,
+				845C48CB1CFDB317002BE949 /* PaperOnboarding.swift in Sources */,
+				845C48D11CFDB332002BE949 /* OnboardingContentView.swift in Sources */,
+				845C48D31CFDB33D002BE949 /* FillAnimationView.swift in Sources */,
+				845C48D01CFDB32D002BE949 /* Configuring.swift in Sources */,
+				845C48CD1CFDB321002BE949 /* PageContainer.swift in Sources */,
+				845C48D41CFDB342002BE949 /* GestureControl.swift in Sources */,
+				845C48D21CFDB337002BE949 /* OnboardingContantViewItem.swift in Sources */,
+				845C48CC1CFDB31C002BE949 /* PageView.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		84A7739C1CCE545200EF4EB0 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -436,6 +537,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		845C48C51CFDB2F7002BE949 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 845C48BE1CFDB2F7002BE949 /* PaperOnboarding */;
+			targetProxy = 845C48C41CFDB2F7002BE949 /* PBXContainerItemProxy */;
+		};
 		84A773B61CCE545200EF4EB0 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 84A7739F1CCE545200EF4EB0 /* PaperOnboardingDemo */;
@@ -463,6 +569,48 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		845C48C91CFDB2F7002BE949 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = PaperOnboarding/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ramotion.PaperOnboarding;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		845C48CA1CFDB2F7002BE949 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = PaperOnboarding/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ramotion.PaperOnboarding;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		84A773BB1CCE545200EF4EB0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -601,6 +749,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		845C48C81CFDB2F7002BE949 /* Build configuration list for PBXNativeTarget "PaperOnboarding" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				845C48C91CFDB2F7002BE949 /* Debug */,
+				845C48CA1CFDB2F7002BE949 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		84A7739B1CCE545200EF4EB0 /* Build configuration list for PBXProject "PaperOnboardingDemo" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
