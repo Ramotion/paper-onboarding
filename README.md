@@ -30,7 +30,7 @@ or use [CocoaPods](https://cocoapods.org) with Podfile:
 pod 'paper-onboarding'
 ```
 
-[Carthage](https://github.com/Carthage/Carthage) users can simply add Mantle to their `Cartfile`:
+or [Carthage](https://github.com/Carthage/Carthage) users can simply add Mantle to their `Cartfile`:
 ```
 github "Ramotion/paper-onboarding"
 ```
