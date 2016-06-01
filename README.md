@@ -95,6 +95,18 @@ func onboardingConfigurationItem(item: OnboardingContentViewItem, index: Int) {
 //    item.imageView = ...
   }
 ```
+##Actions to do once the walkthrough is done
+
+```swift
+optional func onboardingWillTransitonToIndex(index: Int){
+	///Do what you want..
+
+}
+optional func onboardingDidTransitonToIndex(index: Int){
+	///Do what you want..
+
+}
+```
 ## License
 
 paper-onboarding is released under the MIT license.
