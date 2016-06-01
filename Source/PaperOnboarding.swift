@@ -88,8 +88,9 @@ extension PaperOnboarding {
 
   private func commonInit() {
     if case let dataSource as PaperOnboardingDataSource = self.dataSource {
-      itemsCount = dataSource.onboardingItemCount()
+      itemsCount = dataSource.onboardingItemsCount()
     }
+
     itemsInfo = createItemsInfo()
     translatesAutoresizingMaskIntoConstraints = false
     fillAnimationView = FillAnimationView.animavtionViewOnView(self, color: bakcgroundColor(currentIndex))
