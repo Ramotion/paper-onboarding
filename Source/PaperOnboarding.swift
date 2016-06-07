@@ -62,18 +62,20 @@ public protocol PaperOnboardingDelegate {
   func onboardingConfigurationItem(item: OnboardingContentViewItem, index: Int)
 }
 
+///An instance of PaperOnboarding which display collection of information.
 public class PaperOnboarding: UIView {
   
-  //  The object that acts as the data source of the  PaperOnboardingDataSource.
+  ///  The object that acts as the data source of the  PaperOnboardingDataSource.
   @IBOutlet public var dataSource: AnyObject? {
     didSet {
       commonInit()
     }
   }
   
-  // The object that acts as the delegate of the PaperOnboarding. PaperOnboardingDelegate protocol
+  /// The object that acts as the delegate of the PaperOnboarding. PaperOnboardingDelegate protocol
   @IBOutlet public var delegate: AnyObject?
   
+  /// current index item
   public private(set) var currentIndex: Int = 0
   var itemsCount: Int = 3
   
@@ -105,7 +107,7 @@ public class PaperOnboarding: UIView {
   }
 }
 
-// MARK: public
+// MARK: methods
 
 public extension PaperOnboarding {
   
