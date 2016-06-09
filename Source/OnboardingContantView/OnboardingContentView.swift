@@ -23,6 +23,8 @@ class OnboardingContentView: UIView {
   }
 
   private var currentItem: OnboardingContentViewItem?
+  private var actionButtonHandlerCallback: (() -> Void)? = nil
+    
   var delegate: OnboardingContentViewDelegate
 
   init(itemsCount: Int, delegate: OnboardingContentViewDelegate) {
@@ -50,7 +52,15 @@ extension OnboardingContentView {
     currentItem = showItem
   }
 
+  func getCurrentActionButtonFrame() -> CGRect? {
+    return currentItem?.getActionButtonFrame()
+  }
+    
+  func actionButtonWasTapped() {
+    actionButtonHandlerCallback?()
+  }
 }
+
 // MARK: life cicle
 
 extension OnboardingContentView {
@@ -97,6 +107,26 @@ extension OnboardingContentView {
       $0.descriptionLabel?.text = info.description
       $0.descriptionLabel?.font = info.descriptionFont
       $0.descriptionLabel?.textColor = info.descriptionColor
+        
+      if let buttonTitle = info.actionButtonTitle where buttonTitle.isEmpty == false {
+        $0.actionButton?.hidden = false
+        $0.actionButton?.setTitle(buttonTitle, forState: .Normal)
+        
+        if let textColor = info.actionButtonTextColor {
+            $0.actionButton?.titleLabel?.textColor = textColor
+        }
+        
+        if let bgColor = info.actionButtonBackgroundColor {
+            $0.actionButton?.backgroundColor = bgColor
+        }
+        
+        $0.actionButton?.addTarget(self, action: #selector(OnboardingContentView.onActionButtonTapped(_:)), forControlEvents: .TouchUpInside)
+        self.actionButtonHandlerCallback = info.actionButtonHandler
+      }
+      else {
+        $0.actionButton?.hidden = true
+        self.actionButtonHandlerCallback = nil
+      }
     }
     
     delegate.onboardingConfigurationItem(item, index: index)
@@ -144,4 +174,15 @@ extension OnboardingContentView {
       self.layoutIfNeeded()
     }, completion: nil)
   }
+}
+
+
+// MARK: - Action Button:
+
+extension OnboardingContentView {
+    
+    func onActionButtonTapped(button: UIButton) {
+        self.actionButtonHandlerCallback?()
+    }
+    
 }

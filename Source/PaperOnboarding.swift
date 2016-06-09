@@ -8,7 +8,38 @@
 
 import UIKit
 
-public typealias OnboardingItemInfo = (imageName: String, title: String, description: String, iconName: String, color: UIColor, titleColor: UIColor, descriptionColor: UIColor, titleFont: UIFont, descriptionFont: UIFont)
+public struct OnboardingItemInfo {
+    let imageName: String
+    let title: String
+    let description: String
+    let iconName: String
+    let color: UIColor
+    let titleColor: UIColor
+    let descriptionColor: UIColor
+    let titleFont: UIFont
+    let descriptionFont: UIFont
+    let actionButtonTitle: String?
+    let actionButtonTextColor: UIColor?
+    let actionButtonBackgroundColor: UIColor?
+    let actionButtonHandler: (() -> Void)?
+    
+    init(imageName: String, title: String, description: String, iconName: String, color: UIColor, titleColor: UIColor = .whiteColor(), descriptionColor: UIColor = .whiteColor(), titleFont: UIFont, descriptionFont: UIFont, actionButtonTitle: String? = nil, actionButtonTextColor: UIColor? = .whiteColor(), actionButtonBackgroundColor: UIColor? = .clearColor(), actionButtonHandler: (() -> Void)? = nil) {
+        self.imageName = imageName
+        self.title = title
+        self.description = description
+        self.iconName = iconName
+        self.color = color
+        self.titleColor = titleColor
+        self.descriptionColor = descriptionColor
+        self.titleFont = titleFont
+        self.descriptionFont = descriptionFont
+        self.actionButtonTitle = actionButtonTitle
+        self.actionButtonTextColor = actionButtonTextColor
+        self.actionButtonBackgroundColor = actionButtonBackgroundColor
+        self.actionButtonHandler = actionButtonHandler
+    }
+}
+
 
 /**
  *  The PaperOnboardingDataSource protocol is adopted by an object that mediates the application’s data model for a PaperOnboarding object.
@@ -214,6 +245,15 @@ extension PaperOnboarding: GestureControlDelegate {
       fatalError()
     }
   }
+    
+  func gestureControlDidTap(tapPoint: CGPoint) {
+    guard let cv = self.contentView, let buttonFrame = cv.getCurrentActionButtonFrame() where CGRectContainsPoint(buttonFrame, tapPoint) else {
+        return
+    }
+    
+    contentView?.actionButtonWasTapped()
+  }
+    
 }
 
 // MARK: OnboardingDelegate

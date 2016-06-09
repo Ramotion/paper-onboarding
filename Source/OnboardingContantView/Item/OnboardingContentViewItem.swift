@@ -16,6 +16,7 @@ import UIKit
   public var imageView: UIImageView?
   public var titleLabel: UILabel?
   public var descriptionLabel: UILabel?
+  public var actionButton: UIButton?
   
   override init(frame: CGRect) {
     super.init(frame: frame)
@@ -60,6 +61,16 @@ extension OnboardingContentViewItem {
     
    return item
   }
+    
+  func getActionButtonFrame() -> CGRect? {
+    guard let sv = self.superview, let actionButtonFrame = actionButton?.frame else {
+        return nil
+    }
+    
+    let convertedRect = self.convertRect(actionButtonFrame, toView: sv)
+    return convertedRect
+  }
+    
 }
 
 // MARK: create
@@ -71,6 +82,7 @@ private extension OnboardingContentViewItem {
     let titleLabel       = createTitleLabel(self)
     let descriptionLabel = createDescriptionLabel(self)
     let imageView        = createImage(self)
+    let actionButton     = createActionButton(self)
 
     // added constraints
     centerConstraint = (self, titleLabel, imageView) >>>- {
@@ -85,9 +97,16 @@ private extension OnboardingContentViewItem {
       $0.constant        = 10
     }
     
+    (self, actionButton, self) >>>- {
+      $0.attribute       = .Top
+      $0.secondAttribute = .Bottom
+      $0.constant        = 80
+    }
+    
     self.titleLabel       = titleLabel
     self.descriptionLabel = descriptionLabel
     self.imageView        = imageView
+    self.actionButton     = actionButton
   }
 
   func createTitleLabel(onView: UIView) -> UILabel {
@@ -167,5 +186,34 @@ private extension OnboardingContentViewItem {
     }
     
     return imageView
+  }
+    
+  func createActionButton(onView: UIView) -> UIButton {
+    let button = Init(UIButton(frame: CGRect.zero)) {
+        $0.backgroundColor = .clearColor()
+        $0.translatesAutoresizingMaskIntoConstraints = false
+        $0.titleLabel?.textAlignment = .Center
+        $0.titleLabel?.textColor = .whiteColor()
+        $0.titleLabel?.font = .systemFontOfSize(20)
+        $0.titleLabel?.adjustsFontSizeToFitWidth = true
+        $0.titleLabel?.minimumScaleFactor = 0.5
+        $0.layer.cornerRadius = 6
+    }
+    
+    onView.addSubview(button)
+    
+    button >>>- {
+        $0.attribute = .Height
+        $0.constant = 60
+    }
+    
+    for (attribute, constant) in [(NSLayoutAttribute.Leading, 30), (NSLayoutAttribute.Trailing, -30), (NSLayoutAttribute.CenterX, 0)] {
+        (onView, button) >>>- {
+            $0.attribute = attribute
+            $0.constant = CGFloat(constant)
+        }
+    }
+    
+    return button
   }
 }

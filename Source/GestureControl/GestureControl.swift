@@ -8,8 +8,10 @@
 
 import UIKit
 
-protocol GestureControlDelegate {
+@objc protocol GestureControlDelegate {
   func gestureControlDidSwipe(direction: UISwipeGestureRecognizerDirection)
+  func gestureControlDidTap(tapPoint: CGPoint)
+  optional func gestureRecognizerShouldBegin(gestureRecognizer: UIGestureRecognizer) -> Bool
 }
 
 class GestureControl: UIView {
@@ -23,11 +25,17 @@ class GestureControl: UIView {
     
     let swipeLeft       = UISwipeGestureRecognizer(target: self, action: #selector(GestureControl.swipeHandler(_:)))
     swipeLeft.direction = .Left
+    swipeLeft.delegate = self
     addGestureRecognizer(swipeLeft)
     
     let swipeRight       = UISwipeGestureRecognizer(target: self, action: #selector(GestureControl.swipeHandler(_:)))
     swipeRight.direction = .Right
+    swipeRight.delegate = self
     addGestureRecognizer(swipeRight)
+    
+    let tap = UITapGestureRecognizer(target: self, action: #selector(GestureControl.tapHandler(_:)))
+    tap.delegate = self
+    addGestureRecognizer(tap)
     
     translatesAutoresizingMaskIntoConstraints = false
     backgroundColor                           = .clearColor()
@@ -54,4 +62,19 @@ extension GestureControl {
     delegate.gestureControlDidSwipe(gesture.direction)
   }
 
+  dynamic func tapHandler(gesture: UITapGestureRecognizer) {
+    let tapPoint = gesture.locationInView(self)
+    delegate.gestureControlDidTap(tapPoint)
+  }
+}
+
+
+// MARK: - UIGestureRecognizerDelegate Methods:
+
+extension GestureControl : UIGestureRecognizerDelegate {
+
+    override func gestureRecognizerShouldBegin(gestureRecognizer: UIGestureRecognizer) -> Bool {
+        return self.delegate.gestureRecognizerShouldBegin?(gestureRecognizer) ?? true
+    }
+    
 }
