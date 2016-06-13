@@ -23,7 +23,7 @@ public struct OnboardingItemInfo {
     let actionButtonBackgroundColor: UIColor?
     let actionButtonHandler: (() -> Void)?
     
-    init(imageName: String, title: String, description: String, iconName: String, color: UIColor, titleColor: UIColor = .whiteColor(), descriptionColor: UIColor = .whiteColor(), titleFont: UIFont, descriptionFont: UIFont, actionButtonTitle: String? = nil, actionButtonTextColor: UIColor? = .whiteColor(), actionButtonBackgroundColor: UIColor? = .clearColor(), actionButtonHandler: (() -> Void)? = nil) {
+    public init(imageName: String, title: String, description: String, iconName: String, color: UIColor, titleColor: UIColor = .whiteColor(), descriptionColor: UIColor = .whiteColor(), titleFont: UIFont, descriptionFont: UIFont, actionButtonTitle: String? = nil, actionButtonTextColor: UIColor? = .whiteColor(), actionButtonBackgroundColor: UIColor? = .clearColor(), actionButtonHandler: (() -> Void)? = nil) {
         self.imageName = imageName
         self.title = title
         self.description = description

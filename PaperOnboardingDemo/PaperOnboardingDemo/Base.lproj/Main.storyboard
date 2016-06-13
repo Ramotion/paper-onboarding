@@ -20,7 +20,7 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Eon-3O-WaB" userLabel="Onboarding" customClass="PaperOnboarding" customModule="PaperOnboardingDemo" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                                <color key="backgroundColor" red="0.28728589415550232" green="0.1402067244052887" blue="0.30659055709838867" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.28627450980392155" green="0.14117647058823529" blue="0.30588235294117649" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <outlet property="dataSource" destination="BYZ-38-t0r" id="rMG-ng-hZ9"/>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="PqP-Qk-M5k"/>
