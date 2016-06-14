@@ -2,7 +2,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "paper-onboarding"
-  s.version      = "1.1.4"
+  s.version      = "1.1.5"
   s.summary      = "Amazing onboarding."
   s.license      = 'MIT'
   s.homepage     = 'https://github.com/Eyez-io/paper-onboarding'
