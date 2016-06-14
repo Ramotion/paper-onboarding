@@ -113,8 +113,8 @@ private extension OnboardingContentViewItem {
       $0.constant        = 10
     }
 
-    let minButtonOffsetY: CGFloat = 50
-    let maxButtonOffsetY: CGFloat = 85
+    let minButtonOffsetY: CGFloat = 40
+    let maxButtonOffsetY: CGFloat = 70
     
     let buttonOffsetY = CGFloat(Int(minButtonOffsetY + (((viewHeight - iPhone5Height) / (iPhone6SHeight - iPhone5Height)) * (maxButtonOffsetY - minButtonOffsetY))))
     
