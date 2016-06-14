@@ -113,8 +113,8 @@ private extension OnboardingContentViewItem {
       $0.constant        = 10
     }
 
-    let minButtonOffsetY: CGFloat = 30
-    let maxButtonOffsetY: CGFloat = 120
+    let minButtonOffsetY: CGFloat = 50
+    let maxButtonOffsetY: CGFloat = 85
     
     let buttonOffsetY = CGFloat(Int(minButtonOffsetY + (((viewHeight - iPhone5Height) / (iPhone6SHeight - iPhone5Height)) * (maxButtonOffsetY - minButtonOffsetY))))
     
@@ -187,6 +187,15 @@ private extension OnboardingContentViewItem {
   }
 
   func createImage(onView: UIView) -> UIImageView {
+    let viewHeight = UIScreen.mainScreen().bounds.size.height
+    let iPhone6SHeight: CGFloat = 736
+    let iPhone5Height: CGFloat = 568
+    
+    let minImageHeight: CGFloat = 188
+    let maxImageHeight: CGFloat = 250
+    
+    let imageHeight = CGFloat(Int(minImageHeight + (((viewHeight - iPhone5Height) / (iPhone6SHeight - iPhone5Height)) * (maxImageHeight - minImageHeight))))
+    
     let imageView = Init(UIImageView(frame: CGRect.zero)) {
       $0.contentMode                               = .ScaleAspectFit
       $0.translatesAutoresizingMaskIntoConstraints = false
@@ -198,26 +207,22 @@ private extension OnboardingContentViewItem {
     for attribute in [NSLayoutAttribute.Width, NSLayoutAttribute.Height] {
       imageView >>>- {
         $0.attribute = attribute
-        $0.constant  = 188
+        $0.constant  = imageHeight
       }
     }
     
     (onView, imageView) >>>- {
       $0.attribute = .CenterX
     }
-
-    let viewHeight = UIScreen.mainScreen().bounds.size.height
-    let iPhone6SHeight: CGFloat = 736
-    let iPhone5Height: CGFloat = 568
     
-    let minOffsetY: CGFloat = 0
-    let maxOffsetY: CGFloat = 50
+    let minImageOffsetY: CGFloat = 0
+    let maxImageOffsetY: CGFloat = 50
     
-    let offsetY = CGFloat(Int(minOffsetY + (((viewHeight - iPhone5Height) / (iPhone6SHeight - iPhone5Height)) * (maxOffsetY - minOffsetY))))
+    let imageOffsetY = CGFloat(Int(minImageOffsetY + (((viewHeight - iPhone5Height) / (iPhone6SHeight - iPhone5Height)) * (maxImageOffsetY - minImageOffsetY))))
     
     (onView, imageView) >>>- {
         $0.attribute = .Top
-        $0.constant = offsetY
+        $0.constant = imageOffsetY
     }
 
     return imageView
@@ -237,9 +242,18 @@ private extension OnboardingContentViewItem {
     
     onView.addSubview(button)
     
+    let viewHeight = UIScreen.mainScreen().bounds.size.height
+    let iPhone6SHeight: CGFloat = 736
+    let iPhone5Height: CGFloat = 568
+    
+    let minButtonHeight: CGFloat = 45
+    let maxButtonHeight: CGFloat = 60
+    
+    let buttonHeight = CGFloat(Int(minButtonHeight + (((viewHeight - iPhone5Height) / (iPhone6SHeight - iPhone5Height)) * (maxButtonHeight - minButtonHeight))))
+
     button >>>- {
         $0.attribute = .Height
-        $0.constant = 50
+        $0.constant = buttonHeight
     }
     
     for (attribute, constant) in [(NSLayoutAttribute.Leading, 30), (NSLayoutAttribute.Trailing, -30), (NSLayoutAttribute.CenterX, 0)] {
