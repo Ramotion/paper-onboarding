@@ -1,4 +1,4 @@
-![header](https://raw.githubusercontent.com/Ramotion/paper-onboarding/master/header.png)
+[![header](https://raw.githubusercontent.com/Ramotion/paper-onboarding/master/header.png)](https://ramotion.com?utm_source=gthb&utm_medium=special&utm_campaign=paper-onboarding-logo)
 
 # paper-onboarding
 [![Twitter](https://img.shields.io/badge/Twitter-@Ramotion-blue.svg?style=flat)](http://twitter.com/Ramotion)
@@ -9,7 +9,9 @@
 [![Travis](https://img.shields.io/travis/Ramotion/paper-onboarding.svg)](https://travis-ci.org/Ramotion/paper-onboarding)
 [![codebeat badge](https://codebeat.co/badges/d06237c6-6ff7-4560-9602-b6cc65063383)](https://codebeat.co/projects/github-com-ramotion-paper-onboarding)
 
-[shot on dribbble](https://dribbble.com/shots/2694049-iOS-Pagination-Controller-Open-Source):
+
+## About
+This project is maintained by Ramotion, an agency specialized in building dedicated engineering teams and developing custom software.<br><br> [Contact our team](https://ramotion.com?utm_source=gthb&utm_medium=special&utm_campaign=paper-onboarding-contact-us) and we’ll help you work with the best engineers from Eastern Europe.
 
 <p align="center">
 <a href="https://dribbble.com/shots/2694049-iOS-Pagination-Controller-Open-Source"><img src="https://raw.githubusercontent.com/Ramotion/paper-onboarding/master/preview.gif" width="890" height="668" alt="StackViewController Example App" /></a>
@@ -102,9 +104,7 @@ paper-onboarding is released under the MIT license.
 See [LICENSE](./LICENSE) for details.
 
 
-## About
-Maintained by [app development agency](https://ramotion.com?utm_source=gthb&utm_medium=special&utm_campaign=paper-onboarding) [Ramotion Inc.](https://ramotion.com?utm_source=gthb&utm_medium=special&utm_campaign=paper-onboarding)
-See our other [open-source projects](https://github.com/ramotion) or [hire](https://ramotion.com?utm_source=gthb&utm_medium=special&utm_campaign=paper-onboarding) us to design, develop, and grow your product.
+## Follow Us
 
 [![Twitter URL](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/intent/tweet?text=https://github.com/ramotion/paper-onboarding)
 [![Twitter Follow](https://img.shields.io/twitter/follow/ramotion.svg?style=social)](https://twitter.com/ramotion)
