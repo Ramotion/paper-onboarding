@@ -1,4 +1,4 @@
-[![header](https://raw.githubusercontent.com/Ramotion/paper-onboarding/master/header.png)](https://ramotion.com?utm_source=gthb&utm_medium=special&utm_campaign=paper-onboarding-logo)
+[![header](https://raw.githubusercontent.com/Ramotion/paper-onboarding/master/header.png)](https://business.ramotion.com?utm_source=gthb&utm_medium=special&utm_campaign=paper-onboarding-logo)
 
 # paper-onboarding
 [![Twitter](https://img.shields.io/badge/Twitter-@Ramotion-blue.svg?style=flat)](http://twitter.com/Ramotion)
@@ -11,7 +11,7 @@
 
 
 ## About
-This project is maintained by Ramotion, an agency specialized in building dedicated engineering teams and developing custom software.<br><br> [Contact our team](https://ramotion.com?utm_source=gthb&utm_medium=special&utm_campaign=paper-onboarding-contact-us) and we’ll help you work with the best engineers from Eastern Europe.
+This project is maintained by Ramotion, an agency specialized in building dedicated engineering teams and developing custom software.<br><br> [Contact our team](https://business.ramotion.com?utm_source=gthb&utm_medium=special&utm_campaign=paper-onboarding-contact-us) and we’ll help you work with the best engineers from Eastern Europe.
 
 <p align="center">
 <a href="https://dribbble.com/shots/2694049-iOS-Pagination-Controller-Open-Source"><img src="https://raw.githubusercontent.com/Ramotion/paper-onboarding/master/preview.gif" width="890" height="668" alt="StackViewController Example App" /></a>
