@@ -16,6 +16,7 @@ import UIKit
   public var imageView: UIImageView?
   public var titleLabel: UILabel?
   public var descriptionLabel: UILabel?
+  public var actionButton: UIButton?
   
   override init(frame: CGRect) {
     super.init(frame: frame)
@@ -52,14 +53,31 @@ extension OnboardingContentViewItem {
       }
     }
     
-    for attribute in [NSLayoutAttribute.CenterX, NSLayoutAttribute.CenterY] {
+    for attribute in [NSLayoutAttribute.CenterX] {
       (view, item) >>>- {
         $0.attribute = attribute
       }
     }
     
+    for attribute in [NSLayoutAttribute.Top] {
+        (view, item) >>>- {
+            $0.attribute = attribute
+            $0.constant = 40
+        }
+    }
+    
    return item
   }
+    
+  func getActionButtonFrame() -> CGRect? {
+    guard let sv = self.superview, let actionButtonFrame = actionButton?.frame else {
+        return nil
+    }
+    
+    let convertedRect = self.convertRect(actionButtonFrame, toView: sv)
+    return convertedRect
+  }
+    
 }
 
 // MARK: create
@@ -71,12 +89,22 @@ private extension OnboardingContentViewItem {
     let titleLabel       = createTitleLabel(self)
     let descriptionLabel = createDescriptionLabel(self)
     let imageView        = createImage(self)
+    let actionButton     = createActionButton(self)
 
+    let viewHeight = UIScreen.mainScreen().bounds.size.height
+    let iPhone6SHeight: CGFloat = 736
+    let iPhone5Height: CGFloat = 568
+    
+    let minTitleOffsetY: CGFloat = 15
+    let maxTitleOffsetY: CGFloat = 50
+    
+    let titleOffsetY = CGFloat(Int(minTitleOffsetY + (((viewHeight - iPhone5Height) / (iPhone6SHeight - iPhone5Height)) * (maxTitleOffsetY - minTitleOffsetY))))
+    
     // added constraints
     centerConstraint = (self, titleLabel, imageView) >>>- {
       $0.attribute       = .Top
       $0.secondAttribute = .Bottom
-      $0.constant        = 50
+      $0.constant        = titleOffsetY
     }
     
     (self, descriptionLabel, titleLabel) >>>- {
@@ -84,10 +112,22 @@ private extension OnboardingContentViewItem {
       $0.secondAttribute = .Bottom
       $0.constant        = 10
     }
+
+    let minButtonOffsetY: CGFloat = 40
+    let maxButtonOffsetY: CGFloat = 70
+    
+    let buttonOffsetY = CGFloat(Int(minButtonOffsetY + (((viewHeight - iPhone5Height) / (iPhone6SHeight - iPhone5Height)) * (maxButtonOffsetY - minButtonOffsetY))))
+    
+    (self, actionButton, self) >>>- {
+      $0.attribute       = .Top
+      $0.secondAttribute = .Bottom
+      $0.constant        = buttonOffsetY
+    }
     
     self.titleLabel       = titleLabel
     self.descriptionLabel = descriptionLabel
     self.imageView        = imageView
+    self.actionButton     = actionButton
   }
 
   func createTitleLabel(onView: UIView) -> UILabel {
@@ -147,6 +187,15 @@ private extension OnboardingContentViewItem {
   }
 
   func createImage(onView: UIView) -> UIImageView {
+    let viewHeight = UIScreen.mainScreen().bounds.size.height
+    let iPhone6SHeight: CGFloat = 736
+    let iPhone5Height: CGFloat = 568
+    
+    let minImageHeight: CGFloat = 188
+    let maxImageHeight: CGFloat = 250
+    
+    let imageHeight = CGFloat(Int(minImageHeight + (((viewHeight - iPhone5Height) / (iPhone6SHeight - iPhone5Height)) * (maxImageHeight - minImageHeight))))
+    
     let imageView = Init(UIImageView(frame: CGRect.zero)) {
       $0.contentMode                               = .ScaleAspectFit
       $0.translatesAutoresizingMaskIntoConstraints = false
@@ -158,14 +207,62 @@ private extension OnboardingContentViewItem {
     for attribute in [NSLayoutAttribute.Width, NSLayoutAttribute.Height] {
       imageView >>>- {
         $0.attribute = attribute
-        $0.constant  = 188
+        $0.constant  = imageHeight
       }
     }
     
-    for attribute in [NSLayoutAttribute.CenterX, NSLayoutAttribute.Top] {
-      (onView, imageView) >>>- { $0.attribute = attribute }
+    (onView, imageView) >>>- {
+      $0.attribute = .CenterX
     }
     
+    let minImageOffsetY: CGFloat = 0
+    let maxImageOffsetY: CGFloat = 50
+    
+    let imageOffsetY = CGFloat(Int(minImageOffsetY + (((viewHeight - iPhone5Height) / (iPhone6SHeight - iPhone5Height)) * (maxImageOffsetY - minImageOffsetY))))
+    
+    (onView, imageView) >>>- {
+        $0.attribute = .Top
+        $0.constant = imageOffsetY
+    }
+
     return imageView
+  }
+    
+  func createActionButton(onView: UIView) -> UIButton {
+    let button = Init(UIButton(frame: CGRect.zero)) {
+        $0.backgroundColor = .clearColor()
+        $0.translatesAutoresizingMaskIntoConstraints = false
+        $0.titleLabel?.textAlignment = .Center
+        $0.titleLabel?.textColor = .whiteColor()
+        $0.titleLabel?.font = .systemFontOfSize(20)
+        $0.titleLabel?.adjustsFontSizeToFitWidth = true
+        $0.titleLabel?.minimumScaleFactor = 0.5
+        $0.layer.cornerRadius = 6
+    }
+    
+    onView.addSubview(button)
+    
+    let viewHeight = UIScreen.mainScreen().bounds.size.height
+    let iPhone6SHeight: CGFloat = 736
+    let iPhone5Height: CGFloat = 568
+    
+    let minButtonHeight: CGFloat = 45
+    let maxButtonHeight: CGFloat = 60
+    
+    let buttonHeight = CGFloat(Int(minButtonHeight + (((viewHeight - iPhone5Height) / (iPhone6SHeight - iPhone5Height)) * (maxButtonHeight - minButtonHeight))))
+
+    button >>>- {
+        $0.attribute = .Height
+        $0.constant = buttonHeight
+    }
+    
+    for (attribute, constant) in [(NSLayoutAttribute.Leading, 30), (NSLayoutAttribute.Trailing, -30), (NSLayoutAttribute.CenterX, 0)] {
+        (onView, button) >>>- {
+            $0.attribute = attribute
+            $0.constant = CGFloat(constant)
+        }
+    }
+    
+    return button
   }
 }
