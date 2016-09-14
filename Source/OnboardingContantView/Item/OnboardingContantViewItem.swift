@@ -8,14 +8,14 @@
 
 import UIKit
 
- public class OnboardingContentViewItem: UIView {
+ open class OnboardingContentViewItem: UIView {
   
   var bottomConstraint: NSLayoutConstraint?
   var centerConstraint: NSLayoutConstraint?
   
-  public var imageView: UIImageView?
-  public var titleLabel: UILabel?
-  public var descriptionLabel: UILabel?
+  open var imageView: UIImageView?
+  open var titleLabel: UILabel?
+  open var descriptionLabel: UILabel?
   
   override init(frame: CGRect) {
     super.init(frame: frame)
@@ -31,9 +31,9 @@ import UIKit
 
 extension OnboardingContentViewItem {
   
-  class func itemOnView(view: UIView) -> OnboardingContentViewItem {
+  class func itemOnView(_ view: UIView) -> OnboardingContentViewItem {
     let item = Init(OnboardingContentViewItem(frame:CGRect.zero)) {
-      $0.backgroundColor                           = .clearColor()
+      $0.backgroundColor                           = .clear
       $0.translatesAutoresizingMaskIntoConstraints = false
     }
     
@@ -41,20 +41,23 @@ extension OnboardingContentViewItem {
     
     // add constraints
     item >>>- {
-      $0.attribute = .Height
+      $0.attribute = .height
       $0.constant  = 10000
-      $0.relation  = .LessThanOrEqual
+      $0.relation  = .lessThanOrEqual
+      return
     }
-    
-    for attribute in [NSLayoutAttribute.Leading, NSLayoutAttribute.Trailing] {
+
+    for attribute in [NSLayoutAttribute.leading, NSLayoutAttribute.trailing] {
       (view, item) >>>- {
         $0.attribute = attribute
+        return
       }
     }
     
-    for attribute in [NSLayoutAttribute.CenterX, NSLayoutAttribute.CenterY] {
+    for attribute in [NSLayoutAttribute.centerX, NSLayoutAttribute.centerY] {
       (view, item) >>>- {
         $0.attribute = attribute
+        return
       }
     }
     
@@ -74,23 +77,24 @@ private extension OnboardingContentViewItem {
 
     // added constraints
     centerConstraint = (self, titleLabel, imageView) >>>- {
-      $0.attribute       = .Top
-      $0.secondAttribute = .Bottom
+      $0.attribute       = .top
+      $0.secondAttribute = .bottom
       $0.constant        = 50
+      return
     }
-    
     (self, descriptionLabel, titleLabel) >>>- {
-      $0.attribute       = .Top
-      $0.secondAttribute = .Bottom
+      $0.attribute       = .top
+      $0.secondAttribute = .bottom
       $0.constant        = 10
+      return
     }
-    
+
     self.titleLabel       = titleLabel
     self.descriptionLabel = descriptionLabel
     self.imageView        = imageView
   }
 
-  func createTitleLabel(onView: UIView) -> UILabel {
+  func createTitleLabel(_ onView: UIView) -> UILabel {
     let label = Init(createLabel()) {
       $0.font = UIFont(name: "Nunito-Bold" , size: 36)
     }
@@ -98,20 +102,22 @@ private extension OnboardingContentViewItem {
     
    // add constraints
     label >>>- {
-      $0.attribute = .Height
+      $0.attribute = .height
       $0.constant  = 10000
-      $0.relation  = .LessThanOrEqual
+      $0.relation  = .lessThanOrEqual
+      return
     }
-  
-    for attribute in [NSLayoutAttribute.CenterX, NSLayoutAttribute.Leading, NSLayoutAttribute.Trailing] {
+
+    for attribute in [NSLayoutAttribute.centerX, NSLayoutAttribute.leading, NSLayoutAttribute.trailing] {
       (onView, label) >>>- {
         $0.attribute = attribute
+        return
       }
     }
     return label
   }
   
-  func createDescriptionLabel(onView: UIView) -> UILabel {
+  func createDescriptionLabel(_ onView: UIView) -> UILabel {
     let label = Init(createLabel()) {
       $0.font          = UIFont(name: "OpenSans-Regular" , size: 14)
       $0.numberOfLines = 0
@@ -120,50 +126,54 @@ private extension OnboardingContentViewItem {
     
     // add constraints
     label >>>- {
-      $0.attribute = .Height
+      $0.attribute = .height
       $0.constant  = 10000
-      $0.relation  = .LessThanOrEqual
+      $0.relation  = .lessThanOrEqual
+      return
     }
-  
-    for (attribute, constant) in [(NSLayoutAttribute.Leading, 30), (NSLayoutAttribute.Trailing, -30)] {
+
+    for (attribute, constant) in [(NSLayoutAttribute.leading, 30), (NSLayoutAttribute.trailing, -30)] {
       (onView, label) >>>- {
         $0.attribute = attribute
         $0.constant  = CGFloat(constant)
+        return
       }
     }
-      (onView, label) >>>- { $0.attribute = .CenterX }
-      bottomConstraint = (onView, label) >>>- { $0.attribute = .Bottom }
-    
+
+    (onView, label) >>>- { $0.attribute = .centerX; return }
+    bottomConstraint = (onView, label) >>>- { $0.attribute = .bottom; return }
+
     return label
   }
 
   func createLabel() -> UILabel {
     return Init(UILabel(frame: CGRect.zero)) {
-      $0.backgroundColor                           = .clearColor()
+      $0.backgroundColor                           = .clear
       $0.translatesAutoresizingMaskIntoConstraints = false
-      $0.textAlignment                             = .Center
-      $0.textColor                                 = .whiteColor()
+      $0.textAlignment                             = .center
+      $0.textColor                                 = .white
     }
   }
 
-  func createImage(onView: UIView) -> UIImageView {
+  func createImage(_ onView: UIView) -> UIImageView {
     let imageView = Init(UIImageView(frame: CGRect.zero)) {
-      $0.contentMode                               = .ScaleAspectFit
+      $0.contentMode                               = .scaleAspectFit
       $0.translatesAutoresizingMaskIntoConstraints = false
     }
     
     onView.addSubview(imageView)
     
     // add constratints
-    for attribute in [NSLayoutAttribute.Width, NSLayoutAttribute.Height] {
+    for attribute in [NSLayoutAttribute.width, NSLayoutAttribute.height] {
       imageView >>>- {
         $0.attribute = attribute
         $0.constant  = 188
+        return
       }
     }
     
-    for attribute in [NSLayoutAttribute.CenterX, NSLayoutAttribute.Top] {
-      (onView, imageView) >>>- { $0.attribute = attribute }
+    for attribute in [NSLayoutAttribute.centerX, NSLayoutAttribute.top] {
+      (onView, imageView) >>>- { $0.attribute = attribute; return }
     }
     
     return imageView

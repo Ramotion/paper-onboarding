@@ -17,14 +17,14 @@ class PageView: UIView {
   var space: CGFloat              = 20// space between items
 
   // configure items set image or chage color for border view
-  var configuration: ((item: PageViewItem, index: Int) -> Void)? {
+  var configuration: ((_ item: PageViewItem, _ index: Int) -> Void)? {
     didSet {
       configurePageItems(containerView?.items)
     }
   }
   
-  private var containerX: NSLayoutConstraint?
-  private var containerView: PageContrainer?
+  fileprivate var containerX: NSLayoutConstraint?
+  fileprivate var containerView: PageContrainer?
   
   override init(frame: CGRect) {
     super.init(frame: frame)
@@ -49,7 +49,7 @@ class PageView: UIView {
 
 extension PageView {
   
-  class func pageViewOnView(view: UIView, itemsCount: Int, bottomConstant: CGFloat, radius: CGFloat, selectedRadius: CGFloat) -> PageView {
+  class func pageViewOnView(_ view: UIView, itemsCount: Int, bottomConstant: CGFloat, radius: CGFloat, selectedRadius: CGFloat) -> PageView {
    let pageView = Init(PageView(frame: CGRect.zero, itemsCount: itemsCount, radius: radius, selectedRadius: selectedRadius)) {
       $0.translatesAutoresizingMaskIntoConstraints = false
       $0.alpha                                     = 0.4
@@ -57,22 +57,23 @@ extension PageView {
     view.addSubview(pageView)
     
     // add constraints 
-    for (attribute, const) in [(NSLayoutAttribute.Left, 0), (NSLayoutAttribute.Right, 0), (NSLayoutAttribute.Bottom, bottomConstant)] {
+    for (attribute, const) in [(NSLayoutAttribute.left, 0), (NSLayoutAttribute.right, 0), (NSLayoutAttribute.bottom, bottomConstant)] {
       (view, pageView) >>>- {
         $0.constant  = CGFloat(const)
         $0.attribute = attribute
+        return
       }
     }
-    
     pageView >>>- {
-      $0.attribute = .Height
+      $0.attribute = .height
       $0.constant  = 30
+      return
     }
-    
+
     return pageView
   }
 
-  func currentIndex(index: Int, animated: Bool) {
+  func currentIndex(_ index: Int, animated: Bool) {
     
     if 0..<itemsCount ~= index {
       containerView?.currenteIndex(index, duration: duration * 0.5, animated: animated)
@@ -80,10 +81,10 @@ extension PageView {
     }
   }
   
-  func positionItemIndex(index: Int, onView: UIView) -> CGPoint? {
+  func positionItemIndex(_ index: Int, onView: UIView) -> CGPoint? {
     if 0..<itemsCount ~= index {
       if let currentItem = containerView?.items?[index].imageView {
-        let pos = currentItem.convertPoint(currentItem.center, toView: onView)
+        let pos = currentItem.convert(currentItem.center, to: onView)
         return pos
       }
     }
@@ -95,10 +96,10 @@ extension PageView {
 
 extension PageView {
   
-  private func commonInit() {
+  fileprivate func commonInit() {
     containerView = createContainerView()
     currentIndex(0, animated: false)
-    self.backgroundColor = .clearColor()
+    self.backgroundColor = .clear
   }
 }
 
@@ -106,34 +107,34 @@ extension PageView {
 
 extension PageView {
   
-  private func createContainerView() -> PageContrainer {
+  fileprivate func createContainerView() -> PageContrainer {
     let container = Init(PageContrainer(radius: itemRadius, selectedRadius: selectedItemRadius, space: space, itemsCount: itemsCount)) {
-      $0.backgroundColor                           = .clearColor()
+      $0.backgroundColor                           = .clear
       $0.translatesAutoresizingMaskIntoConstraints = false
     }
     self.addSubview(container)
     
     // add constraints 
-    for attribute in [NSLayoutAttribute.Top, NSLayoutAttribute.Bottom] {
-      (self, container) >>>- { $0.attribute = attribute }
+    for attribute in [NSLayoutAttribute.top, NSLayoutAttribute.bottom] {
+      (self, container) >>>- { $0.attribute = attribute; return }
     }
-    
-    containerX = (self, container) >>>- { $0.attribute = .CenterX }
-    
+
+    containerX = (self, container) >>>- { $0.attribute = .centerX; return }
+
     container >>>- {
-      $0.attribute = .Width
+      $0.attribute = .width
       $0.constant  = selectedItemRadius * 2 + CGFloat(itemsCount - 1) * (itemRadius * 2) + space * CGFloat(itemsCount - 1)
+      return
     }
-    
     return container
   }
   
-  private func configurePageItems(items: [PageViewItem]?) {
+  fileprivate func configurePageItems(_ items: [PageViewItem]?) {
     guard let items = items else {
       return
     }
     for index in 0..<items.count {
-      configuration?(item: items[index], index: index)
+      configuration?(items[index], index)
     }
   }
 
@@ -143,7 +144,7 @@ extension PageView {
 
 extension PageView {
   
-  private func moveContainerTo(index: Int, animated: Bool = true, duration: Double = 0) {
+  fileprivate func moveContainerTo(_ index: Int, animated: Bool = true, duration: Double = 0) {
     guard let containerX = self.containerX else {
       return
     }
@@ -153,9 +154,9 @@ extension PageView {
     containerX.constant = toValue
     
     if animated == true {
-      UIView.animateWithDuration(duration,
+      UIView.animate(withDuration: duration,
                                  delay: 0,
-                                 options: .CurveEaseInOut,
+                                 options: UIViewAnimationOptions(),
                                  animations: {
                                   self.layoutIfNeeded()
                                  },
