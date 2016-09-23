@@ -30,7 +30,9 @@ Just add the Source folder to your project.
 
 or use [CocoaPods](https://cocoapods.org) with Podfile:
 ``` ruby
-pod 'paper-onboarding'
+pod 'paper-onboarding', '~> 1.1.4' swift 2.2
+
+pod 'paper-onboarding', '~> 2.0.0' swift 3
 ```
 
 or [Carthage](https://github.com/Carthage/Carthage) users can simply add to their `Cartfile`:
