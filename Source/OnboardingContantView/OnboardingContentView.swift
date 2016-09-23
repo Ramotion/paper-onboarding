@@ -10,19 +10,19 @@ import UIKit
 
 protocol OnboardingContentViewDelegate {
 
-  func onboardingItemAtIndex(index: Int) -> OnboardingItemInfo?
-  func onboardingConfigurationItem(item: OnboardingContentViewItem, index: Int)
+  func onboardingItemAtIndex(_ index: Int) -> OnboardingItemInfo?
+  func onboardingConfigurationItem(_ item: OnboardingContentViewItem, index: Int)
 }
 
 class OnboardingContentView: UIView {
 
-  private struct Constants {
+  fileprivate struct Constants {
     static let dyOffsetAnimation: CGFloat = 110
     static let showDuration: Double       = 0.8
     static let hideDuration: Double       = 0.2
   }
 
-  private var currentItem: OnboardingContentViewItem?
+  fileprivate var currentItem: OnboardingContentViewItem?
   var delegate: OnboardingContentViewDelegate
 
   init(itemsCount: Int, delegate: OnboardingContentViewDelegate) {
@@ -40,7 +40,7 @@ class OnboardingContentView: UIView {
 // MARK: public
 extension OnboardingContentView {
 
-  func currentItem(index: Int, animated: Bool) {
+  func currentItem(_ index: Int, animated: Bool) {
 
     let showItem = createItem(index)
     showItemView(showItem, duration: Constants.showDuration)
@@ -55,20 +55,21 @@ extension OnboardingContentView {
 
 extension OnboardingContentView {
 
-  class func contentViewOnView(view: UIView, delegate: OnboardingContentViewDelegate, itemsCount: Int, bottomConstant: CGFloat) -> OnboardingContentView {
+  class func contentViewOnView(_ view: UIView, delegate: OnboardingContentViewDelegate, itemsCount: Int, bottomConstant: CGFloat) -> OnboardingContentView {
     let contentView = Init(OnboardingContentView(itemsCount: itemsCount, delegate: delegate)) {
-      $0.backgroundColor                           = .clearColor()
+      $0.backgroundColor                           = .clear
       $0.translatesAutoresizingMaskIntoConstraints = false
     }
     view.addSubview(contentView)
 
     // add constraints
-    for attribute in [NSLayoutAttribute.Left, NSLayoutAttribute.Right, NSLayoutAttribute.Top] {
-      (view, contentView) >>>- { $0.attribute = attribute }
+    for attribute in [NSLayoutAttribute.left, NSLayoutAttribute.right, NSLayoutAttribute.top] {
+      (view, contentView) >>>- { $0.attribute = attribute; return }
     }
     (view, contentView) >>>- {
-      $0.attribute = .Bottom
+      $0.attribute = .bottom
       $0.constant  = bottomConstant
+      return
     }
     return contentView
   }
@@ -78,12 +79,12 @@ extension OnboardingContentView {
 
 extension OnboardingContentView {
 
-  private func commonInit() {
+  fileprivate func commonInit() {
 
     currentItem = createItem(0)
   }
 
-  private func createItem(index: Int) -> OnboardingContentViewItem {
+  fileprivate func createItem(_ index: Int) -> OnboardingContentViewItem {
 
     guard let info = delegate.onboardingItemAtIndex(index) else {
       return OnboardingContentViewItem.itemOnView(self)
@@ -108,7 +109,7 @@ extension OnboardingContentView {
 
 extension OnboardingContentView {
 
-  private func hideItemView(item: OnboardingContentViewItem?, duration: Double) {
+  fileprivate func hideItemView(_ item: OnboardingContentViewItem?, duration: Double) {
     guard let item = item else {
       return
     }
@@ -116,9 +117,9 @@ extension OnboardingContentView {
     item.bottomConstraint?.constant -= Constants.dyOffsetAnimation
     item.centerConstraint?.constant *= 1.3
 
-    UIView.animateWithDuration(duration,
+    UIView.animate(withDuration: duration,
                                delay: 0,
-                               options: .CurveEaseOut, animations: {
+                               options: .curveEaseOut, animations: {
       item.alpha = 0
       self.layoutIfNeeded()
     },
@@ -127,7 +128,7 @@ extension OnboardingContentView {
     })
   }
 
-  private func showItemView(item: OnboardingContentViewItem, duration: Double) {
+  fileprivate func showItemView(_ item: OnboardingContentViewItem, duration: Double) {
     item.bottomConstraint?.constant = Constants.dyOffsetAnimation
     item.centerConstraint?.constant /= 2
     item.alpha = 0
@@ -136,9 +137,9 @@ extension OnboardingContentView {
     item.bottomConstraint?.constant = 0
     item.centerConstraint?.constant *= 2
 
-    UIView.animateWithDuration(duration,
+    UIView.animate(withDuration: duration,
                                delay: 0,
-                               options: .CurveEaseOut, animations: {
+                               options: .curveEaseOut, animations: {
       item.alpha = 0
       item.alpha = 1
       self.layoutIfNeeded()

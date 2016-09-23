@@ -10,7 +10,7 @@ import UIKit
 
 class FillAnimationView: UIView {
 
-  private struct Constant {
+  fileprivate struct Constant {
     static let path   = "path"
     static let circle = "circle"
   }
@@ -20,7 +20,7 @@ class FillAnimationView: UIView {
 
 extension FillAnimationView {
   
-  class func animavtionViewOnView(view: UIView, color: UIColor) -> FillAnimationView {
+  class func animavtionViewOnView(_ view: UIView, color: UIColor) -> FillAnimationView {
     let animationView = Init(FillAnimationView(frame: CGRect.zero)) {
       $0.backgroundColor                           = color
       $0.translatesAutoresizingMaskIntoConstraints = false
@@ -29,21 +29,21 @@ extension FillAnimationView {
     view.addSubview(animationView)
     
     // add constraints 
-    for attribute in [NSLayoutAttribute.Left, NSLayoutAttribute.Right, NSLayoutAttribute.Top, NSLayoutAttribute.Bottom] {
-      (view, animationView) >>>- { $0.attribute = attribute }
+    for attribute in [NSLayoutAttribute.left, NSLayoutAttribute.right, NSLayoutAttribute.top, NSLayoutAttribute.bottom] {
+      (view, animationView) >>>- { $0.attribute = attribute; return}
     }
     
     return animationView
   }
 
-  func fillAnimation(color: UIColor, centerPosition: CGPoint, duration: Double) {
+  func fillAnimation(_ color: UIColor, centerPosition: CGPoint, duration: Double) {
     
     let radius = max(bounds.size.width, bounds.size.height) * 1.5
     let circle = createCircleLayer(centerPosition, color: color)
     
     let animation = animationToRadius(radius, center: centerPosition, duration: duration)
     animation.setValue(circle, forKey: Constant.circle)
-    circle.addAnimation(animation, forKey: nil)
+    circle.add(animation, forKey: nil)
   }
 }
 
@@ -51,11 +51,11 @@ extension FillAnimationView {
 
 extension FillAnimationView {
   
-  private func createCircleLayer(position: CGPoint, color: UIColor) -> CAShapeLayer {
+  fileprivate func createCircleLayer(_ position: CGPoint, color: UIColor) -> CAShapeLayer {
     let path = UIBezierPath(arcCenter: position, radius: 1, startAngle: 0, endAngle: CGFloat(2.0 * M_PI), clockwise: true)
     let layer = Init(CAShapeLayer()) {
-      $0.path            = path.CGPath
-      $0.fillColor       = color.CGColor
+      $0.path            = path.cgPath
+      $0.fillColor       = color.cgColor
       $0.shouldRasterize = true
     }
     
@@ -66,14 +66,14 @@ extension FillAnimationView {
 
 // MARK: animation
 
-extension FillAnimationView {
+extension FillAnimationView: CAAnimationDelegate {
   
-  private func animationToRadius(radius: CGFloat, center: CGPoint, duration: Double) -> CABasicAnimation {
+  fileprivate func animationToRadius(_ radius: CGFloat, center: CGPoint, duration: Double) -> CABasicAnimation {
     let path = UIBezierPath(arcCenter: center, radius: radius, startAngle: 0, endAngle: CGFloat(2.0 * M_PI), clockwise: true)
     let animation = Init(CABasicAnimation(keyPath: Constant.path)) {
       $0.duration            = duration
-      $0.toValue             = path.CGPath
-      $0.removedOnCompletion = false
+      $0.toValue             = path.cgPath
+      $0.isRemovedOnCompletion = false
       $0.fillMode            = kCAFillModeForwards
       $0.delegate            = self
       $0.timingFunction      = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseIn)
@@ -82,10 +82,11 @@ extension FillAnimationView {
   }
   
   // animation delegate
-  
-  override func animationDidStop(anim: CAAnimation, finished flag: Bool) {
+
+
+   func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
     
-    guard let circleLayer = anim.valueForKey(Constant.circle) as? CAShapeLayer else {
+    guard let circleLayer = anim.value(forKey: Constant.circle) as? CAShapeLayer else {
       return
     }
     layer.backgroundColor = circleLayer.fillColor
