@@ -22,8 +22,8 @@ The [iPhone mockup](https://store.ramotion.com/product/iphone-6-mockups?utm_sour
 
 ## Requirements
 
-- iOS 8.0+
-- Xcode 7.3
+- iOS 9.0+
+- Xcode 8
 
 ## Installation
 
@@ -31,7 +31,7 @@ Just add the Source folder to your project.
 
 or use [CocoaPods](https://cocoapods.org) with Podfile:
 ``` ruby
-pod 'paper-onboarding', '~> 1.1.4' swift 2.2
+pod 'paper-onboarding', '~> 1.1.3' swift 2.2
 
 pod 'paper-onboarding', '~> 2.0.0' swift 3
 ```
