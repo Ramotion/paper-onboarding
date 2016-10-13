@@ -8,6 +8,7 @@
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Ramotion/paper-onboarding)
 [![Travis](https://img.shields.io/travis/Ramotion/paper-onboarding.svg)](https://travis-ci.org/Ramotion/paper-onboarding)
 [![codebeat badge](https://codebeat.co/badges/d06237c6-6ff7-4560-9602-b6cc65063383)](https://codebeat.co/projects/github-com-ramotion-paper-onboarding)
+[![Analytics](https://ga-beacon.appspot.com/UA-84973210-1/ramotion/paper-onboarding)](https://github.com/igrigorik/ga-beacon)
 
 
 ## About
@@ -21,8 +22,8 @@ The [iPhone mockup](https://store.ramotion.com/product/iphone-6-mockups?utm_sour
 
 ## Requirements
 
-- iOS 8.0+
-- Xcode 7.3
+- iOS 9.0+
+- Xcode 8
 
 ## Installation
 
@@ -30,7 +31,7 @@ Just add the Source folder to your project.
 
 or use [CocoaPods](https://cocoapods.org) with Podfile:
 ``` ruby
-pod 'paper-onboarding', '~> 1.1.4' swift 2.2
+pod 'paper-onboarding', '~> 1.1.3' swift 2.2
 
 pod 'paper-onboarding', '~> 2.0.0' swift 3
 ```
