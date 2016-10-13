@@ -22,7 +22,7 @@ The [iPhone mockup](https://store.ramotion.com/product/iphone-6-mockups?utm_sour
 
 ## Requirements
 
-- iOS 9.0+
+- iOS 10.0+
 - Xcode 8
 
 ## Installation
@@ -33,7 +33,7 @@ or use [CocoaPods](https://cocoapods.org) with Podfile:
 ``` ruby
 pod 'paper-onboarding', '~> 1.1.3' swift 2.2
 
-pod 'paper-onboarding', '~> 2.0.0' swift 3
+pod 'paper-onboarding', '~> 2.0.1' swift 3
 ```
 
 or [Carthage](https://github.com/Carthage/Carthage) users can simply add to their `Cartfile`:
