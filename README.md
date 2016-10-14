@@ -13,7 +13,7 @@
 
 ## About
 This project is maintained by Ramotion, Inc.<br>
-We specialize in the designing and coding of custom UI for Mobile Apps and Websites.<br><br>[**Looking for developers for your project?** [CONTACT OUR TEAM](http://business.ramotion.com/#Get_in_Touch?utm_source=gthb&utm_medium=special&utm_campaign=paper-onboarding-contact-us)]
+We specialize in the designing and coding of custom UI for Mobile Apps and Websites.<br><br>**Looking for developers for your project?** [[▶︎CONTACT OUR TEAM◀︎](http://business.ramotion.com/#Get_in_Touch?utm_source=gthb&utm_medium=special&utm_campaign=paper-onboarding-contact-us)]
 
 <p align="center">
 <a href="https://dribbble.com/shots/2694049-iOS-Pagination-Controller-Open-Source"><img src="https://raw.githubusercontent.com/Ramotion/paper-onboarding/master/preview.gif" width="890" height="668" alt="StackViewController Example App" /></a>
