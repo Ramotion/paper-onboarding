@@ -8,7 +8,6 @@
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Ramotion/paper-onboarding)
 [![Travis](https://img.shields.io/travis/Ramotion/paper-onboarding.svg)](https://travis-ci.org/Ramotion/paper-onboarding)
 [![codebeat badge](https://codebeat.co/badges/d06237c6-6ff7-4560-9602-b6cc65063383)](https://codebeat.co/projects/github-com-ramotion-paper-onboarding)
-[![Analytics](https://ga-beacon.appspot.com/UA-84973210-1/ramotion/paper-onboarding)](https://github.com/igrigorik/ga-beacon)
 
 
 ## About
@@ -18,6 +17,9 @@ We specialize in the designing and coding of custom UI for Mobile Apps and Websi
 <p align="center">
 <a href="https://dribbble.com/shots/2694049-iOS-Pagination-Controller-Open-Source"><img src="https://raw.githubusercontent.com/Ramotion/paper-onboarding/master/preview.gif" width="890" height="668" alt="StackViewController Example App" /></a>
 </p>
+## Try this UI control in action
+
+[![get on iTunes](https://github.com/Ramotion/navigation-stack/raw/master/Download_on_the_App_Store_Badge_US-UK_135x40.png)](https://itunes.apple.com/app/apple-store/id1182360240?pt=550053&ct=gthb-navigation-stack&mt=8)
 
 The [iPhone mockup](https://store.ramotion.com/product/iphone-6-mockups?utm_source=gthb&utm_medium=special&utm_campaign=paper-onboarding) available [here](https://store.ramotion.com/product/iphone-6-mockups?utm_source=gthb&utm_medium=special&utm_campaign=paper-onboarding).
 
