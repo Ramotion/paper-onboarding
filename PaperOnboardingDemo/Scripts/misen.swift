@@ -3,9 +3,10 @@
 import Foundation
 
 // MARK: NSUserDefaults extension
+
 extension NSUserDefaults {
     var arguments: (String, String, String) {
-        guard let assetPath  = stringForKey("path") else {
+        guard let assetPath = stringForKey("path") else {
             fatalError("An asset catalog path must be specified by \"-path\".")
         }
         guard let outputPath = stringForKey("exportPath") else {
@@ -16,20 +17,21 @@ extension NSUserDefaults {
         return (assetPath, outputPath, enumName)
     }
 }
+
 // MARK: NSFileManager
+
 extension NSFileManager {
     func imagesets(inAssetsPath path: String) -> [String]? {
         do {
             let subpaths = try subpathsOfDirectoryAtPath(path)
             return subpaths
-                .filter {
-                    $0.hasSuffix("imageset")
-                }
-                .map {
-                    ($0 as NSString).lastPathComponent.componentsSeparatedByString(".")[0]
-                }
-        }
-        catch {
+                    .filter {
+                        $0.hasSuffix("imageset")
+                    }
+                    .map {
+                        ($0 as NSString).lastPathComponent.componentsSeparatedByString(".")[0]
+                    }
+        } catch {
             print("\n[Error] An error occurred in \(#function).\n\t error: \(error)\n")
         }
         return nil
@@ -45,19 +47,19 @@ func build(assets: [String], _ exportPath: String, _ enumName: String) -> Bool {
     file += "\n"
     file += "import UIKit" + "\n"
     file += "\n"
-    
+
     /// UIImage extension
     file += "// MARK: - UIImage extension" + "\n"
     file += "extension UIImage {" + "\n"
     // initializer
     file += indent + "convenience init!(assetName: \(enumName)) {" + "\n"
-        file += indent + indent + "self.init(named: assetName.rawValue)" + "\n"
+    file += indent + indent + "self.init(named: assetName.rawValue)" + "\n"
     file += indent + "}" + "\n"
     ///end of UIImage extension
     file += "}" + "\n"
-    
+
     file += "\n"
-    
+
     /// enum
     file += "// MARK: - " + enumName + "\n"
     file += "enum \(enumName): String {" + "\n"
@@ -70,7 +72,7 @@ func build(assets: [String], _ exportPath: String, _ enumName: String) -> Bool {
     file += indent + "}" + "\n"
     /// end of enum
     file += "}" + "\n"
-    
+
     let data = file.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)
     return NSFileManager.defaultManager().createFileAtPath(exportPath, contents: data, attributes: nil)
 }
