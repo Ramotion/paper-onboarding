@@ -121,7 +121,7 @@ extension OnboardingContentView {
                 $0.actionButton?.setTitle(buttonTitle, for: .normal)
 
                 if let textColor = info.actionButtonTextColor {
-                    $0.actionButton?.titleLabel?.textColor = textColor
+                    $0.actionButton?.setTitleColor(textColor, for: .normal)
                 }
 
                 if let bgColor = info.actionButtonBackgroundColor {
