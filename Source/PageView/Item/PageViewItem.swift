@@ -94,7 +94,7 @@ extension PageViewItem {
   }
   
   fileprivate func createCircleLayer(_ radius: CGFloat, lineWidth: CGFloat) -> CAShapeLayer {
-    let path = UIBezierPath(arcCenter: CGPoint.zero, radius: radius - lineWidth / 2.0, startAngle: 0, endAngle: CGFloat(2.0 * M_PI), clockwise: true)
+    let path = UIBezierPath(arcCenter: CGPoint.zero, radius: radius - lineWidth / 2.0, startAngle: 0, endAngle: CGFloat(2.0 * Double.pi), clockwise: true)
     let layer = Init(CAShapeLayer()) {
       $0.path        = path.cgPath
       $0.lineWidth   = lineWidth
@@ -125,7 +125,7 @@ extension PageViewItem {
 extension PageViewItem {
   
   fileprivate func circleScaleAnimation(_ toRadius: CGFloat, duration: Double) -> CABasicAnimation {
-    let path = UIBezierPath(arcCenter: CGPoint.zero, radius: toRadius, startAngle: 0, endAngle: CGFloat(2.0 * M_PI), clockwise: true)
+    let path = UIBezierPath(arcCenter: CGPoint.zero, radius: toRadius, startAngle: 0, endAngle: CGFloat(2.0 * Double.pi), clockwise: true)
     let animation = Init(CABasicAnimation(keyPath: "path")) {
       $0.duration            = duration
       $0.toValue             = path.cgPath

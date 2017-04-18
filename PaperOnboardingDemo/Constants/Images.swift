@@ -1,23 +1,47 @@
 // Generated using SwiftGen, by O.Halligon — https://github.com/AliSoftware/SwiftGen
 
-import Foundation
-import UIKit
+#if os(iOS) || os(tvOS) || os(watchOS)
+  import UIKit.UIImage
+  typealias Image = UIImage
+#elseif os(OSX)
+  import AppKit.NSImage
+  typealias Image = NSImage
+#endif
 
-extension UIImage {
-  enum Asset: String {
-    case Banks = "Banks"
-    case Hotels = "Hotels"
-    case Key = "Key"
-    case Shopping_Cart = "Shopping-cart"
-    case Stores = "Stores"
-    case Wallet = "Wallet"
+// swiftlint:disable file_length
+// swiftlint:disable line_length
 
-    var image: UIImage {
-      return UIImage(asset: self)
-    }
-  }
+// swiftlint:disable type_body_length
+enum Asset: String {
+  case banks = "Banks"
+  case hotels = "Hotels"
+  case key = "Key"
+  case shoppingCart = "Shopping-cart"
+  case stores = "Stores"
+  case wallet = "Wallet"
 
-  convenience init!(asset: Asset) {
-    self.init(named: asset.rawValue)
+  var image: Image {
+    let bundle = Bundle(for: BundleToken.self)
+    #if os(iOS) || os(tvOS) || os(watchOS)
+    let image = Image(named: rawValue, in: bundle, compatibleWith: nil)
+    #elseif os(OSX)
+    let image = bundle.image(forResource: rawValue)
+    #endif
+    guard let result = image else { fatalError("Unable to load image \(rawValue).") }
+    return result
   }
 }
+// swiftlint:enable type_body_length
+
+extension Image {
+  convenience init!(asset: Asset) {
+    #if os(iOS) || os(tvOS) || os(watchOS)
+    let bundle = Bundle(for: BundleToken.self)
+    self.init(named: asset.rawValue, in: bundle, compatibleWith: nil)
+    #elseif os(OSX)
+    self.init(named: asset.rawValue)
+    #endif
+  }
+}
+
+private final class BundleToken {}

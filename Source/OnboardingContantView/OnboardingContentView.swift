@@ -91,7 +91,7 @@ extension OnboardingContentView {
     }
 
     let item = Init(OnboardingContentViewItem.itemOnView(self)) {
-      $0.imageView?.image       = UIImage(named: info.imageName)
+      $0.imageView?.image       = info.imageName
       $0.titleLabel?.text       = info.title
       $0.titleLabel?.font       = info.titleFont
       $0.titleLabel?.textColor  = info.titleColor

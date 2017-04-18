@@ -8,7 +8,7 @@
 
 import UIKit
 
-public typealias OnboardingItemInfo = (imageName: String, title: String, description: String, iconName: String, color: UIColor, titleColor: UIColor, descriptionColor: UIColor, titleFont: UIFont, descriptionFont: UIFont)
+public typealias OnboardingItemInfo = (imageName: UIImage, title: String, description: String, iconName: UIImage, color: UIColor, titleColor: UIColor, descriptionColor: UIColor, titleFont: UIFont, descriptionFont: UIFont)
 
 /**
  *  The PaperOnboardingDataSource protocol is adopted by an object that mediates the application’s data model for a PaperOnboarding object.
@@ -130,7 +130,7 @@ public extension PaperOnboarding {
       
       
       if let postion = pageView?.positionItemIndex(index, onView: self) {
-        fillAnimationView?.fillAnimation(bakcgroundColor(currentIndex), centerPosition: postion, duration: 0.5)
+        fillAnimationView?.fillAnimation(backgroundColor(currentIndex), centerPosition: postion, duration: 0.5)
       }
       pageView?.currentIndex(index, animated: animated)
       contentView?.currentItem(index, animated: animated)
@@ -150,7 +150,7 @@ extension PaperOnboarding {
     
     itemsInfo = createItemsInfo()
     translatesAutoresizingMaskIntoConstraints = false
-    fillAnimationView = FillAnimationView.animavtionViewOnView(self, color: bakcgroundColor(currentIndex))
+    fillAnimationView = FillAnimationView.animavtionViewOnView(self, color: backgroundColor(currentIndex))
     contentView = OnboardingContentView.contentViewOnView(self,
                                                           delegate: self,
                                                           itemsCount: itemsCount,
@@ -165,11 +165,11 @@ extension PaperOnboarding {
                                            bottomConstant: pageViewBottomConstant * -1,
                                            radius:pageViewRadius,
                                            selectedRadius: pageViewSelectedRadius)
+    
     pageView.configuration = { item, index in
-      if let iconName = self.itemsInfo?[index].iconName {
-        item.imageView?.image = UIImage(named: iconName)
-      }
+        item.imageView?.image = self.itemsInfo?[index].iconName
     }
+    
     return pageView
   }
   
@@ -192,7 +192,7 @@ extension PaperOnboarding {
 
 extension PaperOnboarding {
   
-  fileprivate func bakcgroundColor(_ index: Int) -> UIColor {
+  fileprivate func backgroundColor(_ index: Int) -> UIColor {
     guard let color = itemsInfo?[index].color else {
       return .black
     }
