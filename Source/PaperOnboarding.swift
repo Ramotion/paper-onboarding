@@ -105,6 +105,24 @@ extension PaperOnboarding {
                                                           bottomConstant: pageViewBottomConstant * -1 - pageViewSelectedRadius)
     pageView = createPageView()
     gestureControl = GestureControl(view: self, delegate: self)
+    
+    let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapAction))
+    addGestureRecognizer(tapGesture)
+  }
+  
+  @objc fileprivate func tapAction(_ sender: UITapGestureRecognizer) {
+    guard
+      (self.delegate as? PaperOnboardingDelegate)?.enableTapsOnPageControl == true,
+      let pageView = self.pageView,
+      let pageControl = pageView.containerView
+      else { return }
+    let touchLocation = sender.location(in: self)
+    let convertedLocation = pageControl.convert(touchLocation, from: self)
+    guard let pageItem = pageView.hitTest(convertedLocation, with: nil) else { return }
+    let index = pageItem.tag - 1
+    guard index != currentIndex else { return }
+    currentIndex(index, animated: true)
+    (delegate as? PaperOnboardingDelegate)?.onboardingWillTransitonToIndex(index)
   }
   
   fileprivate func createPageView() -> PageView {
