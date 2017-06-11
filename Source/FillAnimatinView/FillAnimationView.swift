@@ -12,15 +12,17 @@ class FillAnimationView: UIView {
 
   fileprivate struct Constant {
     static let path   = "path"
-    static let circle = "circle"
   }
+    
+  weak fileprivate var circleLayer : CAShapeLayer?
+
 }
 
 // MARK: public
 
 extension FillAnimationView {
   
-  class func animavtionViewOnView(_ view: UIView, color: UIColor) -> FillAnimationView {
+  class func animationViewOnView(_ view: UIView, color: UIColor) -> FillAnimationView {
     let animationView = Init(FillAnimationView(frame: CGRect.zero)) {
       $0.backgroundColor                           = color
       $0.translatesAutoresizingMaskIntoConstraints = false
@@ -40,9 +42,9 @@ extension FillAnimationView {
     
     let radius = max(bounds.size.width, bounds.size.height) * 1.5
     let circle = createCircleLayer(centerPosition, color: color)
+    self.circleLayer = circle
     
     let animation = animationToRadius(radius, center: centerPosition, duration: duration)
-    animation.setValue(circle, forKey: Constant.circle)
     circle.add(animation, forKey: nil)
   }
 }
@@ -85,10 +87,10 @@ extension FillAnimationView: CAAnimationDelegate {
 
 
    func animationDidStop(_ anim: CAAnimation, finished flag: Bool) {
-    
-    guard let circleLayer = anim.value(forKey: Constant.circle) as? CAShapeLayer else {
-      return
+    guard let circleLayer = self.circleLayer else {
+        return
     }
+    
     layer.backgroundColor = circleLayer.fillColor
     circleLayer.removeFromSuperlayer()
   }

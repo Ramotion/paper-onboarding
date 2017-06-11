@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol OnboardingContentViewDelegate {
+protocol OnboardingContentViewDelegate : class {
 
   func onboardingItemAtIndex(_ index: Int) -> OnboardingItemInfo?
   func onboardingConfigurationItem(_ item: OnboardingContentViewItem, index: Int)
@@ -23,7 +23,7 @@ class OnboardingContentView: UIView {
   }
 
   fileprivate var currentItem: OnboardingContentViewItem?
-  var delegate: OnboardingContentViewDelegate
+  weak var delegate: OnboardingContentViewDelegate!
 
   init(itemsCount: Int, delegate: OnboardingContentViewDelegate) {
     self.delegate = delegate
