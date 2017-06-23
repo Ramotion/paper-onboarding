@@ -28,7 +28,8 @@ The [iPhone mockup](https://store.ramotion.com?utm_source=gthb&utm_medium=specia
 
 ## Requirements
 
-- iOS 10.0+
+- iOS 8.0+
+- tvOS 9.0+
 - Xcode 8
 
 ## Installation
