@@ -1,8 +1,8 @@
 
 Pod::Spec.new do |s|
 
-  s.name         = "paper-onboarding"
-  s.version      = "2.2"
+  s.name         = "PaperOnboarding"
+  s.version      = "2.3"
   s.summary      = "Amazing onboarding."
   s.license      = 'MIT'
   s.homepage     = 'https://github.com/Ramotion/paper-onboarding'
@@ -11,5 +11,4 @@ Pod::Spec.new do |s|
   s.tvos.deployment_target = '9.0'
   s.source       = { :git => 'https://github.com/Ramotion/paper-onboarding.git', :tag => s.version.to_s }
   s.source_files  = 'Source/**/*.swift'
-  s.deprecated_in_favor_of = 'PaperOnboarding'
   end

@@ -37,9 +37,9 @@ Just add the Source folder to your project.
 
 or use [CocoaPods](https://cocoapods.org) with Podfile:
 ``` ruby
-pod 'paper-onboarding', '~> 1.1.3' swift 2.2
+pod 'paper-onboarding', '~> 1.1.3' # swift 2.2
 
-pod 'paper-onboarding', '~> 2.0.1' swift 3
+pod 'PaperOnboarding', '~> 2.3' # swift 3
 ```
 
 or [Carthage](https://github.com/Carthage/Carthage) users can simply add to their `Cartfile`:
@@ -51,7 +51,7 @@ github "Ramotion/paper-onboarding"
 
 #### Storyboard
 
-1) Create a new UIView inheriting from ```PaperOnboarding```
+1) Create a new UIView inheriting from `PaperOnboarding`
 
 2) Set dataSource in attribute inspector
 
