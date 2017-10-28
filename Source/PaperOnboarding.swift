@@ -8,8 +8,71 @@
 
 import UIKit
 
-public typealias OnboardingItemInfo = (imageName: UIImage, title: String, description: String, iconName: UIImage, color: UIColor, titleColor: UIColor, descriptionColor: UIColor, titleFont: UIFont, descriptionFont: UIFont)
+open class OnboardingItemInfo: NSObject {
+    open var shImageName: UIImage!
+    open var shTitle: String!
+    open var shDesc: String!
+    open var shIconName: UIImage!
+    open var shColor: UIColor!
+    open var shTitleColor: UIColor!
+    open var shDescriptionColor: UIColor!
+    open var shTitleFont: UIFont!
+    open var shDescriptionFont: UIFont!
+}
 
+//@objc public typealias OnboardingItemInfo = (imageName: UIImage, title: String, description: String, iconName: UIImage, color: UIColor, titleColor: UIColor, descriptionColor: UIColor, titleFont: UIFont, descriptionFont: UIFont)
+
+/**
+ *  The PaperOnboardingDataSource protocol is adopted by an object that mediates the application’s data model for a PaperOnboarding object.
+ The data source information it needs to construct and modify a PaperOnboarding.
+ */
+@objc public protocol PaperOnboardingDataSource {
+  /**
+   Asks the data source to return the number of items.
+   
+   - parameter index: An index of item in PaperOnboarding.
+   
+   - returns: The number of items in PaperOnboarding.
+   */
+  func onboardingItemsCount() -> Int
+  
+  /**
+   Asks the data source for configureation item.
+   
+   - parameter index: An index of item in PaperOnboarding.
+   
+   - returns: configuration info for item
+   */
+  func onboardingItemAtIndex(_ index: Int) -> OnboardingItemInfo
+}
+
+/**
+ *  The delegate of a PaperOnboarding object must adopt the PaperOnboardingDelegate protocol. Optional methods of the
+ protocol allow the delegate to manage items, configure items, and perform other actions.
+ */
+@objc public protocol PaperOnboardingDelegate {
+  /**
+   Tells the delegate that the paperOnbording start scrolling.
+   
+   - parameter index: An curretn index item
+   */
+  func onboardingWillTransitonToIndex(_ index: Int)
+  
+  /**
+   Tells the delegate that the specified item is now selected
+   
+   - parameter index: An curretn index item
+   */
+  func onboardingDidTransitonToIndex(_ index: Int)
+  
+  /**
+   Tells the delegate the PaperOnboarding is about to draw a item for a particular row. Use this method for configure items
+   
+   - parameter item:  A OnboardingContentViewItem object that PaperOnboarding is going to use when drawing the row.
+   - parameter index: An curretn index item
+   */
+  func onboardingConfigurationItem(_ item: OnboardingContentViewItem, index: Int)
+}
 
 ///An instance of PaperOnboarding which display collection of information.
 open class PaperOnboarding: UIView {
@@ -57,6 +120,7 @@ open class PaperOnboarding: UIView {
 }
 
 // MARK: methods
+
 public extension PaperOnboarding {
   
   /**
@@ -87,8 +151,8 @@ public extension PaperOnboarding {
     
   }
 }
-
 // MARK: create
+
 extension PaperOnboarding {
   
   fileprivate func commonInit() {
@@ -105,24 +169,6 @@ extension PaperOnboarding {
                                                           bottomConstant: pageViewBottomConstant * -1 - pageViewSelectedRadius)
     pageView = createPageView()
     gestureControl = GestureControl(view: self, delegate: self)
-    
-    let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapAction))
-    addGestureRecognizer(tapGesture)
-  }
-  
-  @objc fileprivate func tapAction(_ sender: UITapGestureRecognizer) {
-    guard
-      (self.delegate as? PaperOnboardingDelegate)?.enableTapsOnPageControl == true,
-      let pageView = self.pageView,
-      let pageControl = pageView.containerView
-      else { return }
-    let touchLocation = sender.location(in: self)
-    let convertedLocation = pageControl.convert(touchLocation, from: self)
-    guard let pageItem = pageView.hitTest(convertedLocation, with: nil) else { return }
-    let index = pageItem.tag - 1
-    guard index != currentIndex else { return }
-    currentIndex(index, animated: true)
-    (delegate as? PaperOnboardingDelegate)?.onboardingWillTransitonToIndex(index)
   }
   
   fileprivate func createPageView() -> PageView {
@@ -133,7 +179,7 @@ extension PaperOnboarding {
                                            selectedRadius: pageViewSelectedRadius)
     
     pageView.configuration = { item, index in
-        item.imageView?.image = self.itemsInfo?[index].iconName
+        item.imageView?.image = self.itemsInfo?[index].shIconName
     }
     
     return pageView
@@ -155,10 +201,11 @@ extension PaperOnboarding {
 }
 
 // MARK: helpers
+
 extension PaperOnboarding {
   
   fileprivate func backgroundColor(_ index: Int) -> UIColor {
-    guard let color = itemsInfo?[index].color else {
+    guard let color = itemsInfo?[index].shColor else {
       return .black
     }
     return color
@@ -166,6 +213,7 @@ extension PaperOnboarding {
 }
 
 // MARK: GestureControlDelegate
+
 extension PaperOnboarding: GestureControlDelegate {
   
   func gestureControlDidSwipe(_ direction: UISwipeGestureRecognizerDirection) {
@@ -181,6 +229,7 @@ extension PaperOnboarding: GestureControlDelegate {
 }
 
 // MARK: OnboardingDelegate
+
 extension PaperOnboarding: OnboardingContentViewDelegate {
   
   func onboardingItemAtIndex(_ index: Int) -> OnboardingItemInfo? {

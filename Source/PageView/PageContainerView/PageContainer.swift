@@ -31,7 +31,6 @@ class PageContrainer: UIView {
   required init?(coder aDecoder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
   }
-  
 }
 
 // MARK: public
@@ -76,20 +75,16 @@ extension PageContrainer {
   
   fileprivate func createItems(_ count: Int, radius: CGFloat, selectedRadius: CGFloat) -> [PageViewItem] {
     var items = [PageViewItem]()
-    // create first item
-    var tag = 1
+    // create first item 
     var item = createItem(radius, selectedRadius: selectedRadius, isSelect: true)
-    item.tag = tag
     addConstraintsToView(item, radius: selectedRadius)
     items.append(item)
     
     for _ in 1..<count {
-      tag += 1
       let nextItem = createItem(radius, selectedRadius: selectedRadius)
       addConstraintsToView(nextItem, leftItem: item, radius: radius)
       items.append(nextItem)
       item = nextItem
-      item.tag = tag
     }
     return items
   }
