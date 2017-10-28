@@ -409,7 +409,7 @@
 					};
 					84A7739F1CCE545200EF4EB0 = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = 34MUF9YXTA;
+						DevelopmentTeam = AG748WC3N7;
 						LastSwiftMigration = 0800;
 					};
 					84A773B31CCE545200EF4EB0 = {
@@ -731,11 +731,11 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				DEVELOPMENT_TEAM = 34MUF9YXTA;
+				DEVELOPMENT_TEAM = AG748WC3N7;
 				INFOPLIST_FILE = PaperOnboardingDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ramotion.dev;
+				PRODUCT_BUNDLE_IDENTIFIER = com.streethawk.carousel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -747,11 +747,11 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				DEVELOPMENT_TEAM = 34MUF9YXTA;
+				DEVELOPMENT_TEAM = AG748WC3N7;
 				INFOPLIST_FILE = PaperOnboardingDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ramotion.dev;
+				PRODUCT_BUNDLE_IDENTIFIER = com.streethawk.carousel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
