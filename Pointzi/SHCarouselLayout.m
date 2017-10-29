@@ -52,6 +52,7 @@
     onboardingView.delegate = self;
     onboardingView.translatesAutoresizingMaskIntoConstraints = NO;
     [viewContent addSubview:onboardingView];
+    [viewContent sendSubviewToBack:onboardingView];
     //use constraints to add the paper onboarding view
     NSLayoutConstraint *leading = [NSLayoutConstraint
                                    constraintWithItem:onboardingView
