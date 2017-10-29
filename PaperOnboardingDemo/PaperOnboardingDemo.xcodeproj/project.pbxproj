@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4DB5B0DB1FA57DE300304CBC /* SHCarouselBridge.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DB5B0D91FA57DE300304CBC /* SHCarouselBridge.h */; };
+		4DB5B0DC1FA57DE300304CBC /* SHCarouselBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DB5B0DA1FA57DE300304CBC /* SHCarouselBridge.m */; };
+		4DB5B0E21FA583BF00304CBC /* StreetHawkCore_Pointzi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DB5B0E31FA583BF00304CBC /* StreetHawkCore_Pointzi.framework */; };
+		4DB5B0E61FA5852300304CBC /* SHCarouselLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DB5B0E41FA5852300304CBC /* SHCarouselLayout.h */; };
+		4DB5B0E71FA5852300304CBC /* SHCarouselLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DB5B0E51FA5852300304CBC /* SHCarouselLayout.m */; };
 		7C4C71151ECAA8DC0012B00B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7C4C71141ECAA8DC0012B00B /* Assets.xcassets */; };
 		845C48C21CFDB2F7002BE949 /* PaperOnboarding.h in Headers */ = {isa = PBXBuildFile; fileRef = 845C48C11CFDB2F7002BE949 /* PaperOnboarding.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		845C48CB1CFDB317002BE949 /* PaperOnboarding.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84C7E5CD1CCE571800C9F001 /* PaperOnboarding.swift */; };
@@ -22,6 +27,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4DB5B0D91FA57DE300304CBC /* SHCarouselBridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHCarouselBridge.h; sourceTree = "<group>"; };
+		4DB5B0DA1FA57DE300304CBC /* SHCarouselBridge.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHCarouselBridge.m; sourceTree = "<group>"; };
+		4DB5B0E11FA582C300304CBC /* StreetHawkCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = StreetHawkCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4DB5B0E31FA583BF00304CBC /* StreetHawkCore_Pointzi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = StreetHawkCore_Pointzi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4DB5B0E41FA5852300304CBC /* SHCarouselLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHCarouselLayout.h; sourceTree = "<group>"; };
+		4DB5B0E51FA5852300304CBC /* SHCarouselLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHCarouselLayout.m; sourceTree = "<group>"; };
 		7C4C71141ECAA8DC0012B00B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		843A19641CD0B49E00F37344 /* Images.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
 		845C48BF1CFDB2F7002BE949 /* PaperOnboarding.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PaperOnboarding.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -50,12 +61,34 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4DB5B0E21FA583BF00304CBC /* StreetHawkCore_Pointzi.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4DB5B0D81FA57DC400304CBC /* Pointzi */ = {
+			isa = PBXGroup;
+			children = (
+				4DB5B0D91FA57DE300304CBC /* SHCarouselBridge.h */,
+				4DB5B0DA1FA57DE300304CBC /* SHCarouselBridge.m */,
+				4DB5B0E41FA5852300304CBC /* SHCarouselLayout.h */,
+				4DB5B0E51FA5852300304CBC /* SHCarouselLayout.m */,
+			);
+			name = Pointzi;
+			path = ../Pointzi;
+			sourceTree = "<group>";
+		};
+		4DB5B0DD1FA57F5500304CBC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4DB5B0E31FA583BF00304CBC /* StreetHawkCore_Pointzi.framework */,
+				4DB5B0E11FA582C300304CBC /* StreetHawkCore.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		7C4C71131ECAA8DC0012B00B /* PaperOnboardingDemo */ = {
 			isa = PBXGroup;
 			children = (
@@ -93,6 +126,7 @@
 		84A773971CCE545200EF4EB0 = {
 			isa = PBXGroup;
 			children = (
+				4DB5B0D81FA57DC400304CBC /* Pointzi */,
 				843A19631CD0B42100F37344 /* Constants */,
 				84C7E5F31CCE59B200C9F001 /* Fonts */,
 				847CEA501CFC88F500AB132D /* Paper-onboarding */,
@@ -100,6 +134,7 @@
 				7C4C71131ECAA8DC0012B00B /* PaperOnboardingDemo */,
 				84A773A11CCE545200EF4EB0 /* Products */,
 				84C7E5CC1CCE549F00C9F001 /* Source */,
+				4DB5B0DD1FA57F5500304CBC /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -211,7 +246,9 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4DB5B0DB1FA57DE300304CBC /* SHCarouselBridge.h in Headers */,
 				845C48C21CFDB2F7002BE949 /* PaperOnboarding.h in Headers */,
+				4DB5B0E61FA5852300304CBC /* SHCarouselLayout.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -248,7 +285,7 @@
 				TargetAttributes = {
 					845C48BE1CFDB2F7002BE949 = {
 						CreatedOnToolsVersion = 7.3.1;
-						LastSwiftMigration = 0800;
+						LastSwiftMigration = 0900;
 					};
 				};
 			};
@@ -286,10 +323,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4DB5B0E71FA5852300304CBC /* SHCarouselLayout.m in Sources */,
 				845C48CE1CFDB325002BE949 /* PageViewItem.swift in Sources */,
 				845C48CF1CFDB32A002BE949 /* ConstraintsHalper.swift in Sources */,
 				845C48CB1CFDB317002BE949 /* PaperOnboarding.swift in Sources */,
 				845C48D11CFDB332002BE949 /* OnboardingContentView.swift in Sources */,
+				4DB5B0DC1FA57DE300304CBC /* SHCarouselBridge.m in Sources */,
 				845C48D31CFDB33D002BE949 /* FillAnimationView.swift in Sources */,
 				845C48D01CFDB32D002BE949 /* Configuring.swift in Sources */,
 				845C48CD1CFDB321002BE949 /* PageContainer.swift in Sources */,
@@ -348,6 +387,7 @@
 		7C4C71A41ECD808F0012B00B /* DevelopRelease */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
@@ -355,6 +395,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = PaperOnboarding/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -416,6 +460,7 @@
 		7CE4FC1B1ED82ECA0011DFAF /* TestingRelease */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
@@ -423,6 +468,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = PaperOnboarding/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -441,6 +490,7 @@
 		845C48C91CFDB2F7002BE949 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
@@ -448,6 +498,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = PaperOnboarding/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -457,6 +511,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.ramotion.PaperOnboarding;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -467,6 +522,7 @@
 		845C48CA1CFDB2F7002BE949 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				CURRENT_PROJECT_VERSION = 1;
@@ -474,6 +530,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = PaperOnboarding/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
