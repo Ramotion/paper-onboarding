@@ -46,16 +46,31 @@
         return; //not have any carousel to show
     }
     self.tipElement = tip;
-    PaperOnboarding *onboardingView = [[PaperOnboarding alloc]
-                                       initWithItemsCount:tip.carousel.items.count];
-    onboardingView.dataSource = self;
-    onboardingView.delegate = self;
-    onboardingView.translatesAutoresizingMaskIntoConstraints = NO;
-    [viewContent addSubview:onboardingView];
-    [viewContent sendSubviewToBack:onboardingView];
+    PaperOnboarding *viewOnboarding = [[PaperOnboarding alloc] initWithItemsCount:tip.carousel.items.count];
+    viewOnboarding.dataSource = self;
+    viewOnboarding.delegate = self;
+    viewOnboarding.translatesAutoresizingMaskIntoConstraints = NO;
+    [viewContent addSubview:viewOnboarding];
+    [viewContent sendSubviewToBack:viewOnboarding];
+    viewOnboarding.layer.borderColor = tip.carousel.borderColor.CGColor;
+    viewOnboarding.layer.borderWidth = tip.carousel.borderWidth;
+    viewOnboarding.layer.cornerRadius = tip.carousel.cornerRadius;
+    if (tip.carousel.boxShadow == 0) //no shadow
+    {
+        //clipsToBounds and masksToBound not co-work well.
+        //when masksToBound=NO it doesn't show shadow,
+        //however when masksToBound=YES the subviews go out of bound.
+        viewOnboarding.clipsToBounds = YES;
+    }
+    else
+    {
+        viewOnboarding.layer.shadowOffset = CGSizeMake(tip.carousel.boxShadow, tip.carousel.boxShadow);
+        viewOnboarding.layer.shadowOpacity = 0.5f;
+        viewOnboarding.layer.shadowRadius = tip.carousel.cornerRadius;
+    }
     //use constraints to add the paper onboarding view
     NSLayoutConstraint *leading = [NSLayoutConstraint
-                                   constraintWithItem:onboardingView
+                                   constraintWithItem:viewOnboarding
                                    attribute:NSLayoutAttributeLeading
                                    relatedBy:NSLayoutRelationEqual
                                    toItem:viewContent
@@ -64,16 +79,16 @@
                                    constant:tip.carousel.margin.left];
     [viewContent addConstraint:leading];
     NSLayoutConstraint *trailing =[NSLayoutConstraint
-                                   constraintWithItem:onboardingView
+                                   constraintWithItem:viewOnboarding
                                    attribute:NSLayoutAttributeTrailing
                                    relatedBy:NSLayoutRelationEqual
                                    toItem:viewContent
                                    attribute:NSLayoutAttributeTrailing
                                    multiplier:1.0f
-                                   constant:tip.carousel.margin.right];
+                                   constant:-tip.carousel.margin.right];
     [viewContent addConstraint:trailing];
     NSLayoutConstraint *top =[NSLayoutConstraint
-                              constraintWithItem:onboardingView
+                              constraintWithItem:viewOnboarding
                               attribute:NSLayoutAttributeTop
                               relatedBy:NSLayoutRelationEqual
                               toItem:viewContent
@@ -82,13 +97,13 @@
                               constant:tip.carousel.margin.top];
     [viewContent addConstraint:top];
     NSLayoutConstraint *bottom =[NSLayoutConstraint
-                                 constraintWithItem:onboardingView
+                                 constraintWithItem:viewOnboarding
                                  attribute:NSLayoutAttributeBottom
                                  relatedBy:NSLayoutRelationEqual
                                  toItem:viewContent
                                  attribute:NSLayoutAttributeBottom
                                  multiplier:1.0f
-                                 constant:tip.carousel.margin.bottom];
+                                 constant:-tip.carousel.margin.bottom];
     [viewContent addConstraint:bottom];
 }
 
