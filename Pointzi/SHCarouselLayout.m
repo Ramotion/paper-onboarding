@@ -46,31 +46,76 @@
         return; //not have any carousel to show
     }
     self.tipElement = tip;
+    UIView *viewCarousel = [[UIView alloc] init];
+    [viewContent addSubview:viewCarousel];
+    //must have this otherwise constraints cannot work
+    viewCarousel.translatesAutoresizingMaskIntoConstraints = NO;
+    [viewContent sendSubviewToBack:viewCarousel];
+    viewContent.layer.borderColor = tip.carousel.borderColor.CGColor;
+    viewContent.layer.borderWidth = tip.carousel.borderWidth;
+    viewContent.layer.cornerRadius = tip.carousel.cornerRadius;
+    
+    
     PaperOnboarding *viewOnboarding = [[PaperOnboarding alloc] initWithItemsCount:tip.carousel.items.count];
     viewOnboarding.dataSource = self;
     viewOnboarding.delegate = self;
     viewOnboarding.translatesAutoresizingMaskIntoConstraints = NO;
-    [viewContent addSubview:viewOnboarding];
-    [viewContent sendSubviewToBack:viewOnboarding];
-    viewOnboarding.layer.borderColor = tip.carousel.borderColor.CGColor;
-    viewOnboarding.layer.borderWidth = tip.carousel.borderWidth;
+    [viewCarousel addSubview:viewOnboarding];
+    viewOnboarding.layer.borderWidth = 0;
     viewOnboarding.layer.cornerRadius = tip.carousel.cornerRadius;
+    viewOnboarding.clipsToBounds = YES; //limit content even with shadow
     if (tip.carousel.boxShadow == 0) //no shadow
     {
         //clipsToBounds and masksToBound not co-work well.
         //when masksToBound=NO it doesn't show shadow,
         //however when masksToBound=YES the subviews go out of bound.
-        viewOnboarding.clipsToBounds = YES;
+        viewCarousel.clipsToBounds = YES;
     }
     else
     {
-        viewOnboarding.layer.shadowOffset = CGSizeMake(tip.carousel.boxShadow, tip.carousel.boxShadow);
-        viewOnboarding.layer.shadowOpacity = 0.5f;
-        viewOnboarding.layer.shadowRadius = tip.carousel.cornerRadius;
+        viewCarousel.layer.shadowOffset = CGSizeMake(tip.carousel.boxShadow, tip.carousel.boxShadow);
+        viewCarousel.layer.shadowOpacity = 0.5f;
+        viewCarousel.layer.shadowRadius = tip.carousel.cornerRadius;
     }
     //use constraints to add the paper onboarding view
-    NSLayoutConstraint *leading = [NSLayoutConstraint
+    NSLayoutConstraint *leadingInner = [NSLayoutConstraint
+                                        constraintWithItem:viewOnboarding
+                                        attribute:NSLayoutAttributeLeading
+                                        relatedBy:NSLayoutRelationEqual
+                                        toItem:viewCarousel
+                                        attribute:NSLayoutAttributeLeading
+                                        multiplier:1.0f
+                                        constant:0];
+    [viewCarousel addConstraint:leadingInner];
+    NSLayoutConstraint *trailingInner =[NSLayoutConstraint
+                                        constraintWithItem:viewOnboarding
+                                        attribute:NSLayoutAttributeTrailing
+                                        relatedBy:NSLayoutRelationEqual
+                                        toItem:viewCarousel
+                                        attribute:NSLayoutAttributeTrailing
+                                        multiplier:1.0f
+                                        constant:0];
+    [viewCarousel addConstraint:trailingInner];
+    NSLayoutConstraint *topInner =[NSLayoutConstraint
                                    constraintWithItem:viewOnboarding
+                                   attribute:NSLayoutAttributeTop
+                                   relatedBy:NSLayoutRelationEqual
+                                   toItem:viewCarousel
+                                   attribute:NSLayoutAttributeTop
+                                   multiplier:1.0f
+                                   constant:0];
+    [viewCarousel addConstraint:topInner];
+    NSLayoutConstraint *bottomInner =[NSLayoutConstraint
+                                      constraintWithItem:viewOnboarding
+                                      attribute:NSLayoutAttributeBottom
+                                      relatedBy:NSLayoutRelationEqual
+                                      toItem:viewCarousel
+                                      attribute:NSLayoutAttributeBottom
+                                      multiplier:1.0f
+                                      constant:0];
+    [viewCarousel addConstraint:bottomInner];
+    NSLayoutConstraint *leading = [NSLayoutConstraint
+                                   constraintWithItem:viewCarousel
                                    attribute:NSLayoutAttributeLeading
                                    relatedBy:NSLayoutRelationEqual
                                    toItem:viewContent
@@ -79,7 +124,7 @@
                                    constant:tip.carousel.margin.left];
     [viewContent addConstraint:leading];
     NSLayoutConstraint *trailing =[NSLayoutConstraint
-                                   constraintWithItem:viewOnboarding
+                                   constraintWithItem:viewCarousel
                                    attribute:NSLayoutAttributeTrailing
                                    relatedBy:NSLayoutRelationEqual
                                    toItem:viewContent
@@ -88,7 +133,7 @@
                                    constant:-tip.carousel.margin.right];
     [viewContent addConstraint:trailing];
     NSLayoutConstraint *top =[NSLayoutConstraint
-                              constraintWithItem:viewOnboarding
+                              constraintWithItem:viewCarousel
                               attribute:NSLayoutAttributeTop
                               relatedBy:NSLayoutRelationEqual
                               toItem:viewContent
@@ -97,7 +142,7 @@
                               constant:tip.carousel.margin.top];
     [viewContent addConstraint:top];
     NSLayoutConstraint *bottom =[NSLayoutConstraint
-                                 constraintWithItem:viewOnboarding
+                                 constraintWithItem:viewCarousel
                                  attribute:NSLayoutAttributeBottom
                                  relatedBy:NSLayoutRelationEqual
                                  toItem:viewContent
