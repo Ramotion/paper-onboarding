@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		4DB5B0DB1FA57DE300304CBC /* SHCarouselBridge.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DB5B0D91FA57DE300304CBC /* SHCarouselBridge.h */; };
 		4DB5B0DC1FA57DE300304CBC /* SHCarouselBridge.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DB5B0DA1FA57DE300304CBC /* SHCarouselBridge.m */; };
-		4DB5B0E21FA583BF00304CBC /* StreetHawkCore_Pointzi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DB5B0E31FA583BF00304CBC /* StreetHawkCore_Pointzi.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		4DB5B0E61FA5852300304CBC /* SHCarouselLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = 4DB5B0E41FA5852300304CBC /* SHCarouselLayout.h */; };
 		4DB5B0E71FA5852300304CBC /* SHCarouselLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 4DB5B0E51FA5852300304CBC /* SHCarouselLayout.m */; };
 		7C4C71151ECAA8DC0012B00B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7C4C71141ECAA8DC0012B00B /* Assets.xcassets */; };
@@ -61,7 +60,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4DB5B0E21FA583BF00304CBC /* StreetHawkCore_Pointzi.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
