@@ -54,8 +54,6 @@
     viewContent.layer.borderColor = tip.carousel.borderColor.CGColor;
     viewContent.layer.borderWidth = tip.carousel.borderWidth;
     viewContent.layer.cornerRadius = tip.carousel.cornerRadius;
-    
-    
     PaperOnboarding *viewOnboarding = [[PaperOnboarding alloc] initWithItemsCount:tip.carousel.items.count];
     viewOnboarding.dataSource = self;
     viewOnboarding.delegate = self;
