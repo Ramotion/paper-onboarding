@@ -16,6 +16,8 @@
  */
 
 #import "SHCarouselLayout.h"
+//header from StreetHawk
+#import <StreetHawkCore/StreetHawkCore.h>
 //header from PaperOnboarding
 #import <PaperOnboarding/PaperOnboarding-Swift.h>
 

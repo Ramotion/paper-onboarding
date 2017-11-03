@@ -15,9 +15,9 @@
  * License along with this library.
  */
 
-#import <Foundation/Foundation.h>
-//header from StreetHawk
-#import <StreetHawkCore_Pointzi/StreetHawkCore_Pointzi.h>
+#import <UIKit/UIKit.h>
+
+@class SHTipElement;
 
 @interface SHCarouselLayout : NSObject
 
