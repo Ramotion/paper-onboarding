@@ -161,10 +161,12 @@
 {
     OnboardingItemInfo *item = [OnboardingItemInfo new];
     SHTipCarouselItem *tipItem = self.tipElement.carousel.items[index];
-    item.shImageName = tipItem.image;
+    item.shImage = tipItem.image;
+    item.shImageSource = tipItem.imageSource;
     item.shTitle = tipItem.titleText;
     item.shDesc = tipItem.contentText;
-    item.shIconName = tipItem.icon;
+    item.shIcon = tipItem.icon;
+    item.shIconSource = tipItem.iconSource;
     item.shColor = tipItem.backgroundColor;
     item.shTitleColor = tipItem.titleColor;
     item.shDescriptionColor = tipItem.contentColor;
@@ -179,14 +181,6 @@
 
 - (void)onboardingDidTransitonToIndex:(NSInteger)index
 {
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        [StreetHawk notifyFeedResult:self.tipElement.feed_id
-                          withResult:SHResult_Accept
-                          withStepId:nil
-                          deleteFeed:NO
-                           completed:NO];
-    });
 }
 
 - (void)onboardingConfigurationItem:(OnboardingContentViewItem * _Nonnull)item index:(NSInteger)index

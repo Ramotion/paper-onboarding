@@ -9,15 +9,17 @@
 import UIKit
 
 open class OnboardingItemInfo: NSObject {
-    open var shImageName: UIImage!
-    open var shTitle: String!
-    open var shDesc: String!
-    open var shIconName: UIImage!
-    open var shColor: UIColor!
-    open var shTitleColor: UIColor!
-    open var shDescriptionColor: UIColor!
-    open var shTitleFont: UIFont!
-    open var shDescriptionFont: UIFont!
+    open var shImage: UIImage?
+    open var shImageSource: String?
+    open var shTitle: String?
+    open var shDesc: String?
+    open var shIcon: UIImage?
+    open var shIconSource: String?
+    open var shColor: UIColor?
+    open var shTitleColor: UIColor?
+    open var shDescriptionColor: UIColor?
+    open var shTitleFont: UIFont?
+    open var shDescriptionFont: UIFont?
 }
 
 //@objc public typealias OnboardingItemInfo = (imageName: UIImage, title: String, description: String, iconName: UIImage, color: UIColor, titleColor: UIColor, descriptionColor: UIColor, titleFont: UIFont, descriptionFont: UIFont)
@@ -179,7 +181,8 @@ extension PaperOnboarding {
                                            selectedRadius: pageViewSelectedRadius)
     
     pageView.configuration = { item, index in
-        item.imageView?.image = self.itemsInfo?[index].shIconName
+        item.imageView?.image = self.itemsInfo?[index].shIcon
+        item.imageSource = self.itemsInfo?[index].shIconSource
     }
     
     return pageView

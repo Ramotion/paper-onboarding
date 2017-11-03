@@ -91,7 +91,8 @@ extension OnboardingContentView {
     }
 
     let item = Init(OnboardingContentViewItem.itemOnView(self)) {
-      $0.imageView?.image       = info.shImageName
+      $0.imageView?.image       = info.shImage
+      $0.imageSource            = info.shImageSource
       $0.titleLabel?.text       = info.shTitle
       $0.titleLabel?.font       = info.shTitleFont
       $0.titleLabel?.textColor  = info.shTitleColor

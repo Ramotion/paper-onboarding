@@ -19,6 +19,7 @@ class PageViewItem: UIView {
   
   var centerView: UIView?
   var imageView: UIImageView?
+  var imageSource: String?
   var circleLayer: CAShapeLayer?
   var tickIndex: Int = 0
   
@@ -30,11 +31,37 @@ class PageViewItem: UIView {
     self.select = isSelect
     super.init(frame: CGRect.zero)
     commonInit()
+    //add notification for update image when fetched later
+    NotificationCenter.default.addObserver(self,
+                                           selector: #selector(self.prepareImage(notification:)),
+                                           name: NSNotification.Name(rawValue: "SH_PrepareImage"),
+                                           object: nil)
   }
   
   required init?(coder aDecoder: NSCoder) {
     fatalError("init(coder:) has not been implemented")
   }
+}
+
+// MARK: notification
+
+extension PageViewItem {
+    @objc func prepareImage(notification: NSNotification) {
+        if (self.imageView?.image == nil) //if already has image, not need to check
+        {
+            //there is a image source for this item
+            if let sourceLength = self.imageSource?.lengthOfBytes(using: String.Encoding.utf8), sourceLength > 0 {
+                let imageSource = notification.userInfo!["source"]
+                //it's same image source, so set the image
+                if (self.imageSource?.compare(imageSource as! String) == ComparisonResult.orderedSame)
+                {
+                    DispatchQueue.main.async {
+                        self.imageView?.image = notification.userInfo!["image"] as? UIImage
+                    }
+                }
+            }
+        }
+    }
 }
 
 // MARK: public
