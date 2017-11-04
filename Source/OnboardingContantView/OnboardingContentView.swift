@@ -91,13 +91,14 @@ extension OnboardingContentView {
     }
 
     let item = Init(OnboardingContentViewItem.itemOnView(self)) {
-      $0.imageView?.image       = info.imageName
-      $0.titleLabel?.text       = info.title
-      $0.titleLabel?.font       = info.titleFont
-      $0.titleLabel?.textColor  = info.titleColor
-      $0.descriptionLabel?.text = info.description
-      $0.descriptionLabel?.font = info.descriptionFont
-      $0.descriptionLabel?.textColor = info.descriptionColor
+      $0.imageView?.image       = info.shImage
+      $0.imageSource            = info.shImageSource
+      $0.titleLabel?.text       = info.shTitle
+      $0.titleLabel?.font       = info.shTitleFont
+      $0.titleLabel?.textColor  = info.shTitleColor
+      $0.descriptionLabel?.text = info.shDesc
+      $0.descriptionLabel?.font = info.shDescriptionFont
+      $0.descriptionLabel?.textColor = info.shDescriptionColor
     }
     
     delegate.onboardingConfigurationItem(item, index: index)

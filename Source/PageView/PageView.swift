@@ -24,7 +24,7 @@ class PageView: UIView {
   }
   
   fileprivate var containerX: NSLayoutConstraint?
-  var containerView: PageContrainer?
+  fileprivate var containerView: PageContrainer?
   
   override init(frame: CGRect) {
     super.init(frame: frame)
@@ -43,20 +43,6 @@ class PageView: UIView {
     super.init(coder: aDecoder)
     commonInit()
   }
-  
-  override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
-    guard
-      let containerView = self.containerView,
-      let items = containerView.items
-      else { return nil }
-    for item in items {
-      let frame = item.frame.insetBy(dx: -10, dy: -10)
-      guard frame.contains(point) else { continue }
-      return item
-    }
-    return nil
-  }
-  
 }
 
 // MARK: public
