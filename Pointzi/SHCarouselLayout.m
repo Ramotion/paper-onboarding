@@ -17,7 +17,7 @@
 
 #import "SHCarouselLayout.h"
 //header from StreetHawk
-#import <StreetHawkCore_Pointzi/StreetHawkCore_Pointzi.h>
+#import "StreetHawkCore_Pointzi.h"
 //header from PaperOnboarding
 #import <PaperOnboarding/PaperOnboarding-Swift.h>
 
