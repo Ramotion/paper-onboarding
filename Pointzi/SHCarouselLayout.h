@@ -26,6 +26,9 @@
  */
 + (SHCarouselLayout *)sharedInstance;
 
+/**
+ Layout carousel on a view content.
+ */
 - (void)layoutCarouselOnView:(UIView *)viewContent forTip:(SHTipElement *)tip;
 
 @end
