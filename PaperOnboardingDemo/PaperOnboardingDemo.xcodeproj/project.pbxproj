@@ -28,8 +28,6 @@
 /* Begin PBXFileReference section */
 		4DB5B0D91FA57DE300304CBC /* SHCarouselBridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHCarouselBridge.h; sourceTree = "<group>"; };
 		4DB5B0DA1FA57DE300304CBC /* SHCarouselBridge.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHCarouselBridge.m; sourceTree = "<group>"; };
-		4DB5B0E11FA582C300304CBC /* StreetHawkCore.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = StreetHawkCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		4DB5B0E31FA583BF00304CBC /* StreetHawkCore_Pointzi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = StreetHawkCore_Pointzi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4DB5B0E41FA5852300304CBC /* SHCarouselLayout.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SHCarouselLayout.h; sourceTree = "<group>"; };
 		4DB5B0E51FA5852300304CBC /* SHCarouselLayout.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SHCarouselLayout.m; sourceTree = "<group>"; };
 		7C4C71141ECAA8DC0012B00B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -81,8 +79,6 @@
 		4DB5B0DD1FA57F5500304CBC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				4DB5B0E31FA583BF00304CBC /* StreetHawkCore_Pointzi.framework */,
-				4DB5B0E11FA582C300304CBC /* StreetHawkCore.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -393,10 +389,8 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/**",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/PointziFramework/**";
 				INFOPLIST_FILE = PaperOnboarding/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -466,10 +460,8 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/**",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/PointziFramework/**";
 				INFOPLIST_FILE = PaperOnboarding/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -496,10 +488,8 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/**",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/PointziFramework/**";
 				INFOPLIST_FILE = PaperOnboarding/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -528,10 +518,8 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/**",
-				);
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
+				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/PointziFramework/**";
 				INFOPLIST_FILE = PaperOnboarding/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
