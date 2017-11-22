@@ -15,14 +15,14 @@ public typealias OnboardingItemInfo = (imageName: UIImage, title: String, descri
 open class PaperOnboarding: UIView {
   
   ///  The object that acts as the data source of the  PaperOnboardingDataSource.
-  @IBOutlet open var dataSource: AnyObject? {
+  @IBOutlet weak open var dataSource: AnyObject? {
     didSet {
       commonInit()
     }
   }
   
   /// The object that acts as the delegate of the PaperOnboarding. PaperOnboardingDelegate protocol
-  @IBOutlet open var delegate: AnyObject?
+  @IBOutlet weak open var delegate: AnyObject?
   
   /// current index item
   open fileprivate(set) var currentIndex: Int = 0
@@ -98,7 +98,7 @@ extension PaperOnboarding {
     
     itemsInfo = createItemsInfo()
     translatesAutoresizingMaskIntoConstraints = false
-    fillAnimationView = FillAnimationView.animavtionViewOnView(self, color: backgroundColor(currentIndex))
+    fillAnimationView = FillAnimationView.animationViewOnView(self, color: backgroundColor(currentIndex))
     contentView = OnboardingContentView.contentViewOnView(self,
                                                           delegate: self,
                                                           itemsCount: itemsCount,
@@ -132,7 +132,7 @@ extension PaperOnboarding {
                                            radius:pageViewRadius,
                                            selectedRadius: pageViewSelectedRadius)
     
-    pageView.configuration = { item, index in
+    pageView.configuration = {[unowned self] item, index in
         item.imageView?.image = self.itemsInfo?[index].iconName
     }
     
