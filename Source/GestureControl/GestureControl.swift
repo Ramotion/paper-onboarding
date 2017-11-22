@@ -51,7 +51,7 @@ class GestureControl: UIView {
 
 extension GestureControl {
   
-  dynamic func swipeHandler(_ gesture: UISwipeGestureRecognizer) {
+  @objc dynamic func swipeHandler(_ gesture: UISwipeGestureRecognizer) {
     delegate.gestureControlDidSwipe(gesture.direction)
   }
 
