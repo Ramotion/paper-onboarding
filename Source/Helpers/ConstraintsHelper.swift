@@ -1,5 +1,5 @@
 //
-//  ConstraintsHalper.swift
+//  ConstraintsHelper.swift
 //  AnimatedPageView
 //
 //  Created by Alex K. on 13/04/16.
