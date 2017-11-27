@@ -92,7 +92,7 @@ func onboardingItemAtIndex(index: Int) -> OnboardingItemInfo {
 
 ```
 
-#### configuration contant item:
+#### configuring content item:
 
 ``` swift
 func onboardingConfigurationItem(item: OnboardingContentViewItem, index: Int) {
