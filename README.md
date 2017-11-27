@@ -10,13 +10,13 @@
 [![codebeat badge](https://codebeat.co/badges/d06237c6-6ff7-4560-9602-b6cc65063383)](https://codebeat.co/projects/github-com-ramotion-paper-onboarding)
 
 # Check this library on other platforms:
-<a href="https://github.com/Ramotion/paper-onboarding-android"> 
+<a href="https://github.com/Ramotion/paper-onboarding-android">
 <img src="https://github.com/ramotion/navigation-stack/raw/master/Android_Java@2x.png" width="178" height="81"></a>
 
 **Looking for developers for your project?**<br>
 This project is maintained by Ramotion, Inc. We specialize in the designing and coding of custom UI for Mobile Apps and Websites.
 
-<a href="https://ramotion.com/?utm_source=gthb&utm_medium=special&utm_campaign=paper-onboarding-contact-us/#Get_in_Touch"> 
+<a href="https://ramotion.com/?utm_source=gthb&utm_medium=special&utm_campaign=paper-onboarding-contact-us/#Get_in_Touch">
 <img src="https://github.com/ramotion/gliding-collection/raw/master/contact_our_team@2x.png" width="187" height="34"></a> <br>
 
 The [iPhone mockup](https://store.ramotion.com?utm_source=gthb&utm_medium=special&utm_campaign=paper-onboarding) available [here](https://store.ramotion.com?utm_source=gthb&utm_medium=special&utm_campaign=paper-onboarding).
@@ -24,17 +24,16 @@ The [iPhone mockup](https://store.ramotion.com?utm_source=gthb&utm_medium=specia
 ## Requirements
 
 - iOS 10.0+
-- Xcode 8
+- Xcode 9
 
 ## Installation
 
 Just add the Source folder to your project.
 
 or use [CocoaPods](https://cocoapods.org) with Podfile:
-``` ruby
-pod 'paper-onboarding', '~> 1.1.3' swift 2.2
 
-pod 'paper-onboarding', '~> 2.0.1' swift 3
+``` ruby
+pod 'paper-onboarding'
 ```
 
 or [Carthage](https://github.com/Carthage/Carthage) users can simply add to their `Cartfile`:
@@ -112,10 +111,10 @@ See [LICENSE](./LICENSE) for details.
 # Get the Showroom App for iOS to give it a try
 Try this UI component and more like this in our iOS app. Contact us if interested.
 
-<a href="https://itunes.apple.com/app/apple-store/id1182360240?pt=550053&ct=paper-onboarding&mt=8" > 
+<a href="https://itunes.apple.com/app/apple-store/id1182360240?pt=550053&ct=paper-onboarding&mt=8" >
 <img src="https://github.com/ramotion/gliding-collection/raw/master/app_store@2x.png" width="117" height="34"></a>
 
-<a href="https://ramotion.com/?utm_source=gthb&utm_medium=special&utm_campaign=paper-onboarding-contact-us/#Get_in_Touch"> 
+<a href="https://ramotion.com/?utm_source=gthb&utm_medium=special&utm_campaign=paper-onboarding-contact-us/#Get_in_Touch">
 <img src="https://github.com/ramotion/gliding-collection/raw/master/contact_our_team@2x.png" width="187" height="34"></a>
 <br>
 <br>
