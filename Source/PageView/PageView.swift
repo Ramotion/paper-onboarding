@@ -15,6 +15,7 @@ class PageView: UIView {
   var selectedItemRadius: CGFloat = 22.0
   var duration: Double            = 0.7
   var space: CGFloat              = 20// space between items
+  let itemColor: (Int) -> (UIColor)
 
   // configure items set image or chage color for border view
   var configuration: ((_ item: PageViewItem, _ index: Int) -> Void)? {
@@ -26,23 +27,16 @@ class PageView: UIView {
   fileprivate var containerX: NSLayoutConstraint?
   var containerView: PageContrainer?
   
-  override init(frame: CGRect) {
-    super.init(frame: frame)
-    commonInit()
-  }
-  
-  init(frame: CGRect, itemsCount: Int, radius: CGFloat, selectedRadius: CGFloat) {
+  init(frame: CGRect, itemsCount: Int, radius: CGFloat, selectedRadius: CGFloat, itemColor: @escaping (Int) -> UIColor) {
     self.itemsCount         = itemsCount
     self.itemRadius         = radius
     self.selectedItemRadius = selectedRadius
+    self.itemColor = itemColor
     super.init(frame: frame)
     commonInit()
   }
   
-  required init?(coder aDecoder: NSCoder) {
-    super.init(coder: aDecoder)
-    commonInit()
-  }
+  required init?(coder aDecoder: NSCoder) { fatalError("init(coder:) has not been implemented") }
   
   override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
     guard
@@ -63,11 +57,14 @@ class PageView: UIView {
 
 extension PageView {
   
-  class func pageViewOnView(_ view: UIView, itemsCount: Int, bottomConstant: CGFloat, radius: CGFloat, selectedRadius: CGFloat) -> PageView {
-   let pageView = Init(PageView(frame: CGRect.zero, itemsCount: itemsCount, radius: radius, selectedRadius: selectedRadius)) {
-      $0.translatesAutoresizingMaskIntoConstraints = false
-      $0.alpha                                     = 0.4
-    }
+  class func pageViewOnView(_ view: UIView, itemsCount: Int, bottomConstant: CGFloat, radius: CGFloat, selectedRadius: CGFloat, itemColor: @escaping (Int) -> UIColor) -> PageView {
+    let pageView = PageView(frame: CGRect.zero,
+                            itemsCount: itemsCount,
+                            radius: radius,
+                            selectedRadius: selectedRadius,
+                            itemColor: itemColor)
+    pageView.translatesAutoresizingMaskIntoConstraints = false
+    pageView.alpha                                     = 0.4
     view.addSubview(pageView)
     
     // add constraints 
@@ -122,7 +119,12 @@ extension PageView {
 extension PageView {
   
   fileprivate func createContainerView() -> PageContrainer {
-    let container = Init(PageContrainer(radius: itemRadius, selectedRadius: selectedItemRadius, space: space, itemsCount: itemsCount)) {
+    let pageControl = PageContrainer(radius: itemRadius,
+                                     selectedRadius: selectedItemRadius,
+                                     space: space,
+                                     itemsCount: itemsCount,
+                                     itemColor: itemColor)
+    let container = Init(pageControl) {
       $0.backgroundColor                           = .clear
       $0.translatesAutoresizingMaskIntoConstraints = false
     }

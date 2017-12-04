@@ -13,7 +13,7 @@ class PageViewItem: UIView {
   let circleRadius: CGFloat
   let selectedCircleRadius: CGFloat
   let lineWidth: CGFloat
-  let borderColor: UIColor
+  let itemColor: UIColor
   
   var select: Bool
   
@@ -22,8 +22,8 @@ class PageViewItem: UIView {
   var circleLayer: CAShapeLayer?
   var tickIndex: Int = 0
   
-  init(radius: CGFloat, selectedRadius: CGFloat, borderColor: UIColor = .white, lineWidth: CGFloat = 3, isSelect: Bool = false) {
-    self.borderColor = borderColor
+  init(radius: CGFloat, itemColor: UIColor, selectedRadius: CGFloat, lineWidth: CGFloat = 3, isSelect: Bool = false) {
+    self.itemColor = itemColor
     self.lineWidth = lineWidth
     self.circleRadius = radius
     self.selectedCircleRadius = selectedRadius
@@ -47,7 +47,7 @@ extension PageViewItem {
     
     let currentRadius  = selected == true ? selectedCircleRadius : circleRadius
     let scaleAnimation = circleScaleAnimation(currentRadius - lineWidth / 2.0, duration: duration)
-    let toColor        = fillColor == true ? UIColor.white : UIColor.clear
+    let toColor        = fillColor == true ? itemColor : UIColor.clear
     let colorAnimation = circleBackgroundAnimation(toColor, duration: duration)
     
     circleLayer?.add(scaleAnimation, forKey: nil)
@@ -98,7 +98,7 @@ extension PageViewItem {
     let layer = Init(CAShapeLayer()) {
       $0.path        = path.cgPath
       $0.lineWidth   = lineWidth
-      $0.strokeColor = UIColor.white.cgColor
+      $0.strokeColor = itemColor.cgColor
       $0.fillColor   = UIColor.clear.cgColor
     }
     return layer
