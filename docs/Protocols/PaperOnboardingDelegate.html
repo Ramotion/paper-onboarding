@@ -14,12 +14,12 @@
     <a title="PaperOnboardingDelegate Protocol Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">PaperOnboardingDemo Docs</a> (100% documented)</p>
+        <p><a href="../index.html"> Docs</a> (100% documented)</p>
       </div>
     </header>
     <div class="content-wrapper">
       <p id="breadcrumbs">
-        <a href="../index.html">PaperOnboardingDemo Reference</a>
+        <a href="../index.html"> Reference</a>
         <img id="carat" src="../img/carat.png" />
         PaperOnboardingDelegate Protocol Reference
       </p>
@@ -30,6 +30,9 @@
           <li class="nav-group-name">
             <a href="../Classes.html">Classes</a>
             <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/OnboardingContentViewItem.html">OnboardingContentViewItem</a>
+              </li>
               <li class="nav-group-task">
                 <a href="../Classes/PaperOnboarding.html">PaperOnboarding</a>
               </li>
@@ -58,7 +61,8 @@
 
                 </div>
               </div>
-            <ul>
+            
+<ul>
 <li>The delegate of a PaperOnboarding object must adopt the PaperOnboardingDelegate protocol. Optional methods of the
 protocol allow the delegate to manage items, configure items, and perform other actions.</li>
 </ul>
@@ -70,10 +74,13 @@ protocol allow the delegate to manage items, configure items, and perform other 
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FP19PaperOnboardingDemo23PaperOnboardingDelegate30onboardingWillTransitonToIndexFSiT_"></a>
+                    <a name="/s:FP15PaperOnboarding23PaperOnboardingDelegate30onboardingWillTransitonToIndexFSiT_"></a>
                     <a name="//apple_ref/swift/Method/onboardingWillTransitonToIndex(_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FP19PaperOnboardingDemo23PaperOnboardingDelegate30onboardingWillTransitonToIndexFSiT_">onboardingWillTransitonToIndex(_:)</a>
+                    <a class="token" href="#/s:FP15PaperOnboarding23PaperOnboardingDelegate30onboardingWillTransitonToIndexFSiT_">onboardingWillTransitonToIndex(_:)</a>
                     </code>
+                      <span class="declaration-note">
+                        Default implementation
+                      </span>
                   </div>
                   <div class="height-container">
                     <div class="pointer-container"></div>
@@ -83,11 +90,15 @@ protocol allow the delegate to manage items, configure items, and perform other 
                         <p>Tells the delegate that the paperOnbording start scrolling.</p>
 
                       </div>
+                      <h4>Default Implementation</h4>
+                      <div class="default_impl abstract">
+                        
+                      </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">onboardingWillTransitonToIndex</span><span class="p">(</span><span class="nv">index</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">onboardingWillTransitonToIndex</span><span class="p">(</span><span class="n">_</span> <span class="nv">index</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -104,7 +115,6 @@ protocol allow the delegate to manage items, configure items, and perform other 
                               <td>
                                 <div>
                                   <p>An curretn index item</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -117,10 +127,13 @@ protocol allow the delegate to manage items, configure items, and perform other 
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FP19PaperOnboardingDemo23PaperOnboardingDelegate29onboardingDidTransitonToIndexFSiT_"></a>
+                    <a name="/s:FP15PaperOnboarding23PaperOnboardingDelegate29onboardingDidTransitonToIndexFSiT_"></a>
                     <a name="//apple_ref/swift/Method/onboardingDidTransitonToIndex(_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FP19PaperOnboardingDemo23PaperOnboardingDelegate29onboardingDidTransitonToIndexFSiT_">onboardingDidTransitonToIndex(_:)</a>
+                    <a class="token" href="#/s:FP15PaperOnboarding23PaperOnboardingDelegate29onboardingDidTransitonToIndexFSiT_">onboardingDidTransitonToIndex(_:)</a>
                     </code>
+                      <span class="declaration-note">
+                        Default implementation
+                      </span>
                   </div>
                   <div class="height-container">
                     <div class="pointer-container"></div>
@@ -130,11 +143,15 @@ protocol allow the delegate to manage items, configure items, and perform other 
                         <p>Tells the delegate that the specified item is now selected</p>
 
                       </div>
+                      <h4>Default Implementation</h4>
+                      <div class="default_impl abstract">
+                        
+                      </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">onboardingDidTransitonToIndex</span><span class="p">(</span><span class="nv">index</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">onboardingDidTransitonToIndex</span><span class="p">(</span><span class="n">_</span> <span class="nv">index</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -151,7 +168,6 @@ protocol allow the delegate to manage items, configure items, and perform other 
                               <td>
                                 <div>
                                   <p>An curretn index item</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -164,10 +180,13 @@ protocol allow the delegate to manage items, configure items, and perform other 
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FP19PaperOnboardingDemo23PaperOnboardingDelegate27onboardingConfigurationItemFTCS_25OnboardingContentViewItem5indexSi_T_"></a>
+                    <a name="/s:FP15PaperOnboarding23PaperOnboardingDelegate27onboardingConfigurationItemFTCS_25OnboardingContentViewItem5indexSi_T_"></a>
                     <a name="//apple_ref/swift/Method/onboardingConfigurationItem(_:index:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FP19PaperOnboardingDemo23PaperOnboardingDelegate27onboardingConfigurationItemFTCS_25OnboardingContentViewItem5indexSi_T_">onboardingConfigurationItem(_:index:)</a>
+                    <a class="token" href="#/s:FP15PaperOnboarding23PaperOnboardingDelegate27onboardingConfigurationItemFTCS_25OnboardingContentViewItem5indexSi_T_">onboardingConfigurationItem(_:index:)</a>
                     </code>
+                      <span class="declaration-note">
+                        Default implementation
+                      </span>
                   </div>
                   <div class="height-container">
                     <div class="pointer-container"></div>
@@ -177,11 +196,15 @@ protocol allow the delegate to manage items, configure items, and perform other 
                         <p>Tells the delegate the PaperOnboarding is about to draw a item for a particular row. Use this method for configure items</p>
 
                       </div>
+                      <h4>Default Implementation</h4>
+                      <div class="default_impl abstract">
+                        
+                      </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">onboardingConfigurationItem</span><span class="p">(</span><span class="nv">item</span><span class="p">:</span> <span class="kt">OnboardingContentViewItem</span><span class="p">,</span> <span class="nv">index</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">onboardingConfigurationItem</span><span class="p">(</span><span class="n">_</span> <span class="nv">item</span><span class="p">:</span> <span class="kt"><a href="../Classes/OnboardingContentViewItem.html">OnboardingContentViewItem</a></span><span class="p">,</span> <span class="nv">index</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span></code></pre>
 
                         </div>
                       </div>
@@ -198,7 +221,6 @@ protocol allow the delegate to manage items, configure items, and perform other 
                               <td>
                                 <div>
                                   <p>A OnboardingContentViewItem object that PaperOnboarding is going to use when drawing the row.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -211,7 +233,6 @@ protocol allow the delegate to manage items, configure items, and perform other 
                               <td>
                                 <div>
                                   <p>An curretn index item</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -221,13 +242,49 @@ protocol allow the delegate to manage items, configure items, and perform other 
                     </section>
                   </div>
                 </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vP15PaperOnboarding23PaperOnboardingDelegate23enableTapsOnPageControlSb"></a>
+                    <a name="//apple_ref/swift/Property/enableTapsOnPageControl" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vP15PaperOnboarding23PaperOnboardingDelegate23enableTapsOnPageControlSb">enableTapsOnPageControl</a>
+                    </code>
+                      <span class="declaration-note">
+                        Default implementation
+                      </span>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Should <code><a href="../Classes/PaperOnboarding.html">PaperOnboarding</a></code> react to taps on <code>PageControl</code> view.
+If <code>true</code>, will scroll to tapped page.</p>
+
+                      </div>
+                      <h4>Default Implementation</h4>
+                      <div class="default_impl abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="k">var</span> <span class="nv">enableTapsOnPageControl</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
               </ul>
             </div>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2016 <a class="link" href="" target="_blank" rel="external">AlexKalinkin</a>. All rights reserved. (Last updated: 2016-06-10)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.5.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>&copy; 2017 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2017-06-23)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.8.2</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>

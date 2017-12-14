@@ -14,12 +14,12 @@
     <a title="PaperOnboardingDataSource Protocol Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">PaperOnboardingDemo Docs</a> (100% documented)</p>
+        <p><a href="../index.html"> Docs</a> (100% documented)</p>
       </div>
     </header>
     <div class="content-wrapper">
       <p id="breadcrumbs">
-        <a href="../index.html">PaperOnboardingDemo Reference</a>
+        <a href="../index.html"> Reference</a>
         <img id="carat" src="../img/carat.png" />
         PaperOnboardingDataSource Protocol Reference
       </p>
@@ -30,6 +30,9 @@
           <li class="nav-group-name">
             <a href="../Classes.html">Classes</a>
             <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/OnboardingContentViewItem.html">OnboardingContentViewItem</a>
+              </li>
               <li class="nav-group-task">
                 <a href="../Classes/PaperOnboarding.html">PaperOnboarding</a>
               </li>
@@ -58,7 +61,8 @@
 
                 </div>
               </div>
-            <ul>
+            
+<ul>
 <li>The PaperOnboardingDataSource protocol is adopted by an object that mediates the application’s data model for a PaperOnboarding object.
 The data source information it needs to construct and modify a PaperOnboarding.</li>
 </ul>
@@ -70,9 +74,9 @@ The data source information it needs to construct and modify a PaperOnboarding.<
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FP19PaperOnboardingDemo25PaperOnboardingDataSource20onboardingItemsCountFT_Si"></a>
+                    <a name="/s:FP15PaperOnboarding25PaperOnboardingDataSource20onboardingItemsCountFT_Si"></a>
                     <a name="//apple_ref/swift/Method/onboardingItemsCount()" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FP19PaperOnboardingDemo25PaperOnboardingDataSource20onboardingItemsCountFT_Si">onboardingItemsCount()</a>
+                    <a class="token" href="#/s:FP15PaperOnboarding25PaperOnboardingDataSource20onboardingItemsCountFT_Si">onboardingItemsCount()</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -104,7 +108,6 @@ The data source information it needs to construct and modify a PaperOnboarding.<
                               <td>
                                 <div>
                                   <p>An index of item in PaperOnboarding.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -114,7 +117,6 @@ The data source information it needs to construct and modify a PaperOnboarding.<
                       <div>
                         <h4>Return Value</h4>
                         <p>The number of items in PaperOnboarding.</p>
-
                       </div>
                     </section>
                   </div>
@@ -122,9 +124,9 @@ The data source information it needs to construct and modify a PaperOnboarding.<
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:FP19PaperOnboardingDemo25PaperOnboardingDataSource21onboardingItemAtIndexFSiT9imageNameSS5titleSS11descriptionSS8iconNameSS5colorCSo7UIColor10titleColorS1_16descriptionColorS1_9titleFontCSo6UIFont15descriptionFontS2__"></a>
+                    <a name="/s:FP15PaperOnboarding25PaperOnboardingDataSource21onboardingItemAtIndexFSiT9imageNameCSo7UIImage5titleSS11descriptionSS8iconNameS1_5colorCSo7UIColor10titleColorS2_16descriptionColorS2_9titleFontCSo6UIFont15descriptionFontS3__"></a>
                     <a name="//apple_ref/swift/Method/onboardingItemAtIndex(_:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:FP19PaperOnboardingDemo25PaperOnboardingDataSource21onboardingItemAtIndexFSiT9imageNameSS5titleSS11descriptionSS8iconNameSS5colorCSo7UIColor10titleColorS1_16descriptionColorS1_9titleFontCSo6UIFont15descriptionFontS2__">onboardingItemAtIndex(_:)</a>
+                    <a class="token" href="#/s:FP15PaperOnboarding25PaperOnboardingDataSource21onboardingItemAtIndexFSiT9imageNameCSo7UIImage5titleSS11descriptionSS8iconNameS1_5colorCSo7UIColor10titleColorS2_16descriptionColorS2_9titleFontCSo6UIFont15descriptionFontS3__">onboardingItemAtIndex(_:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -139,7 +141,7 @@ The data source information it needs to construct and modify a PaperOnboarding.<
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">onboardingItemAtIndex</span><span class="p">(</span><span class="nv">index</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">OnboardingItemInfo</span></code></pre>
+                          <pre class="highlight"><code><span class="kd">func</span> <span class="nf">onboardingItemAtIndex</span><span class="p">(</span><span class="n">_</span> <span class="nv">index</span><span class="p">:</span> <span class="kt">Int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">OnboardingItemInfo</span></code></pre>
 
                         </div>
                       </div>
@@ -156,7 +158,6 @@ The data source information it needs to construct and modify a PaperOnboarding.<
                               <td>
                                 <div>
                                   <p>An index of item in PaperOnboarding.</p>
-
                                 </div>
                               </td>
                             </tr>
@@ -166,7 +167,6 @@ The data source information it needs to construct and modify a PaperOnboarding.<
                       <div>
                         <h4>Return Value</h4>
                         <p>configuration info for item</p>
-
                       </div>
                     </section>
                   </div>
@@ -176,8 +176,8 @@ The data source information it needs to construct and modify a PaperOnboarding.<
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2016 <a class="link" href="" target="_blank" rel="external">AlexKalinkin</a>. All rights reserved. (Last updated: 2016-06-10)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.5.0</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>&copy; 2017 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2017-06-23)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.8.2</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>

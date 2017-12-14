@@ -1,10 +1,11 @@
 ![header](./header.png)
 ![animation](./preview.gif)
 
-# paper-onboarding
+# PaperOnboarding
 [![Twitter](https://img.shields.io/badge/Twitter-@Ramotion-blue.svg?style=flat)](http://twitter.com/Ramotion)
 [![CocoaPods](https://img.shields.io/cocoapods/p/paper-onboarding.svg)](https://cocoapods.org/pods/paper-onboarding)
 [![CocoaPods](https://img.shields.io/cocoapods/v/paper-onboarding.svg)](http://cocoapods.org/pods/paper-onboarding)
+[![Documentation](https://cdn.rawgit.com/Ramotion/paper-onboarding/master/docs/badge.svg)](https://cdn.rawgit.com/Ramotion/paper-onboarding/master/docs/index.html)
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Ramotion/paper-onboarding)
 [![Travis](https://img.shields.io/travis/Ramotion/paper-onboarding.svg)](https://travis-ci.org/Ramotion/paper-onboarding)
 [![codebeat badge](https://codebeat.co/badges/d06237c6-6ff7-4560-9602-b6cc65063383)](https://codebeat.co/projects/github-com-ramotion-paper-onboarding)
@@ -23,17 +24,21 @@ The [iPhone mockup](https://store.ramotion.com?utm_source=gthb&utm_medium=specia
 
 ## Requirements
 
-- iOS 10.0+
-- Xcode 9
+- iOS 8.0+
+- tvOS 9.0+
+- Xcode 8
 
 ## Installation
 
 Just add the Source folder to your project.
 
 or use [CocoaPods](https://cocoapods.org) with Podfile:
-
 ``` ruby
-pod 'paper-onboarding'
+pod 'paper-onboarding', '~> 1.1.3' # Swift 2.2
+
+pod 'PaperOnboarding', '~> 2.3' # Swift 3
+
+pod 'PaperOnboarding', '~> 3.0' # Swift 4
 ```
 
 or [Carthage](https://github.com/Carthage/Carthage) users can simply add to their `Cartfile`:
@@ -45,7 +50,7 @@ github "Ramotion/paper-onboarding"
 
 #### Storyboard
 
-1) Create a new UIView inheriting from ```PaperOnboarding```
+1) Create a new UIView inheriting from `PaperOnboarding`
 
 2) Set dataSource in attribute inspector
 
