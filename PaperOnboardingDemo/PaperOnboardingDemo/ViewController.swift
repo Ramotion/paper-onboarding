@@ -106,4 +106,8 @@ extension ViewController: PaperOnboardingDataSource {
     return 3
   }
   
+//  func onboardingPageItemColor(at index: Int) -> UIColor {
+//    return [UIColor.white, UIColor.red, UIColor.green][index]
+//  }
 }
+

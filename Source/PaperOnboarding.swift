@@ -126,11 +126,16 @@ extension PaperOnboarding {
   }
   
   fileprivate func createPageView() -> PageView {
-    let pageView = PageView.pageViewOnView(self,
-                                           itemsCount: itemsCount,
-                                           bottomConstant: pageViewBottomConstant * -1,
-                                           radius:pageViewRadius,
-                                           selectedRadius: pageViewSelectedRadius)
+    let pageView = PageView.pageViewOnView(
+      self,
+      itemsCount: itemsCount,
+      bottomConstant: pageViewBottomConstant * -1,
+      radius:pageViewRadius,
+      selectedRadius: pageViewSelectedRadius,
+      itemColor: { [weak self] in
+        guard let dataSource = self?.dataSource as? PaperOnboardingDataSource else { return .white }
+        return dataSource.onboardingPageItemColor(at: $0)
+    })
     
     pageView.configuration = { item, index in
         item.imageView?.image = self.itemsInfo?[index].iconName
@@ -187,8 +192,8 @@ extension PaperOnboarding: OnboardingContentViewDelegate {
     return itemsInfo?[index]
   }
   
-  func onboardingConfigurationItem(_ item: OnboardingContentViewItem, index: Int) {
-    delegate?.onboardingConfigurationItem(item, index: index)
+  @objc func onboardingConfigurationItem(_ item: OnboardingContentViewItem, index: Int) {
+    (self.delegate as? PaperOnboardingDelegate)?.onboardingConfigurationItem(item, index: index)
   }
   
 }

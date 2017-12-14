@@ -6,7 +6,7 @@
 //  Copyright © 2017 Alex K. All rights reserved.
 //
 
-import Foundation
+import UIKit
 
 
 /**
@@ -31,4 +31,18 @@ public protocol PaperOnboardingDataSource {
    */
   func onboardingItemAtIndex(_ index: Int) -> OnboardingItemInfo
   
+  /**
+   Asks the color for PageView item
+   
+   - parameter index: An index of item in PaperOnboarding.
+   - returns: color PageView Item
+   */
+  func onboardingPageItemColor(at index: Int) -> UIColor
+}
+
+public extension PaperOnboardingDataSource {
+  
+  func onboardingPageItemColor(at index: Int) -> UIColor {
+    return .white
+  }
 }
