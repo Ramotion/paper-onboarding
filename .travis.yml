@@ -1,11 +1,7 @@
-osx_image: xcode9.1
-language: objective-c
-env:
-  - DESTINATION="OS=11.0,name=iPhone 8" SCHEME="XLActionController" SDK=iphonesimulator11.0
-before_install:
-  - gem install xcpretty --no-rdoc --no-ri --no-document --quiet
-script:
-  - set -o pipefail
-  - xcodebuild -version
-  - xcodebuild -project PaperOnboardingDemo/PaperOnboardingDemo.xcodeproj -scheme "PaperOnboarding" -sdk "$SDK" -destination "$DESTINATION"
-      -configuration Release ONLY_ACTIVE_ARCH=NO build | xcpretty -c
+{
+    "osx_image": "xcode9.1",
+    "language": "objective-c",
+    "xcode_sdk": "iphonesimulator",
+    "script": "xcodebuild build -project PaperOnboardingDemo/PaperOnboardingDemo.xcodeproj -scheme PaperOnboarding",
+    "os": "osx"
+}
