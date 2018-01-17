@@ -47,8 +47,8 @@ class ViewController: UIViewController {
 
     private func setupPaperOnboardingView() {
         let onboarding = PaperOnboarding()
-        onboarding.dataSource = self
         onboarding.delegate = self
+        onboarding.dataSource = self
         onboarding.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(onboarding)
 
@@ -86,8 +86,7 @@ extension ViewController: PaperOnboardingDelegate {
     func onboardingDidTransitonToIndex(_: Int) {
     }
 
-    func onboardingConfigurationItem(_: OnboardingContentViewItem, index _: Int) {
-
+    func onboardingConfigurationItem(_: OnboardingContentViewItem, index: Int) {
 //    item.titleLabel?.backgroundColor = .redColor()
 //    item.descriptionLabel?.backgroundColor = .redColor()
 //    item.imageView = ...

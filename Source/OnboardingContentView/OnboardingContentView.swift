@@ -23,7 +23,7 @@ class OnboardingContentView: UIView {
     }
 
     fileprivate var currentItem: OnboardingContentViewItem?
-    weak var delegate: OnboardingContentViewDelegate!
+    weak var delegate: OnboardingContentViewDelegate?
 
     init(itemsCount _: Int, delegate: OnboardingContentViewDelegate) {
         self.delegate = delegate
@@ -87,7 +87,7 @@ extension OnboardingContentView {
 
     fileprivate func createItem(_ index: Int) -> OnboardingContentViewItem {
 
-        guard let info = delegate.onboardingItemAtIndex(index) else {
+        guard let info = delegate?.onboardingItemAtIndex(index) else {
             return OnboardingContentViewItem.itemOnView(self)
         }
 
@@ -101,7 +101,7 @@ extension OnboardingContentView {
             $0.descriptionLabel?.textColor = info.descriptionColor
         }
 
-        delegate.onboardingConfigurationItem(item, index: index)
+        delegate?.onboardingConfigurationItem(item, index: index)
         return item
     }
 }
