@@ -1,7 +1,7 @@
-osx_image: xcode8
+osx_image: xcode9.1
 language: objective-c
 env:
-  - DESTINATION="OS=10.0,name=iPhone 6s" SCHEME="XLActionController" SDK=iphonesimulator10.0
+  - DESTINATION="OS=11.0,name=iPhone 8" SCHEME="XLActionController" SDK=iphonesimulator11.0
 before_install:
   - gem install xcpretty --no-rdoc --no-ri --no-document --quiet
 script:
