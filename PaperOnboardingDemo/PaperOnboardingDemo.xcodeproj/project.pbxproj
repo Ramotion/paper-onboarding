@@ -75,8 +75,6 @@
 		845C48BF1CFDB2F7002BE949 /* PaperOnboarding.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PaperOnboarding.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		845C48C11CFDB2F7002BE949 /* PaperOnboarding.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PaperOnboarding.h; sourceTree = "<group>"; };
 		845C48C31CFDB2F7002BE949 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		847CEA511CFC88F500AB132D /* Paper-onboarding.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Paper-onboarding.h"; sourceTree = "<group>"; };
-		847CEA531CFC88F500AB132D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		84A773A01CCE545200EF4EB0 /* PaperOnboardingDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PaperOnboardingDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84A773A31CCE545200EF4EB0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		84A773A51CCE545200EF4EB0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -138,15 +136,6 @@
 			path = PaperOnboarding;
 			sourceTree = "<group>";
 		};
-		847CEA501CFC88F500AB132D /* Paper-onboarding */ = {
-			isa = PBXGroup;
-			children = (
-				847CEA511CFC88F500AB132D /* Paper-onboarding.h */,
-				847CEA531CFC88F500AB132D /* Info.plist */,
-			);
-			path = "Paper-onboarding";
-			sourceTree = "<group>";
-		};
 		84A773971CCE545200EF4EB0 = {
 			isa = PBXGroup;
 			children = (
@@ -154,7 +143,6 @@
 				84C7E5F31CCE59B200C9F001 /* Fonts */,
 				84C7E5CC1CCE549F00C9F001 /* Source */,
 				84A773A21CCE545200EF4EB0 /* PaperOnboardingDemo */,
-				847CEA501CFC88F500AB132D /* Paper-onboarding */,
 				845C48C01CFDB2F7002BE949 /* PaperOnboarding */,
 				84A773A11CCE545200EF4EB0 /* Products */,
 			);

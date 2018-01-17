@@ -10,192 +10,191 @@ import UIKit
 
 public typealias OnboardingItemInfo = (imageName: UIImage, title: String, description: String, iconName: UIImage, color: UIColor, titleColor: UIColor, descriptionColor: UIColor, titleFont: UIFont, descriptionFont: UIFont)
 
-
-///An instance of PaperOnboarding which display collection of information.
+/// An instance of PaperOnboarding which display collection of information.
 open class PaperOnboarding: UIView {
-  
-  ///  The object that acts as the data source of the  PaperOnboardingDataSource.
-  @IBOutlet weak open var dataSource: AnyObject? {
-    didSet {
-      commonInit()
+
+    ///  The object that acts as the data source of the  PaperOnboardingDataSource.
+    @IBOutlet open var dataSource: AnyObject? {
+        didSet {
+            commonInit()
+        }
     }
-  }
-  
-  /// The object that acts as the delegate of the PaperOnboarding. PaperOnboardingDelegate protocol
-  @IBOutlet weak open var delegate: AnyObject?
-  
-  /// current index item
-  open fileprivate(set) var currentIndex: Int = 0
-  var itemsCount: Int = 3
-  
-  fileprivate var itemsInfo: [OnboardingItemInfo]?
-  
-  fileprivate var pageViewBottomConstant: CGFloat = 32
-  fileprivate var pageViewSelectedRadius: CGFloat = 22
-  fileprivate var pageViewRadius: CGFloat         = 8
-  
-  fileprivate var fillAnimationView: FillAnimationView?
-  fileprivate var pageView: PageView?
-  fileprivate var gestureControl: GestureControl?
-  fileprivate var contentView: OnboardingContentView?
-  
-  /**
-   Initializes and returns a PaperOnboarding object with items count.
-   
-   - parameter itemsCount: The number of items in PaperOnboarding.
-   
-   - returns: Returns an initialized PaperOnboading object
-   */
-  public init(itemsCount: Int = 3) {
-    super.init(frame: CGRect.zero)
-    self.itemsCount = itemsCount
-  }
-  
-  required public init?(coder aDecoder: NSCoder) {
-    super.init(coder: aDecoder)
-  }
+
+    /// The object that acts as the delegate of the PaperOnboarding. PaperOnboardingDelegate protocol
+    @IBOutlet open var delegate: AnyObject?
+
+    /// current index item
+    open fileprivate(set) var currentIndex: Int = 0
+    var itemsCount: Int = 3
+
+    fileprivate var itemsInfo: [OnboardingItemInfo]?
+
+    fileprivate var pageViewBottomConstant: CGFloat = 32
+    fileprivate var pageViewSelectedRadius: CGFloat = 22
+    fileprivate var pageViewRadius: CGFloat = 8
+
+    fileprivate var fillAnimationView: FillAnimationView?
+    fileprivate var pageView: PageView?
+    fileprivate var gestureControl: GestureControl?
+    fileprivate var contentView: OnboardingContentView?
+
+    /**
+     Initializes and returns a PaperOnboarding object with items count.
+
+     - parameter itemsCount: The number of items in PaperOnboarding.
+
+     - returns: Returns an initialized PaperOnboading object
+     */
+    public init(itemsCount: Int = 3) {
+        super.init(frame: CGRect.zero)
+        self.itemsCount = itemsCount
+    }
+
+    public required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
 }
 
 // MARK: methods
+
 public extension PaperOnboarding {
-  
-  /**
-   Scrolls through the PaperOnboarding until a index is at a particular location on the screen.
-   
-   - parameter index:    Scrolling to a curretn index item.
-   - parameter animated: True if you want to animate the change in position; false if it should be immediate.
-   */
-  func currentIndex(_ index: Int, animated: Bool) {
-    if 0 ..< itemsCount ~= index {
-      (self.delegate as? PaperOnboardingDelegate)?.onboardingWillTransitonToIndex(index)
-      currentIndex = index
-      CATransaction.begin()
-      
-      
-      CATransaction.setCompletionBlock({
-        (self.delegate as? PaperOnboardingDelegate)?.onboardingDidTransitonToIndex(index)
-      })
-      
-      
-      if let postion = pageView?.positionItemIndex(index, onView: self) {
-        fillAnimationView?.fillAnimation(backgroundColor(currentIndex), centerPosition: postion, duration: 0.5)
-      }
-      pageView?.currentIndex(index, animated: animated)
-      contentView?.currentItem(index, animated: animated)
-      CATransaction.commit()
-    } else if (index >= itemsCount) {
-        (self.delegate as? PaperOnboardingDelegate)?.onboardingWillTransitonToLeaving()
+
+    /**
+     Scrolls through the PaperOnboarding until a index is at a particular location on the screen.
+
+     - parameter index:    Scrolling to a curretn index item.
+     - parameter animated: True if you want to animate the change in position; false if it should be immediate.
+     */
+    func currentIndex(_ index: Int, animated: Bool) {
+        if 0 ..< itemsCount ~= index {
+            (delegate as? PaperOnboardingDelegate)?.onboardingWillTransitonToIndex(index)
+            currentIndex = index
+            CATransaction.begin()
+
+            CATransaction.setCompletionBlock({
+                (self.delegate as? PaperOnboardingDelegate)?.onboardingDidTransitonToIndex(index)
+            })
+
+            if let postion = pageView?.positionItemIndex(index, onView: self) {
+                fillAnimationView?.fillAnimation(backgroundColor(currentIndex), centerPosition: postion, duration: 0.5)
+            }
+            pageView?.currentIndex(index, animated: animated)
+            contentView?.currentItem(index, animated: animated)
+            CATransaction.commit()
+        } else if index >= itemsCount {
+            (delegate as? PaperOnboardingDelegate)?.onboardingWillTransitonToLeaving()
+        }
     }
-    
-  }
 }
 
 // MARK: create
+
 extension PaperOnboarding {
-  
-  fileprivate func commonInit() {
-    if case let dataSource as PaperOnboardingDataSource = self.dataSource {
-      itemsCount = dataSource.onboardingItemsCount()
+
+    fileprivate func commonInit() {
+        if case let dataSource as PaperOnboardingDataSource = dataSource {
+            itemsCount = dataSource.onboardingItemsCount()
+        }
+
+        itemsInfo = createItemsInfo()
+        translatesAutoresizingMaskIntoConstraints = false
+        fillAnimationView = FillAnimationView.animationViewOnView(self, color: backgroundColor(currentIndex))
+        contentView = OnboardingContentView.contentViewOnView(self,
+                                                              delegate: self,
+                                                              itemsCount: itemsCount,
+                                                              bottomConstant: pageViewBottomConstant * -1 - pageViewSelectedRadius)
+        pageView = createPageView()
+        gestureControl = GestureControl(view: self, delegate: self)
+
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapAction))
+        addGestureRecognizer(tapGesture)
     }
-    
-    itemsInfo = createItemsInfo()
-    translatesAutoresizingMaskIntoConstraints = false
-    fillAnimationView = FillAnimationView.animationViewOnView(self, color: backgroundColor(currentIndex))
-    contentView = OnboardingContentView.contentViewOnView(self,
-                                                          delegate: self,
-                                                          itemsCount: itemsCount,
-                                                          bottomConstant: pageViewBottomConstant * -1 - pageViewSelectedRadius)
-    pageView = createPageView()
-    gestureControl = GestureControl(view: self, delegate: self)
-    
-    let tapGesture = UITapGestureRecognizer(target: self, action: #selector(tapAction))
-    addGestureRecognizer(tapGesture)
-  }
-  
-  @objc fileprivate func tapAction(_ sender: UITapGestureRecognizer) {
-    guard
-      (self.delegate as? PaperOnboardingDelegate)?.enableTapsOnPageControl == true,
-      let pageView = self.pageView,
-      let pageControl = pageView.containerView
-      else { return }
-    let touchLocation = sender.location(in: self)
-    let convertedLocation = pageControl.convert(touchLocation, from: self)
-    guard let pageItem = pageView.hitTest(convertedLocation, with: nil) else { return }
-    let index = pageItem.tag - 1
-    guard index != currentIndex else { return }
-    currentIndex(index, animated: true)
-    (delegate as? PaperOnboardingDelegate)?.onboardingWillTransitonToIndex(index)
-  }
-  
-  fileprivate func createPageView() -> PageView {
-    let pageView = PageView.pageViewOnView(
-      self,
-      itemsCount: itemsCount,
-      bottomConstant: pageViewBottomConstant * -1,
-      radius:pageViewRadius,
-      selectedRadius: pageViewSelectedRadius,
-      itemColor: { [weak self] in
-        guard let dataSource = self?.dataSource as? PaperOnboardingDataSource else { return .white }
-        return dataSource.onboardingPageItemColor(at: $0)
-    })
-    
-    pageView.configuration = { [weak self] item, index in
-      item.imageView?.image = self?.itemsInfo?[index].iconName
+
+    @objc fileprivate func tapAction(_ sender: UITapGestureRecognizer) {
+        guard
+            (delegate as? PaperOnboardingDelegate)?.enableTapsOnPageControl == true,
+            let pageView = self.pageView,
+            let pageControl = pageView.containerView
+        else { return }
+        let touchLocation = sender.location(in: self)
+        let convertedLocation = pageControl.convert(touchLocation, from: self)
+        guard let pageItem = pageView.hitTest(convertedLocation, with: nil) else { return }
+        let index = pageItem.tag - 1
+        guard index != currentIndex else { return }
+        currentIndex(index, animated: true)
+        (delegate as? PaperOnboardingDelegate)?.onboardingWillTransitonToIndex(index)
     }
-    
-    return pageView
-  }
-  
-  fileprivate func createItemsInfo() -> [OnboardingItemInfo] {
-    guard case let dataSource as PaperOnboardingDataSource = self.dataSource else {
-      fatalError("set dataSource")
+
+    fileprivate func createPageView() -> PageView {
+        let pageView = PageView.pageViewOnView(
+            self,
+            itemsCount: itemsCount,
+            bottomConstant: pageViewBottomConstant * -1,
+            radius: pageViewRadius,
+            selectedRadius: pageViewSelectedRadius,
+            itemColor: { [weak self] in
+                guard let dataSource = self?.dataSource as? PaperOnboardingDataSource else { return .white }
+                return dataSource.onboardingPageItemColor(at: $0)
+        })
+
+        pageView.configuration = { [weak self] item, index in
+            item.imageView?.image = self?.itemsInfo?[index].iconName
+        }
+
+        return pageView
     }
-    
-    var items = [OnboardingItemInfo]()
-    for index in 0..<itemsCount {
-      let info = dataSource.onboardingItemAtIndex(index)
-      items.append(info)
+
+    fileprivate func createItemsInfo() -> [OnboardingItemInfo] {
+        guard case let dataSource as PaperOnboardingDataSource = self.dataSource else {
+            fatalError("set dataSource")
+        }
+
+        var items = [OnboardingItemInfo]()
+        for index in 0 ..< itemsCount {
+            let info = dataSource.onboardingItemAtIndex(index)
+            items.append(info)
+        }
+        return items
     }
-    return items
-  }
-  
 }
 
 // MARK: helpers
+
 extension PaperOnboarding {
-  
-  fileprivate func backgroundColor(_ index: Int) -> UIColor {
-    guard let color = itemsInfo?[index].color else {
-      return .black
+
+    fileprivate func backgroundColor(_ index: Int) -> UIColor {
+        guard let color = itemsInfo?[index].color else {
+            return .black
+        }
+        return color
     }
-    return color
-  }
 }
 
 // MARK: GestureControlDelegate
+
 extension PaperOnboarding: GestureControlDelegate {
-  
-  func gestureControlDidSwipe(_ direction: UISwipeGestureRecognizerDirection) {
-    switch direction {
-    case UISwipeGestureRecognizerDirection.right:
-      currentIndex(currentIndex - 1, animated: true)
-    case UISwipeGestureRecognizerDirection.left:
-      currentIndex(currentIndex + 1, animated: true)
-    default:
-      fatalError()
+
+    func gestureControlDidSwipe(_ direction: UISwipeGestureRecognizerDirection) {
+        switch direction {
+        case UISwipeGestureRecognizerDirection.right:
+            currentIndex(currentIndex - 1, animated: true)
+        case UISwipeGestureRecognizerDirection.left:
+            currentIndex(currentIndex + 1, animated: true)
+        default:
+            fatalError()
+        }
     }
-  }
 }
 
 // MARK: OnboardingDelegate
+
 extension PaperOnboarding: OnboardingContentViewDelegate {
-  
-  func onboardingItemAtIndex(_ index: Int) -> OnboardingItemInfo? {
-    return itemsInfo?[index]
-  }
-  
-  @objc func onboardingConfigurationItem(_ item: OnboardingContentViewItem, index: Int) {
-    (self.delegate as? PaperOnboardingDelegate)?.onboardingConfigurationItem(item, index: index)
-  }
-  
+
+    func onboardingItemAtIndex(_ index: Int) -> OnboardingItemInfo? {
+        return itemsInfo?[index]
+    }
+
+    @objc func onboardingConfigurationItem(_ item: OnboardingContentViewItem, index: Int) {
+        (delegate as? PaperOnboardingDelegate)?.onboardingConfigurationItem(item, index: index)
+    }
 }
