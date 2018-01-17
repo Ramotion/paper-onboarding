@@ -22,7 +22,7 @@ class ViewController: UIViewController {
     }
 
     private func setupPaperOnboardingView() {
-        let onboarding = PaperOnboarding(itemsCount: 3)
+        let onboarding = PaperOnboarding()
         onboarding.dataSource = self
         onboarding.delegate = self
         onboarding.translatesAutoresizingMaskIntoConstraints = false

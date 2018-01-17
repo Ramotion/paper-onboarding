@@ -14,18 +14,18 @@ public typealias OnboardingItemInfo = (imageName: UIImage, title: String, descri
 open class PaperOnboarding: UIView {
 
     ///  The object that acts as the data source of the  PaperOnboardingDataSource.
-    @IBOutlet open var dataSource: AnyObject? {
+    @IBOutlet weak open var dataSource: AnyObject? {
         didSet {
             commonInit()
         }
     }
 
     /// The object that acts as the delegate of the PaperOnboarding. PaperOnboardingDelegate protocol
-    @IBOutlet open var delegate: AnyObject?
+    @IBOutlet weak open var delegate: AnyObject?
 
     /// current index item
     open fileprivate(set) var currentIndex: Int = 0
-    var itemsCount: Int = 3
+    fileprivate(set) var itemsCount: Int = 0
 
     fileprivate var itemsInfo: [OnboardingItemInfo]?
 
@@ -37,22 +37,6 @@ open class PaperOnboarding: UIView {
     fileprivate var pageView: PageView?
     fileprivate var gestureControl: GestureControl?
     fileprivate var contentView: OnboardingContentView?
-
-    /**
-     Initializes and returns a PaperOnboarding object with items count.
-
-     - parameter itemsCount: The number of items in PaperOnboarding.
-
-     - returns: Returns an initialized PaperOnboading object
-     */
-    public init(itemsCount: Int = 3) {
-        super.init(frame: CGRect.zero)
-        self.itemsCount = itemsCount
-    }
-
-    public required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-    }
 }
 
 // MARK: methods
