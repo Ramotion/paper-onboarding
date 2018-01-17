@@ -138,7 +138,7 @@ extension PaperOnboarding {
     })
     
     pageView.configuration = { [weak self] item, index in
-        item.imageView?.image = self.itemsInfo?[index].iconName
+      item.imageView?.image = self?.itemsInfo?[index].iconName
     }
     
     return pageView
