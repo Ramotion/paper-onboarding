@@ -19,6 +19,7 @@ class ViewController: UIViewController {
     setupPaperOnboardingView()
     
     view.bringSubview(toFront: skipButton)
+    
   }
   
   private func setupPaperOnboardingView() {
