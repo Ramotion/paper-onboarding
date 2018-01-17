@@ -83,6 +83,8 @@ public extension PaperOnboarding {
       pageView?.currentIndex(index, animated: animated)
       contentView?.currentItem(index, animated: animated)
       CATransaction.commit()
+    } else if (index >= itemsCount) {
+        (self.delegate as? PaperOnboardingDelegate)?.onboardingWillTransitonToLeaving()
     }
     
   }

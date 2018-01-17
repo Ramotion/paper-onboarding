@@ -21,6 +21,11 @@ public protocol PaperOnboardingDelegate {
    - parameter index: An curretn index item
    */
   func onboardingWillTransitonToIndex(_ index: Int)
+
+  /**
+  Tells the delegate that the paperOnbording will try to transition to a screen after the last
+  */
+  func onboardingWillTransitonToLeaving()
   
   /**
    Tells the delegate that the specified item is now selected
@@ -49,6 +54,7 @@ public protocol PaperOnboardingDelegate {
 public extension PaperOnboardingDelegate {
   func onboardingWillTransitonToIndex(_ index: Int) { }
   func onboardingDidTransitonToIndex(_ index: Int) { }
+  func onboardingWillTransitonToLeaving() { }
   func onboardingConfigurationItem(_ item: OnboardingContentViewItem, index: Int) { }
   var enableTapsOnPageControl: Bool { return true }
 }
