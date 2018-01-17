@@ -20,7 +20,7 @@ class FillAnimationView: UIView {
 
 extension FillAnimationView {
   
-  class func animavtionViewOnView(_ view: UIView, color: UIColor) -> FillAnimationView {
+  class func animationViewOnView(_ view: UIView, color: UIColor) -> FillAnimationView {
     let animationView = Init(FillAnimationView(frame: CGRect.zero)) {
       $0.backgroundColor                           = color
       $0.translatesAutoresizingMaskIntoConstraints = false
