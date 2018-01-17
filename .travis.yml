@@ -1,8 +1,13 @@
-{
-    "osx_image": "xcode9.1",
-    "language": "swift",
-    "xcode_sdk": "iphonesimulator",
-    "script": "xcodebuild build -project PaperOnboardingDemo/PaperOnboardingDemo.xcodeproj -scheme PaperOnboarding",
-    "os": "osx"
-    "SWIFT_VERSION": "4.0"
-}
+osx_image: xcode9.2
+language: objective-c
+
+xcode_project: PaperOnboardingDemo/PaperOnboardingDemo.xcodeproj
+scheme: PaperOnboardingDemo
+xcode_sdk: iphonesimulator11.2
+
+# SWIFT_VERSION: 4.0
+
+# whitelist
+branches:
+only:
+- master
