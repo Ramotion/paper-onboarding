@@ -10,20 +10,21 @@ import UIKit
 
 class ViewController: UIViewController {
 
-  @IBOutlet weak var onboarding: PaperOnboarding!
   @IBOutlet weak var skipButton: UIButton!
   
   override func viewDidLoad() {
     super.viewDidLoad()
     skipButton.isHidden = true
     
-    // Uncomment next line to setup `PaperOnboarding` from code
-    // setupPaperOnboardingView()
+    setupPaperOnboardingView()
+    
+    view.bringSubview(toFront: skipButton)
   }
   
   private func setupPaperOnboardingView() {
     let onboarding = PaperOnboarding(itemsCount: 3)
     onboarding.dataSource = self
+    onboarding.delegate = self
     onboarding.translatesAutoresizingMaskIntoConstraints = false
     view.addSubview(onboarding)
     

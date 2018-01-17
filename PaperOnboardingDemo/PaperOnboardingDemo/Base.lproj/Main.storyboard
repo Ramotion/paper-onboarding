@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Data Source-->
+        <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="PaperOnboardingDemo" customModuleProvider="target" sceneMemberID="viewController">
@@ -22,16 +22,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Eon-3O-WaB" userLabel="Onboarding" customClass="PaperOnboarding" customModule="PaperOnboardingDemo" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                                <color key="backgroundColor" red="0.28728589415550232" green="0.1402067244052887" blue="0.30659055709838867" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="rMG-ng-hZ9"/>
-                                    <outlet property="delegate" destination="BYZ-38-t0r" id="PqP-Qk-M5k"/>
-                                </connections>
-                            </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O7J-Sb-YXe">
-                                <rect key="frame" x="309" y="40" width="30" height="30"/>
+                                <rect key="frame" x="329" y="28" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="30" id="kTQ-1H-ADM"/>
+                                </constraints>
                                 <state key="normal" title="skip">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
@@ -42,22 +37,18 @@
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="Eon-3O-WaB" secondAttribute="trailing" id="1RH-2C-ZzC"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="O7J-Sb-YXe" secondAttribute="trailing" constant="20" id="Abz-Sh-LZV"/>
-                            <constraint firstItem="Eon-3O-WaB" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="-20" id="JpT-Un-OGr"/>
-                            <constraint firstItem="Eon-3O-WaB" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="iiV-9M-bfy"/>
-                            <constraint firstItem="O7J-Sb-YXe" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="md9-nm-qd0"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Eon-3O-WaB" secondAttribute="bottom" id="o5J-32-KwN"/>
+                            <constraint firstItem="O7J-Sb-YXe" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="S59-JO-gTt"/>
+                            <constraint firstItem="O7J-Sb-YXe" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="VWF-kc-KAl"/>
+                            <constraint firstItem="O7J-Sb-YXe" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="k8e-2Q-u5Q"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="onboarding" destination="Eon-3O-WaB" id="CGQ-To-BIf"/>
                         <outlet property="skipButton" destination="O7J-Sb-YXe" id="I5w-m4-afE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="663" y="471"/>
+            <point key="canvasLocation" x="661.60000000000002" y="470.91454272863569"/>
         </scene>
     </scenes>
 </document>
