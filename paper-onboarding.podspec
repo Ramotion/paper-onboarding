@@ -2,7 +2,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "paper-onboarding"
-  s.version      = "3.0.3"
+  s.version      = "3.0.4"
   s.summary      = "Amazing onboarding."
   s.license      = 'MIT'
   s.homepage     = 'https://github.com/Ramotion/paper-onboarding'
