@@ -12,6 +12,30 @@ class ViewController: UIViewController {
 
     @IBOutlet var skipButton: UIButton!
 
+    fileprivate let items = [
+        OnboardingItemInfo(imageName: Asset.hotels.image,
+                           title: "Hotels",
+                           description: "All hotels and hostels are sorted by hospitality rating",
+                           iconName: Asset.key.image,
+                           color: UIColor(red: 0.40, green: 0.56, blue: 0.71, alpha: 1.00),
+                           titleColor: UIColor.white, descriptionColor: UIColor.white, titleFont: titleFont, descriptionFont: descriptionFont),
+        
+        OnboardingItemInfo(imageName: Asset.banks.image,
+                           title: "Banks",
+                           description: "We carefully verify all banks before add them into the app",
+                           iconName: Asset.wallet.image,
+                           color: UIColor(red: 0.40, green: 0.69, blue: 0.71, alpha: 1.00),
+                           titleColor: UIColor.white, descriptionColor: UIColor.white, titleFont: titleFont, descriptionFont: descriptionFont),
+        
+        OnboardingItemInfo(imageName: Asset.stores.image,
+                           title: "Stores",
+                           description: "All local stores are categorized for your convenience",
+                           iconName: Asset.shoppingCart.image,
+                           color: UIColor(red: 0.61, green: 0.56, blue: 0.74, alpha: 1.00),
+                           titleColor: UIColor.white, descriptionColor: UIColor.white, titleFont: titleFont, descriptionFont: descriptionFont),
+        
+        ]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         skipButton.isHidden = true
@@ -75,31 +99,7 @@ extension ViewController: PaperOnboardingDelegate {
 extension ViewController: PaperOnboardingDataSource {
 
     func onboardingItemAtIndex(_ index: Int) -> OnboardingItemInfo {
-        let titleFont = UIFont(name: "Nunito-Bold", size: 36.0) ?? UIFont.boldSystemFont(ofSize: 36.0)
-        let descriptionFont = UIFont(name: "OpenSans-Regular", size: 14.0) ?? UIFont.systemFont(ofSize: 14.0)
-        return [
-            (Asset.hotels.image,
-             "Hotels",
-             "All hotels and hostels are sorted by hospitality rating",
-             Asset.key.image,
-             UIColor(red: 0.40, green: 0.56, blue: 0.71, alpha: 1.00),
-             UIColor.white, UIColor.white, titleFont, descriptionFont),
-
-            (Asset.banks.image,
-             "Banks",
-             "We carefully verify all banks before add them into the app",
-             Asset.wallet.image,
-             UIColor(red: 0.40, green: 0.69, blue: 0.71, alpha: 1.00),
-             UIColor.white, UIColor.white, titleFont, descriptionFont),
-
-            (Asset.stores.image,
-             "Stores",
-             "All local stores are categorized for your convenience",
-             Asset.shoppingCart.image,
-             UIColor(red: 0.61, green: 0.56, blue: 0.74, alpha: 1.00),
-             UIColor.white, UIColor.white, titleFont, descriptionFont),
-
-        ][index]
+        return items[index]
     }
 
     func onboardingItemsCount() -> Int {
@@ -110,3 +110,12 @@ extension ViewController: PaperOnboardingDataSource {
 //    return [UIColor.white, UIColor.red, UIColor.green][index]
     //  }
 }
+
+
+//MARK: Constants
+extension ViewController {
+    
+    private static let titleFont = UIFont(name: "Nunito-Bold", size: 36.0) ?? UIFont.boldSystemFont(ofSize: 36.0)
+    private static let descriptionFont = UIFont(name: "OpenSans-Regular", size: 14.0) ?? UIFont.systemFont(ofSize: 14.0)
+}
+

@@ -8,7 +8,17 @@
 
 import UIKit
 
-public typealias OnboardingItemInfo = (imageName: UIImage, title: String, description: String, iconName: UIImage, color: UIColor, titleColor: UIColor, descriptionColor: UIColor, titleFont: UIFont, descriptionFont: UIFont)
+public struct OnboardingItemInfo {
+    public let imageName: UIImage
+    public let title: String
+    public let description: String
+    public let iconName: UIImage
+    public let color: UIColor
+    public let titleColor: UIColor
+    public let descriptionColor: UIColor
+    public let titleFont: UIFont
+    public let descriptionFont: UIFont
+}
 
 /// An instance of PaperOnboarding which display collection of information.
 open class PaperOnboarding: UIView {
