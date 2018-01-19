@@ -116,6 +116,7 @@ extension PageViewItem {
         [NSLayoutAttribute.left, NSLayoutAttribute.right, NSLayoutAttribute.top, NSLayoutAttribute.bottom].forEach { attribute in
             (self, imageView) >>>- { $0.attribute = attribute; return }
         }
+        
         return imageView
     }
 }

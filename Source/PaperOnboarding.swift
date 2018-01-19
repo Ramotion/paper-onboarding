@@ -9,10 +9,10 @@
 import UIKit
 
 public struct OnboardingItemInfo {
-    public let imageName: UIImage
+    public let informationImage: UIImage
     public let title: String
     public let description: String
-    public let iconName: UIImage
+    public let pageIcon: UIImage
     public let color: UIColor
     public let titleColor: UIColor
     public let descriptionColor: UIColor
@@ -39,14 +39,32 @@ open class PaperOnboarding: UIView {
 
     fileprivate var itemsInfo: [OnboardingItemInfo]?
 
-    fileprivate var pageViewBottomConstant: CGFloat = 32
-    fileprivate var pageViewSelectedRadius: CGFloat = 22
-    fileprivate var pageViewRadius: CGFloat = 8
+    fileprivate let pageViewBottomConstant: CGFloat
+    fileprivate let pageViewSelectedRadius: CGFloat
+    fileprivate let pageViewRadius: CGFloat
 
     fileprivate var fillAnimationView: FillAnimationView?
     fileprivate var pageView: PageView?
     fileprivate var gestureControl: GestureControl?
     fileprivate var contentView: OnboardingContentView?
+    
+    public init(pageViewBottomConstant: CGFloat = 32, pageViewSelectedRadius: CGFloat = 22, pageViewRadius: CGFloat = 8) {
+        
+        self.pageViewBottomConstant = pageViewBottomConstant
+        self.pageViewSelectedRadius = pageViewSelectedRadius
+        self.pageViewRadius = pageViewRadius
+        
+        super.init(frame: CGRect.zero)
+    }
+    
+    public required init?(coder aDecoder: NSCoder) {
+        
+        self.pageViewBottomConstant = 32
+        self.pageViewSelectedRadius = 22
+        self.pageViewRadius = 8
+        
+        super.init(coder: aDecoder)
+    }
 }
 
 // MARK: methods
@@ -132,7 +150,7 @@ extension PaperOnboarding {
         })
 
         pageView.configuration = { [weak self] item, index in
-            item.imageView?.image = self?.itemsInfo?[index].iconName
+            item.imageView?.image = self?.itemsInfo?[index].pageIcon
         }
 
         return pageView

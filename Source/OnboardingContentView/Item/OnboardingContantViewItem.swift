@@ -10,8 +10,8 @@ import UIKit
 
 open class OnboardingContentViewItem: UIView {
 
-    var bottomConstraint: NSLayoutConstraint?
-    var centerConstraint: NSLayoutConstraint?
+    var descriptionBottomConstraint: NSLayoutConstraint?
+    var titleCenterConstraint: NSLayoutConstraint?
 
     open var imageView: UIImageView?
     open var titleLabel: UILabel?
@@ -76,7 +76,7 @@ private extension OnboardingContentViewItem {
         let imageView = createImage(self)
 
         // added constraints
-        centerConstraint = (self, titleLabel, imageView) >>>- {
+        titleCenterConstraint = (self, titleLabel, imageView) >>>- {
             $0.attribute = .top
             $0.secondAttribute = .bottom
             $0.constant = 50
@@ -141,7 +141,7 @@ private extension OnboardingContentViewItem {
         }
 
         (onView, label) >>>- { $0.attribute = .centerX; return }
-        bottomConstraint = (onView, label) >>>- { $0.attribute = .bottom; return }
+        descriptionBottomConstraint = (onView, label) >>>- { $0.attribute = .bottom; return }
 
         return label
     }

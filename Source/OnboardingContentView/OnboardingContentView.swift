@@ -92,7 +92,7 @@ extension OnboardingContentView {
         }
 
         let item = Init(OnboardingContentViewItem.itemOnView(self)) {
-            $0.imageView?.image = info.imageName
+            $0.imageView?.image = info.informationImage
             $0.titleLabel?.text = info.title
             $0.titleLabel?.font = info.titleFont
             $0.titleLabel?.textColor = info.titleColor
@@ -115,8 +115,8 @@ extension OnboardingContentView {
             return
         }
 
-        item.bottomConstraint?.constant -= Constants.dyOffsetAnimation
-        item.centerConstraint?.constant *= 1.3
+        item.descriptionBottomConstraint?.constant -= Constants.dyOffsetAnimation
+        item.titleCenterConstraint?.constant *= 1.3
 
         UIView.animate(withDuration: duration,
                        delay: 0,
@@ -130,13 +130,13 @@ extension OnboardingContentView {
     }
 
     fileprivate func showItemView(_ item: OnboardingContentViewItem, duration: Double) {
-        item.bottomConstraint?.constant = Constants.dyOffsetAnimation
-        item.centerConstraint?.constant /= 2
+        item.descriptionBottomConstraint?.constant = Constants.dyOffsetAnimation
+        item.titleCenterConstraint?.constant /= 2
         item.alpha = 0
         layoutIfNeeded()
 
-        item.bottomConstraint?.constant = 0
-        item.centerConstraint?.constant *= 2
+        item.descriptionBottomConstraint?.constant = 0
+        item.titleCenterConstraint?.constant *= 2
 
         UIView.animate(withDuration: duration,
                        delay: 0,
