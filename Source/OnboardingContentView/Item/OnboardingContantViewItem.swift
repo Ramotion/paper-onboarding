@@ -10,9 +10,11 @@ import UIKit
 
 open class OnboardingContentViewItem: UIView {
 
-    var descriptionBottomConstraint: NSLayoutConstraint?
-    var titleCenterConstraint: NSLayoutConstraint?
-
+    public var descriptionBottomConstraint: NSLayoutConstraint?
+    public var titleCenterConstraint: NSLayoutConstraint?
+    public var informationImageWidthConstraint: NSLayoutConstraint?
+    public var informationImageHeightConstraint: NSLayoutConstraint?
+    
     open var imageView: UIImageView?
     open var titleLabel: UILabel?
     open var descriptionLabel: UILabel?
@@ -164,12 +166,16 @@ private extension OnboardingContentViewItem {
         onView.addSubview(imageView)
 
         // add constratints
-        for attribute in [NSLayoutAttribute.width, NSLayoutAttribute.height] {
-            imageView >>>- {
-                $0.attribute = attribute
-                $0.constant = 188
-                return
-            }
+        informationImageWidthConstraint = imageView >>>- {
+            $0.attribute = NSLayoutAttribute.width
+            $0.constant = 188
+            return
+        }
+        
+        informationImageHeightConstraint = imageView >>>- {
+            $0.attribute = NSLayoutAttribute.height
+            $0.constant = 188
+            return
         }
 
         for attribute in [NSLayoutAttribute.centerX, NSLayoutAttribute.top] {

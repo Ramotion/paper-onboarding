@@ -86,10 +86,10 @@ extension ViewController: PaperOnboardingDelegate {
     func onboardingDidTransitonToIndex(_: Int) {
     }
 
-    func onboardingConfigurationItem(_: OnboardingContentViewItem, index: Int) {
-//    item.titleLabel?.backgroundColor = .redColor()
-//    item.descriptionLabel?.backgroundColor = .redColor()
-//    item.imageView = ...
+    func onboardingConfigurationItem(_ item: OnboardingContentViewItem, index: Int) {
+        //item.titleLabel?.backgroundColor = .redColor()
+        //item.descriptionLabel?.backgroundColor = .redColor()
+        //item.imageView = ...
     }
 }
 
