@@ -77,12 +77,39 @@ override func viewDidLoad() {
 #### For adding content use dataSource methods:
 
 ``` swift
-func onboardingItemAtIndex(index: Int) -> OnboardingItemInfo {
+  func onboardingItem(at index: Int) -> OnboardingItemInfo {
+
    return [
-     ("BIG_IMAGE1", "Title", "Description text", "IconName1", "BackgroundColor", textColor, DescriptionColor, textFont, DescriptionFont),
-     ("BIG_IMAGE1", "Title", "Description text", "IconName1", "BackgroundColor", textColor, DescriptionColor, textFont, DescriptionFont),
-     ("BIG_IMAGE1", "Title", "Description text", "IconName1", "BackgroundColor", textColor, DescriptionColor, textFont, DescriptionFont)
-   ][index]
+     OnboardingItemInfo(informationImage: IMAGE,
+                                   title: "title",
+                             description: "description",
+                                pageIcon: IMAGE,
+                                   color: UIColor.RANDOM,
+                              titleColor: UIColor.RANDOM,
+                        descriptionColor: UIColor.RANDOM,
+                               titleFont: UIFont.FONT,
+                         descriptionFont: UIFont.FONT),
+
+     OnboardingItemInfo(informationImage: IMAGE,
+                                    title: "title",
+                              description: "description",
+                                 pageIcon: IMAGE,
+                                    color: UIColor.RANDOM,
+                               titleColor: UIColor.RANDOM,
+                         descriptionColor: UIColor.RANDOM,
+                                titleFont: UIFont.FONT,
+                          descriptionFont: UIFont.FONT),
+
+    OnboardingItemInfo(informationImage: IMAGE,
+                                 title: "title",
+                           description: "description",
+                              pageIcon: IMAGE,
+                                 color: UIColor.RANDOM,
+                            titleColor: UIColor.RANDOM,
+                      descriptionColor: UIColor.RANDOM,
+                             titleFont: UIFont.FONT,
+                       descriptionFont: UIFont.FONT)
+     ][index]
  }
 
  func onboardingItemsCount() -> Int {

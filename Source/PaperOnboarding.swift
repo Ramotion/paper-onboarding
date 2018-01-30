@@ -18,6 +18,18 @@ public struct OnboardingItemInfo {
     public let descriptionColor: UIColor
     public let titleFont: UIFont
     public let descriptionFont: UIFont
+    
+    public init (informationImage: UIImage, title: String, description: String, pageIcon: UIImage, color: UIColor, titleColor: UIColor, descriptionColor: UIColor, titleFont: UIFont, descriptionFont: UIFont) {
+        self.informationImage = informationImage
+        self.title = title
+        self.description = description
+        self.pageIcon = pageIcon
+        self.color = color
+        self.titleColor = titleColor
+        self.descriptionColor = descriptionColor
+        self.titleFont = titleFont
+        self.descriptionFont = descriptionFont
+    }
 }
 
 /// An instance of PaperOnboarding which display collection of information.
@@ -163,7 +175,7 @@ extension PaperOnboarding {
 
         var items = [OnboardingItemInfo]()
         for index in 0 ..< itemsCount {
-            let info = dataSource.onboardingItemAtIndex(index)
+            let info = dataSource.onboardingItem(at: index)
             items.append(info)
         }
         return items

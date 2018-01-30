@@ -97,7 +97,7 @@ extension ViewController: PaperOnboardingDelegate {
 
 extension ViewController: PaperOnboardingDataSource {
 
-    func onboardingItemAtIndex(_ index: Int) -> OnboardingItemInfo {
+    func onboardingItem(at index: Int) -> OnboardingItemInfo {
         return items[index]
     }
 

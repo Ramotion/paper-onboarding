@@ -28,7 +28,7 @@ public protocol PaperOnboardingDataSource {
      - parameter index: An index of item in PaperOnboarding.
      - returns: configuration info for item
      */
-    func onboardingItemAtIndex(_ index: Int) -> OnboardingItemInfo
+    func onboardingItem(at index: Int) -> OnboardingItemInfo
 
     /**
      Asks the color for PageView item
@@ -41,7 +41,7 @@ public protocol PaperOnboardingDataSource {
 
 public extension PaperOnboardingDataSource {
 
-    func onboardingPageItemColor(at _: Int) -> UIColor {
+    func onboardingPageItemColor(at index: Int) -> UIColor {
         return .white
     }
 }
