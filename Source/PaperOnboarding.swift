@@ -52,8 +52,8 @@ open class PaperOnboarding: UIView {
     fileprivate var itemsInfo: [OnboardingItemInfo]?
 
     fileprivate let pageViewBottomConstant: CGFloat
-    fileprivate let pageViewSelectedRadius: CGFloat
-    fileprivate let pageViewRadius: CGFloat
+    fileprivate var pageViewSelectedRadius: CGFloat
+    fileprivate var pageViewRadius: CGFloat
 
     fileprivate var fillAnimationView: FillAnimationView?
     fileprivate var pageView: PageView?
@@ -119,7 +119,12 @@ extension PaperOnboarding {
         if case let dataSource as PaperOnboardingDataSource = dataSource {
             itemsCount = dataSource.onboardingItemsCount()
         }
-
+        if case let dataSource as PaperOnboardingDataSource = dataSource {
+            pageViewRadius = dataSource.onboardinPageItemRadius()
+        }
+        if case let dataSource as PaperOnboardingDataSource = dataSource {
+            pageViewSelectedRadius = dataSource.onboardingPageItemSelectedRadius()
+        }
         itemsInfo = createItemsInfo()
         translatesAutoresizingMaskIntoConstraints = false
         fillAnimationView = FillAnimationView.animationViewOnView(self, color: backgroundColor(currentIndex))
