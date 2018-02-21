@@ -66,8 +66,10 @@ extension PageView {
         pageView.alpha = 0.4
         view.addSubview(pageView)
 
+      let layoutAttribs:[(NSLayoutAttribute, Int)] =  [(NSLayoutAttribute.left, 0), (NSLayoutAttribute.right, 0), (NSLayoutAttribute.bottom, Int(bottomConstant))]
+      
         // add constraints
-        for (attribute, const) in [(NSLayoutAttribute.left, 0), (NSLayoutAttribute.right, 0), (NSLayoutAttribute.bottom, bottomConstant)] {
+      for (attribute, const) in layoutAttribs {
             (view, pageView) >>>- {
                 $0.constant = CGFloat(const)
                 $0.attribute = attribute
