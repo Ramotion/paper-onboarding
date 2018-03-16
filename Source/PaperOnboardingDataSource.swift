@@ -37,11 +37,29 @@ public protocol PaperOnboardingDataSource {
      - returns: color PageView Item
      */
     func onboardingPageItemColor(at index: Int) -> UIColor
+    
+    /// Asks for the radius of the PageView item
+    ///
+    /// - Returns: radius of the PageView Item
+    func onboardinPageItemRadius() -> CGFloat
+    
+    /// Asks for the selected state radius of the PageView item
+    ///
+    /// - Returns: selected state radius of the PageView Item
+    func onboardingPageItemSelectedRadius() -> CGFloat
 }
 
 public extension PaperOnboardingDataSource {
 
     func onboardingPageItemColor(at index: Int) -> UIColor {
         return .white
+    }
+    
+    func onboardinPageItemRadius() -> CGFloat {
+        return 8
+    }
+    
+    func onboardingPageItemSelectedRadius() -> CGFloat {
+        return 22
     }
 }

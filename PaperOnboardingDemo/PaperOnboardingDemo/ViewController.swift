@@ -104,10 +104,17 @@ extension ViewController: PaperOnboardingDataSource {
     func onboardingItemsCount() -> Int {
         return 3
     }
-
-    //  func onboardingPageItemColor(at index: Int) -> UIColor {
-//    return [UIColor.white, UIColor.red, UIColor.green][index]
-    //  }
+    
+    //    func onboardinPageItemRadius() -> CGFloat {
+    //        return 2
+    //    }
+    //
+    //    func onboardingPageItemSelectedRadius() -> CGFloat {
+    //        return 10
+    //    }
+    //    func onboardingPageItemColor(at index: Int) -> UIColor {
+    //        return [UIColor.white, UIColor.red, UIColor.green][index]
+    //    }
 }
 
 
