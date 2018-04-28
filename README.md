@@ -1,5 +1,6 @@
 ![header](./header.png)
-![animation](./preview.gif)
+<img src="https://github.com/Ramotion/paper-onboarding/blob/master/paper-onboarding.gif" width="600" height="450" />
+<br><br/>
 
 # paper-onboarding
 [![Twitter](https://img.shields.io/badge/Twitter-@Ramotion-blue.svg?style=flat)](http://twitter.com/Ramotion)
