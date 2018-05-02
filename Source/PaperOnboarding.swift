@@ -52,20 +52,18 @@ open class PaperOnboarding: UIView {
     fileprivate var itemsInfo: [OnboardingItemInfo]?
 
     fileprivate let pageViewBottomConstant: CGFloat
-    fileprivate var pageViewSelectedRadius: CGFloat
-    fileprivate var pageViewRadius: CGFloat
+    fileprivate var pageViewSelectedRadius: CGFloat = 22
+    fileprivate var pageViewRadius: CGFloat = 8
 
     fileprivate var fillAnimationView: FillAnimationView?
     fileprivate var pageView: PageView?
     fileprivate var gestureControl: GestureControl?
     fileprivate var contentView: OnboardingContentView?
     
-    public init(pageViewBottomConstant: CGFloat = 32, pageViewSelectedRadius: CGFloat = 22, pageViewRadius: CGFloat = 8) {
+    public init(pageViewBottomConstant: CGFloat = 32) {
         
         self.pageViewBottomConstant = pageViewBottomConstant
-        self.pageViewSelectedRadius = pageViewSelectedRadius
-        self.pageViewRadius = pageViewRadius
-        
+
         super.init(frame: CGRect.zero)
     }
     
