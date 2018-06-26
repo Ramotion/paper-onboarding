@@ -130,6 +130,10 @@ func onboardingConfigurationItem(item: OnboardingContentViewItem, index: Int) {
 //    item.imageView = ...
   }
 ```
+
+
+This library is a part of a <a href="https://github.com/Ramotion/swift-ui-animation-components-and-libraries"><b>selection of our best UI open-source projects.</b></a>
+
 ## License
 
 paper-onboarding is released under the MIT license.
