@@ -49,14 +49,14 @@ extension OnboardingContentViewItem {
             return
         }
 
-        for attribute in [NSLayoutAttribute.leading, NSLayoutAttribute.trailing] {
+        for attribute in [NSLayoutConstraint.Attribute.leading, NSLayoutConstraint.Attribute.trailing] {
             (view, item) >>>- {
                 $0.attribute = attribute
                 return
             }
         }
 
-        for attribute in [NSLayoutAttribute.centerX, NSLayoutAttribute.centerY] {
+        for attribute in [NSLayoutConstraint.Attribute.centerX, NSLayoutConstraint.Attribute.centerY] {
             (view, item) >>>- {
                 $0.attribute = attribute
                 return
@@ -110,7 +110,7 @@ private extension OnboardingContentViewItem {
             return
         }
 
-        for attribute in [NSLayoutAttribute.centerX, NSLayoutAttribute.leading, NSLayoutAttribute.trailing] {
+        for attribute in [NSLayoutConstraint.Attribute.centerX, NSLayoutConstraint.Attribute.leading, NSLayoutConstraint.Attribute.trailing] {
             (onView, label) >>>- {
                 $0.attribute = attribute
                 return
@@ -134,7 +134,7 @@ private extension OnboardingContentViewItem {
             return
         }
 
-        for (attribute, constant) in [(NSLayoutAttribute.leading, 30), (NSLayoutAttribute.trailing, -30)] {
+        for (attribute, constant) in [(NSLayoutConstraint.Attribute.leading, 30), (NSLayoutConstraint.Attribute.trailing, -30)] {
             (onView, label) >>>- {
                 $0.attribute = attribute
                 $0.constant = CGFloat(constant)
@@ -167,18 +167,18 @@ private extension OnboardingContentViewItem {
 
         // add constratints
         informationImageWidthConstraint = imageView >>>- {
-            $0.attribute = NSLayoutAttribute.width
+            $0.attribute = NSLayoutConstraint.Attribute.width
             $0.constant = 188
             return
         }
         
         informationImageHeightConstraint = imageView >>>- {
-            $0.attribute = NSLayoutAttribute.height
+            $0.attribute = NSLayoutConstraint.Attribute.height
             $0.constant = 188
             return
         }
 
-        for attribute in [NSLayoutAttribute.centerX, NSLayoutAttribute.top] {
+        for attribute in [NSLayoutConstraint.Attribute.centerX, NSLayoutConstraint.Attribute.top] {
             (onView, imageView) >>>- { $0.attribute = attribute; return }
         }
 

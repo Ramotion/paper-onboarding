@@ -105,11 +105,11 @@ extension PageContrainer {
     }
 
     fileprivate func addConstraintsToView(_ item: UIView, radius: CGFloat) {
-        [NSLayoutAttribute.left, NSLayoutAttribute.centerY].forEach { attribute in
+        [NSLayoutConstraint.Attribute.left, NSLayoutConstraint.Attribute.centerY].forEach { attribute in
             (self, item) >>>- { $0.attribute = attribute; return }
         }
 
-        [NSLayoutAttribute.width, NSLayoutAttribute.height].forEach { attribute in
+        [NSLayoutConstraint.Attribute.width, NSLayoutConstraint.Attribute.height].forEach { attribute in
             item >>>- {
                 $0.attribute = attribute
                 $0.constant = radius * 2.0
@@ -127,7 +127,7 @@ extension PageContrainer {
             $0.constant = space
             return
         }
-        [NSLayoutAttribute.width, NSLayoutAttribute.height].forEach { attribute in
+        [NSLayoutConstraint.Attribute.width, NSLayoutConstraint.Attribute.height].forEach { attribute in
             item >>>- {
                 $0.attribute = attribute
                 $0.constant = radius * 2.0
