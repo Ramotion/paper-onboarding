@@ -42,7 +42,7 @@ class ViewController: UIViewController {
 
         setupPaperOnboardingView()
 
-        view.bringSubview(toFront: skipButton)
+        view.bringSubviewToFront(skipButton)
     }
 
     private func setupPaperOnboardingView() {
@@ -53,7 +53,7 @@ class ViewController: UIViewController {
         view.addSubview(onboarding)
 
         // Add constraints
-        for attribute: NSLayoutAttribute in [.left, .right, .top, .bottom] {
+        for attribute: NSLayoutConstraint.Attribute in [.left, .right, .top, .bottom] {
             let constraint = NSLayoutConstraint(item: onboarding,
                                                 attribute: attribute,
                                                 relatedBy: .equal,

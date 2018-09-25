@@ -201,11 +201,11 @@ extension PaperOnboarding {
 
 extension PaperOnboarding: GestureControlDelegate {
 
-    func gestureControlDidSwipe(_ direction: UISwipeGestureRecognizerDirection) {
+    func gestureControlDidSwipe(_ direction: UISwipeGestureRecognizer.Direction) {
         switch direction {
-        case UISwipeGestureRecognizerDirection.right:
+        case UISwipeGestureRecognizer.Direction.right:
             currentIndex(currentIndex - 1, animated: true)
-        case UISwipeGestureRecognizerDirection.left:
+        case UISwipeGestureRecognizer.Direction.left:
             currentIndex(currentIndex + 1, animated: true)
         default:
             fatalError()

@@ -1,11 +1,11 @@
-osx_image: xcode9.2
+osx_image: xcode10
 language: objective-c
 
 xcode_project: PaperOnboardingDemo/PaperOnboardingDemo.xcodeproj
 scheme: PaperOnboardingDemo
-xcode_sdk: iphonesimulator11.2
+xcode_sdk: iphonesimulator12
 
-# SWIFT_VERSION: 4.0
+# SWIFT_VERSION: 4.2
 
 # whitelist
 branches:
