@@ -29,7 +29,7 @@ extension FillAnimationView {
         view.addSubview(animationView)
 
         // add constraints
-        for attribute in [NSLayoutConstraint.Attribute.left, NSLayoutConstraint.Attribute.right, NSLayoutConstraint.Attribute.top, NSLayoutConstraint.Attribute.bottom] {
+        [NSLayoutConstraint.Attribute.left, .right, .top, .bottom].forEach { attribute in
             (view, animationView) >>>- { $0.attribute = attribute; return }
         }
 
