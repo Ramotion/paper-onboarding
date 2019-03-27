@@ -11,4 +11,5 @@ Pod::Spec.new do |s|
   s.tvos.deployment_target = '9.0'
   s.source       = { :git => 'https://github.com/Ramotion/paper-onboarding.git', :tag => s.version.to_s }
   s.source_files  = 'Source/**/*.swift'
+  s.swift_version = '5.0'
   end
