@@ -34,7 +34,7 @@ ___
 ## Requirements
 
 - iOS 10.0+
-- Xcode 9
+- Xcode 10.2
 
 ## Installation
 
