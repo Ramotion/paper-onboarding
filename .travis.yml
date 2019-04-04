@@ -5,7 +5,7 @@ xcode_project: PaperOnboardingDemo/PaperOnboardingDemo.xcodeproj
 scheme: PaperOnboardingDemo
 xcode_sdk: iphonesimulator12
 
-SWIFT_VERSION: 5.0
+# SWIFT_VERSION: 5.0
 
 # whitelist
 branches:
