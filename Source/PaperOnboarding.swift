@@ -61,7 +61,7 @@ open class PaperOnboarding: UIView {
 
     fileprivate var fillAnimationView: FillAnimationView?
     fileprivate var pageView: PageView?
-    fileprivate var gestureControl: GestureControl?
+    public fileprivate(set) var gestureControl: GestureControl?
     fileprivate var contentView: OnboardingContentView?
     
     public init(pageViewBottomConstant: CGFloat = 32) {
