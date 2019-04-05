@@ -148,7 +148,7 @@ extension PageViewItem {
     }
 
     fileprivate func imageAlphaAnimation(_ toValue: CGFloat, duration: Double) {
-        UIView.animate(withDuration: duration, delay: 0, options: UIView.AnimationOptions(), animations: {
+        UIView.animate(withDuration: duration, delay: 0, animations: {
             self.imageView?.alpha = toValue
         }, completion: nil)
     }

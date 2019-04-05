@@ -172,7 +172,6 @@ extension PageView {
         if animated == true {
             UIView.animate(withDuration: duration,
                            delay: 0,
-                           options: UIView.AnimationOptions(),
                            animations: {
                                self.layoutIfNeeded()
                            },
