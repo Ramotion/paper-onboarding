@@ -110,12 +110,14 @@ private extension OnboardingContentViewItem {
             return
         }
 
-        for attribute in [NSLayoutConstraint.Attribute.centerX, NSLayoutConstraint.Attribute.leading, NSLayoutConstraint.Attribute.trailing] {
+        for (attribute, constant) in [(NSLayoutConstraint.Attribute.leading, 15), (NSLayoutConstraint.Attribute.trailing, -15)] {
             (onView, label) >>>- {
                 $0.attribute = attribute
+                $0.constant = CGFloat(constant)
                 return
             }
         }
+        
         return label
     }
 
