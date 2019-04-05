@@ -18,8 +18,10 @@ public struct OnboardingItemInfo {
     public let descriptionColor: UIColor
     public let titleFont: UIFont
     public let descriptionFont: UIFont
+    public let descriptionLabelPadding: CGFloat
+    public let titleLabelPadding: CGFloat
     
-    public init (informationImage: UIImage, title: String, description: String, pageIcon: UIImage, color: UIColor, titleColor: UIColor, descriptionColor: UIColor, titleFont: UIFont, descriptionFont: UIFont) {
+    public init (informationImage: UIImage, title: String, description: String, pageIcon: UIImage, color: UIColor, titleColor: UIColor, descriptionColor: UIColor, titleFont: UIFont, descriptionFont: UIFont, descriptionLabelPadding: CGFloat = 0, titleLabelPadding: CGFloat = 0) {
         self.informationImage = informationImage
         self.title = title
         self.description = description
@@ -29,6 +31,8 @@ public struct OnboardingItemInfo {
         self.descriptionColor = descriptionColor
         self.titleFont = titleFont
         self.descriptionFont = descriptionFont
+        self.descriptionLabelPadding = descriptionLabelPadding
+        self.titleLabelPadding = titleLabelPadding
     }
 }
 

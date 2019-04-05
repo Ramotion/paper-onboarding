@@ -17,7 +17,9 @@ open class OnboardingContentViewItem: UIView {
     
     open var imageView: UIImageView?
     open var titleLabel: UILabel?
+    open var titleLabelPadding: CGFloat = 0
     open var descriptionLabel: UILabel?
+    open var descriptionLabelPadding: CGFloat = 0
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -110,10 +112,13 @@ private extension OnboardingContentViewItem {
             return
         }
 
-        for (attribute, constant) in [(NSLayoutConstraint.Attribute.leading, 15), (NSLayoutConstraint.Attribute.trailing, -15)] {
+        for (attribute, constant) in [
+            (NSLayoutConstraint.Attribute.leading, titleLabelPadding),
+            (NSLayoutConstraint.Attribute.trailing, -titleLabelPadding)
+            ] {
             (onView, label) >>>- {
                 $0.attribute = attribute
-                $0.constant = CGFloat(constant)
+                $0.constant = constant
                 return
             }
         }
@@ -136,10 +141,10 @@ private extension OnboardingContentViewItem {
             return
         }
 
-        for (attribute, constant) in [(NSLayoutConstraint.Attribute.leading, 30), (NSLayoutConstraint.Attribute.trailing, -30)] {
+        for (attribute, constant) in [(NSLayoutConstraint.Attribute.leading, descriptionLabelPadding), (NSLayoutConstraint.Attribute.trailing, -descriptionLabelPadding)] {
             (onView, label) >>>- {
                 $0.attribute = attribute
-                $0.constant = CGFloat(constant)
+                $0.constant = constant
                 return
             }
         }

@@ -99,6 +99,8 @@ extension OnboardingContentView {
             $0.descriptionLabel?.text = info.description
             $0.descriptionLabel?.font = info.descriptionFont
             $0.descriptionLabel?.textColor = info.descriptionColor
+            $0.descriptionLabelPadding = info.descriptionLabelPadding
+            $0.titleLabelPadding = info.titleLabelPadding
         }
 
         delegate?.onboardingConfigurationItem(item, index: index)
