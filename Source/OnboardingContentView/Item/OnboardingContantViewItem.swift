@@ -17,13 +17,11 @@ open class OnboardingContentViewItem: UIView {
     
     open var imageView: UIImageView?
     open var titleLabel: UILabel?
-    open var titleLabelPadding: CGFloat = 0
     open var descriptionLabel: UILabel?
-    open var descriptionLabelPadding: CGFloat = 0
 
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        commonInit()
+    init(titlePadding: CGFloat, descriptionPadding: CGFloat) {
+        super.init(frame: .zero)
+        commonInit(titlePadding: titlePadding, descriptionPadding: descriptionPadding)
     }
 
     public required init?(coder _: NSCoder) {
@@ -35,8 +33,8 @@ open class OnboardingContentViewItem: UIView {
 
 extension OnboardingContentViewItem {
 
-    class func itemOnView(_ view: UIView) -> OnboardingContentViewItem {
-        let item = Init(OnboardingContentViewItem(frame: CGRect.zero)) {
+    class func itemOnView(_ view: UIView, titlePadding: CGFloat, descriptionPadding: CGFloat) -> OnboardingContentViewItem {
+        let item = Init(OnboardingContentViewItem(titlePadding: titlePadding, descriptionPadding: descriptionPadding)) {
             $0.backgroundColor = .clear
             $0.translatesAutoresizingMaskIntoConstraints = false
         }
@@ -73,10 +71,10 @@ extension OnboardingContentViewItem {
 
 private extension OnboardingContentViewItem {
 
-    func commonInit() {
+    func commonInit(titlePadding: CGFloat, descriptionPadding: CGFloat) {
 
-        let titleLabel = createTitleLabel(self)
-        let descriptionLabel = createDescriptionLabel(self)
+        let titleLabel = createTitleLabel(self, padding: titlePadding)
+        let descriptionLabel = createDescriptionLabel(self, padding: descriptionPadding)
         let imageView = createImage(self)
 
         // added constraints
@@ -98,7 +96,7 @@ private extension OnboardingContentViewItem {
         self.imageView = imageView
     }
 
-    func createTitleLabel(_ onView: UIView) -> UILabel {
+    func createTitleLabel(_ onView: UIView, padding: CGFloat) -> UILabel {
         let label = Init(createLabel()) {
             $0.font = UIFont(name: "Nunito-Bold", size: 36)
         }
@@ -113,8 +111,8 @@ private extension OnboardingContentViewItem {
         }
 
         for (attribute, constant) in [
-            (NSLayoutConstraint.Attribute.leading, titleLabelPadding),
-            (NSLayoutConstraint.Attribute.trailing, -titleLabelPadding)
+            (NSLayoutConstraint.Attribute.leading, padding),
+            (NSLayoutConstraint.Attribute.trailing, -padding)
             ] {
             (onView, label) >>>- {
                 $0.attribute = attribute
@@ -126,7 +124,7 @@ private extension OnboardingContentViewItem {
         return label
     }
 
-    func createDescriptionLabel(_ onView: UIView) -> UILabel {
+    func createDescriptionLabel(_ onView: UIView, padding: CGFloat) -> UILabel {
         let label = Init(createLabel()) {
             $0.font = UIFont(name: "OpenSans-Regular", size: 14)
             $0.numberOfLines = 0
@@ -141,7 +139,7 @@ private extension OnboardingContentViewItem {
             return
         }
 
-        for (attribute, constant) in [(NSLayoutConstraint.Attribute.leading, descriptionLabelPadding), (NSLayoutConstraint.Attribute.trailing, -descriptionLabelPadding)] {
+        for (attribute, constant) in [(NSLayoutConstraint.Attribute.leading, padding), (NSLayoutConstraint.Attribute.trailing, -padding)] {
             (onView, label) >>>- {
                 $0.attribute = attribute
                 $0.constant = constant

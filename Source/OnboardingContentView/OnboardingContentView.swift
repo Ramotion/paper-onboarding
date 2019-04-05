@@ -88,10 +88,10 @@ extension OnboardingContentView {
     fileprivate func createItem(_ index: Int) -> OnboardingContentViewItem {
 
         guard let info = delegate?.onboardingItemAtIndex(index) else {
-            return OnboardingContentViewItem.itemOnView(self)
+            return OnboardingContentViewItem.itemOnView(self, titlePadding: 0, descriptionPadding: 0)
         }
 
-        let item = Init(OnboardingContentViewItem.itemOnView(self)) {
+        let item = Init(OnboardingContentViewItem.itemOnView(self, titlePadding: info.titleLabelPadding, descriptionPadding: info.descriptionLabelPadding)) {
             $0.imageView?.image = info.informationImage
             $0.titleLabel?.text = info.title
             $0.titleLabel?.font = info.titleFont
@@ -99,8 +99,6 @@ extension OnboardingContentView {
             $0.descriptionLabel?.text = info.description
             $0.descriptionLabel?.font = info.descriptionFont
             $0.descriptionLabel?.textColor = info.descriptionColor
-            $0.descriptionLabelPadding = info.descriptionLabelPadding
-            $0.titleLabelPadding = info.titleLabelPadding
         }
 
         delegate?.onboardingConfigurationItem(item, index: index)
