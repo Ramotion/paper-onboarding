@@ -99,6 +99,7 @@ private extension OnboardingContentViewItem {
     func createTitleLabel(_ onView: UIView, padding: CGFloat) -> UILabel {
         let label = Init(createLabel()) {
             $0.font = UIFont(name: "Nunito-Bold", size: 36)
+            $0.numberOfLines = 0
         }
         onView.addSubview(label)
 
