@@ -87,6 +87,9 @@ extension ViewController: PaperOnboardingDelegate {
     }
 
     func onboardingConfigurationItem(_ item: OnboardingContentViewItem, index: Int) {
+        
+        // configure item
+        
         //item.titleLabel?.backgroundColor = .redColor()
         //item.descriptionLabel?.backgroundColor = .redColor()
         //item.imageView = ...
