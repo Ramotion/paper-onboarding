@@ -83,9 +83,6 @@ extension ViewController: PaperOnboardingDelegate {
         skipButton.isHidden = index == 2 ? false : true
     }
 
-    func onboardingDidTransitonToIndex(_: Int) {
-    }
-
     func onboardingConfigurationItem(_ item: OnboardingContentViewItem, index: Int) {
         
         // configure item
