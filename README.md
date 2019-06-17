@@ -65,7 +65,7 @@ github "Ramotion/paper-onboarding"
 override func viewDidLoad() {
   super.viewDidLoad()
 
-  let onboarding = PaperOnboarding(itemsCount: 3)
+  let onboarding = PaperOnboarding()
   onboarding.dataSource = self
   onboarding.translatesAutoresizingMaskIntoConstraints = false
   view.addSubview(onboarding)
