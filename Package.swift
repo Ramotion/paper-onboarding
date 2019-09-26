@@ -30,7 +30,7 @@ let package = Package(
     name: "PaperOnboarding",
     platforms: [
         .iOS(.v8),
-        .macOS(.v10_13)
+        .tvOS(.v9)
     ],
     products: [
         .library(name: "PaperOnboarding",
