@@ -3,7 +3,7 @@ language: objective-c
 
 xcode_project: PaperOnboardingDemo/PaperOnboardingDemo.xcodeproj
 xcode_scheme: PaperOnboardingDemo
-xcode_sdk: iphonesimulator12
+xcode_sdk: iphonesimulator
 
 # SWIFT_VERSION: 5.0
 
