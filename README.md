@@ -51,6 +51,14 @@ or [Carthage](https://github.com/Carthage/Carthage) users can simply add to thei
 github "Ramotion/paper-onboarding"
 ```
 
+or [Swift Package Manager](https://swift.org/package-manager/) by adding:
+```
+dependencies: [
+.package(url: "https://github.com/Ramotion/paper-onboarding.git", from: "6.1.4")
+]
+```
+to `Package.swift`
+
 ## Usage
 
 #### Storyboard
