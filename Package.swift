@@ -29,7 +29,8 @@ import PackageDescription
 let package = Package(
     name: "PaperOnboarding",
     platforms: [
-        .iOS(.v10)
+        .iOS(.v10),
+        .tvOS(.v9)
     ],
     products: [
         .library(name: "PaperOnboarding",
