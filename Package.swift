@@ -29,7 +29,7 @@ import PackageDescription
 let package = Package(
     name: "PaperOnboarding",
     platforms: [
-        .iOS(.v8),
+        .iOS(.v10),
         .tvOS(.v9)
     ],
     products: [
