@@ -85,6 +85,9 @@ extension ViewController: PaperOnboardingDelegate {
 
     func onboardingConfigurationItem(_ item: OnboardingContentViewItem, index: Int) {
         
+        //item.titleCenterConstraint?.constant = 100
+        //item.descriptionCenterConstraint?.constant = 100
+        
         // configure item
         
         //item.titleLabel?.backgroundColor = .redColor()

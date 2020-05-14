@@ -12,6 +12,7 @@ open class OnboardingContentViewItem: UIView {
 
     public var descriptionBottomConstraint: NSLayoutConstraint?
     public var titleCenterConstraint: NSLayoutConstraint?
+    public var descriptionCenterConstraint: NSLayoutConstraint?
     public var informationImageWidthConstraint: NSLayoutConstraint?
     public var informationImageHeightConstraint: NSLayoutConstraint?
     
@@ -84,7 +85,7 @@ private extension OnboardingContentViewItem {
             $0.constant = 50
             return
         }
-        (self, descriptionLabel, titleLabel) >>>- {
+        descriptionCenterConstraint = (self, descriptionLabel, titleLabel) >>>- {
             $0.attribute = .top
             $0.secondAttribute = .bottom
             $0.constant = 10
