@@ -2,7 +2,7 @@
 Pod::Spec.new do |s|
 
   s.name          = "paper-onboarding"
-  s.version       = "6.1.4"
+  s.version       = "6.1.5"
   s.swift_version = '5.0'
   s.summary       = "Amazing onboarding."
   s.license       = 'MIT'
