@@ -394,7 +394,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "if which swiftgen >/dev/null; then\nswiftgen xcassets \"$PROJECT_DIR/PaperOnboardingDemo/Assets.xcassets\" -t swift3 --output \"$PROJECT_DIR/Constants/Images.swift\"\nelse\necho \"warning: SwiftGen not installed, download it from https://github.com/AliSoftware/SwiftGen\"\nfi";
+			shellScript = "if which swiftgen >/dev/null; then\nswiftgen xcassets \"$PROJECT_DIR/PaperOnboardingDemo/Assets.xcassets\" -t swift5 --output \"$PROJECT_DIR/Constants/Images.swift\"\nelse\necho \"warning: SwiftGen not installed, download it from https://github.com/AliSoftware/SwiftGen\"\nfi\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
