@@ -166,8 +166,14 @@ extension PageView {
         }
 
         let containerWidth = CGFloat(itemsCount + 1) * selectedItemRadius + space * CGFloat(itemsCount - 1)
-        let toValue = containerWidth / 2.0 - selectedItemRadius - (selectedItemRadius + space) * CGFloat(index)
-        containerX.constant = toValue
+        if UIApplication.shared.userInterfaceLayoutDirection == .leftToRight {
+            let toValue = containerWidth / 2.0 - selectedItemRadius - (selectedItemRadius + space) * CGFloat(index)
+            containerX.constant = toValue
+        } else {
+            let toValue = containerWidth / 2.0 + selectedItemRadius + (selectedItemRadius + space) * CGFloat(index)
+            containerX.constant = toValue
+        }
+        
 
         if animated == true {
             UIView.animate(withDuration: duration,
