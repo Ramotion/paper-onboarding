@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol GestureControlDelegate: class {
+protocol GestureControlDelegate: AnyObject {
     func gestureControlDidSwipe(_ direction: UISwipeGestureRecognizer.Direction)
 }
 
