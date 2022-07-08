@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol OnboardingContentViewDelegate: AnyObject {
+protocol OnboardingContentViewDelegate: class {
 
     func onboardingItemAtIndex(_ index: Int) -> OnboardingItemInfo?
     func onboardingConfigurationItem(_ item: OnboardingContentViewItem, index: Int)
